@@ -1,5 +1,7 @@
 # ROOMBOOKER
 
+![](https://circleci.com/gh/Log-baseE/roombooker.svg?style=shield&circle-token=8a5dfe38b39dccc1ca640c27c3ea01d92e0abd7a)
+
 A room booking web app built using the [Laravel](https://laravel.com/) framework
 
 ## Running
