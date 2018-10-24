@@ -44,6 +44,6 @@ You can customize the `.env` variables according to your needs.
 ## Contributors
 
 * [Nicky Logan](https://github.com/Log-baseE)
-* [Madeleine](https://github.com/haysacks)
+* [Madeleine Jose Josodipuro](https://github.com/haysacks)
 
 See the list of contributors for this project [here](https://github.com/Log-baseE/roombooker/graphs/contributors)
