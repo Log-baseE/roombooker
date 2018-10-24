@@ -1,5 +1,7 @@
 # ROOMBOOKER
 
+![](https://circleci.com/gh/Log-baseE/roombooker.svg?style=shield&circle-token=8a5dfe38b39dccc1ca640c27c3ea01d92e0abd7a)
+
 A room booking web app built using the [Laravel](https://laravel.com/) framework
 
 ## Running
@@ -41,7 +43,7 @@ You can customize the `.env` variables according to your needs.
 
 ## Contributors
 
-* [Nicky Logan](https://github.com/Log-baseE)
-* [Madeleine](https://github.com/haysacks)
+* [Laurentius Dominick Logan](https://github.com/Log-baseE)
+* [Madeleine Jose Josodipuro](https://github.com/haysacks)
 
 See the list of contributors for this project [here](https://github.com/Log-baseE/roombooker/graphs/contributors)
