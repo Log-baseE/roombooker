@@ -11,16 +11,16 @@
 |
  */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/adminator', function () {
     return view('adminator');
 });
 
 Route::get('/', function () {
-
+    return view('index');
 });
 
 Route::get('/about', function () {

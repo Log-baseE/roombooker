@@ -1,9 +1,11 @@
-
 // Body
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
+$font-body: 'Work Sans',
+sans-serif;
+$font-heading: 'Montserrat',
+sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -18,3 +20,8 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+
+$light: #ffffff;
+$dark: #272930;
+$hover-light: rgba(39, 41, 48, .05);
+$accent: #ef6461;
