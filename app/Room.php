@@ -20,7 +20,7 @@ class Room extends Model
      * Get building of room
      */
     public function building() {
-        return $this->belongsTo('App\Building');
+        return $this->belongsTo('roombooker\Building');
     }
 
     /**
