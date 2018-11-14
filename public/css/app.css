@@ -590,7 +590,8 @@ pre code {
 .landing,
 .about,
 .admin .content,
-.login-section {
+.login-section,
+.signup-section {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -603,7 +604,8 @@ pre code {
   .landing,
   .about,
   .admin .content,
-  .login-section {
+  .login-section,
+  .signup-section {
     max-width: 540px;
   }
 }
@@ -613,7 +615,8 @@ pre code {
   .landing,
   .about,
   .admin .content,
-  .login-section {
+  .login-section,
+  .signup-section {
     max-width: 720px;
   }
 }
@@ -623,7 +626,8 @@ pre code {
   .landing,
   .about,
   .admin .content,
-  .login-section {
+  .login-section,
+  .signup-section {
     max-width: 960px;
   }
 }
@@ -633,7 +637,8 @@ pre code {
   .landing,
   .about,
   .admin .content,
-  .login-section {
+  .login-section,
+  .signup-section {
     max-width: 1140px;
   }
 }
@@ -2249,6 +2254,7 @@ pre code {
 }
 
 .form-control,
+.account-card input[type=text],
 .account-card input[type=email],
 .account-card input[type=password] {
   display: block;
@@ -2270,6 +2276,7 @@ pre code {
 
 @media screen and (prefers-reduced-motion: reduce) {
   .form-control,
+  .account-card input[type=text],
   .account-card input[type=email],
   .account-card input[type=password] {
     -webkit-transition: none;
@@ -2278,6 +2285,7 @@ pre code {
 }
 
 .form-control::-ms-expand,
+.account-card input[type=text]::-ms-expand,
 .account-card input[type=email]::-ms-expand,
 .account-card input[type=password]::-ms-expand {
   background-color: transparent;
@@ -2285,6 +2293,7 @@ pre code {
 }
 
 .form-control:focus,
+.account-card input:focus[type=text],
 .account-card input:focus[type=email],
 .account-card input:focus[type=password] {
   color: #495057;
@@ -2296,6 +2305,7 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder,
+.account-card input[type=text]::-webkit-input-placeholder,
 .account-card input[type=email]::-webkit-input-placeholder,
 .account-card input[type=password]::-webkit-input-placeholder {
   color: #6c757d;
@@ -2303,6 +2313,7 @@ pre code {
 }
 
 .form-control::-ms-input-placeholder,
+.account-card input[type=text]::-ms-input-placeholder,
 .account-card input[type=email]::-ms-input-placeholder,
 .account-card input[type=password]::-ms-input-placeholder {
   color: #6c757d;
@@ -2310,6 +2321,7 @@ pre code {
 }
 
 .form-control::placeholder,
+.account-card input[type=text]::placeholder,
 .account-card input[type=email]::placeholder,
 .account-card input[type=password]::placeholder {
   color: #6c757d;
@@ -2317,9 +2329,11 @@ pre code {
 }
 
 .form-control:disabled,
+.account-card input:disabled[type=text],
 .account-card input:disabled[type=email],
 .account-card input:disabled[type=password],
 .form-control[readonly],
+.account-card input[readonly][type=text],
 .account-card input[readonly][type=email],
 .account-card input[readonly][type=password] {
   background-color: #e9ecef;
@@ -2491,11 +2505,14 @@ textarea.form-control {
 }
 
 .was-validated .form-control:valid,
+.was-validated .account-card input:valid[type=text],
+.account-card .was-validated input:valid[type=text],
 .was-validated .account-card input:valid[type=email],
 .account-card .was-validated input:valid[type=email],
 .was-validated .account-card input:valid[type=password],
 .account-card .was-validated input:valid[type=password],
 .form-control.is-valid,
+.account-card input.is-valid[type=text],
 .account-card input.is-valid[type=email],
 .account-card input.is-valid[type=password],
 .was-validated
@@ -2505,11 +2522,14 @@ textarea.form-control {
 }
 
 .was-validated .form-control:valid:focus,
+.was-validated .account-card input:valid:focus[type=text],
+.account-card .was-validated input:valid:focus[type=text],
 .was-validated .account-card input:valid:focus[type=email],
 .account-card .was-validated input:valid:focus[type=email],
 .was-validated .account-card input:valid:focus[type=password],
 .account-card .was-validated input:valid:focus[type=password],
 .form-control.is-valid:focus,
+.account-card input.is-valid:focus[type=text],
 .account-card input.is-valid:focus[type=email],
 .account-card input.is-valid:focus[type=password],
 .was-validated
@@ -2521,19 +2541,25 @@ textarea.form-control {
 }
 
 .was-validated .form-control:valid ~ .valid-feedback,
+.was-validated .account-card input:valid[type=text] ~ .valid-feedback,
+.account-card .was-validated input:valid[type=text] ~ .valid-feedback,
 .was-validated .account-card input:valid[type=email] ~ .valid-feedback,
 .account-card .was-validated input:valid[type=email] ~ .valid-feedback,
 .was-validated .account-card input:valid[type=password] ~ .valid-feedback,
 .account-card .was-validated input:valid[type=password] ~ .valid-feedback,
 .was-validated .form-control:valid ~ .valid-tooltip,
+.was-validated .account-card input:valid[type=text] ~ .valid-tooltip,
+.account-card .was-validated input:valid[type=text] ~ .valid-tooltip,
 .was-validated .account-card input:valid[type=email] ~ .valid-tooltip,
 .account-card .was-validated input:valid[type=email] ~ .valid-tooltip,
 .was-validated .account-card input:valid[type=password] ~ .valid-tooltip,
 .account-card .was-validated input:valid[type=password] ~ .valid-tooltip,
 .form-control.is-valid ~ .valid-feedback,
+.account-card input.is-valid[type=text] ~ .valid-feedback,
 .account-card input.is-valid[type=email] ~ .valid-feedback,
 .account-card input.is-valid[type=password] ~ .valid-feedback,
 .form-control.is-valid ~ .valid-tooltip,
+.account-card input.is-valid[type=text] ~ .valid-tooltip,
 .account-card input.is-valid[type=email] ~ .valid-tooltip,
 .account-card input.is-valid[type=password] ~ .valid-tooltip,
 .was-validated
@@ -2681,11 +2707,14 @@ textarea.form-control {
 }
 
 .was-validated .form-control:invalid,
+.was-validated .account-card input:invalid[type=text],
+.account-card .was-validated input:invalid[type=text],
 .was-validated .account-card input:invalid[type=email],
 .account-card .was-validated input:invalid[type=email],
 .was-validated .account-card input:invalid[type=password],
 .account-card .was-validated input:invalid[type=password],
 .form-control.is-invalid,
+.account-card input.is-invalid[type=text],
 .account-card input.is-invalid[type=email],
 .account-card input.is-invalid[type=password],
 .was-validated
@@ -2695,11 +2724,14 @@ textarea.form-control {
 }
 
 .was-validated .form-control:invalid:focus,
+.was-validated .account-card input:invalid:focus[type=text],
+.account-card .was-validated input:invalid:focus[type=text],
 .was-validated .account-card input:invalid:focus[type=email],
 .account-card .was-validated input:invalid:focus[type=email],
 .was-validated .account-card input:invalid:focus[type=password],
 .account-card .was-validated input:invalid:focus[type=password],
 .form-control.is-invalid:focus,
+.account-card input.is-invalid:focus[type=text],
 .account-card input.is-invalid:focus[type=email],
 .account-card input.is-invalid:focus[type=password],
 .was-validated
@@ -2711,19 +2743,25 @@ textarea.form-control {
 }
 
 .was-validated .form-control:invalid ~ .invalid-feedback,
+.was-validated .account-card input:invalid[type=text] ~ .invalid-feedback,
+.account-card .was-validated input:invalid[type=text] ~ .invalid-feedback,
 .was-validated .account-card input:invalid[type=email] ~ .invalid-feedback,
 .account-card .was-validated input:invalid[type=email] ~ .invalid-feedback,
 .was-validated .account-card input:invalid[type=password] ~ .invalid-feedback,
 .account-card .was-validated input:invalid[type=password] ~ .invalid-feedback,
 .was-validated .form-control:invalid ~ .invalid-tooltip,
+.was-validated .account-card input:invalid[type=text] ~ .invalid-tooltip,
+.account-card .was-validated input:invalid[type=text] ~ .invalid-tooltip,
 .was-validated .account-card input:invalid[type=email] ~ .invalid-tooltip,
 .account-card .was-validated input:invalid[type=email] ~ .invalid-tooltip,
 .was-validated .account-card input:invalid[type=password] ~ .invalid-tooltip,
 .account-card .was-validated input:invalid[type=password] ~ .invalid-tooltip,
 .form-control.is-invalid ~ .invalid-feedback,
+.account-card input.is-invalid[type=text] ~ .invalid-feedback,
 .account-card input.is-invalid[type=email] ~ .invalid-feedback,
 .account-card input.is-invalid[type=password] ~ .invalid-feedback,
 .form-control.is-invalid ~ .invalid-tooltip,
+.account-card input.is-invalid[type=text] ~ .invalid-tooltip,
 .account-card input.is-invalid[type=email] ~ .invalid-tooltip,
 .account-card input.is-invalid[type=password] ~ .invalid-tooltip,
 .was-validated
@@ -2898,6 +2936,8 @@ textarea.form-control {
   }
 
   .form-inline .form-control,
+  .form-inline .account-card input[type=text],
+  .account-card .form-inline input[type=text],
   .form-inline .account-card input[type=email],
   .account-card .form-inline input[type=email],
   .form-inline .account-card input[type=password],
@@ -4626,6 +4666,7 @@ input[type="button"].btn-block {
 }
 
 .input-group > .form-control,
+.account-card .input-group > input[type=text],
 .account-card .input-group > input[type=email],
 .account-card .input-group > input[type=password],
 .input-group > .custom-select,
@@ -4639,26 +4680,37 @@ input[type="button"].btn-block {
 }
 
 .input-group > .form-control + .form-control,
+.account-card .input-group > input[type=text] + .form-control,
 .account-card .input-group > input[type=email] + .form-control,
 .account-card .input-group > input[type=password] + .form-control,
+.account-card .input-group > .form-control + input[type=text],
+.account-card .input-group > input[type=text] + input[type=text],
+.account-card .input-group > input[type=email] + input[type=text],
+.account-card .input-group > input[type=password] + input[type=text],
 .account-card .input-group > .form-control + input[type=email],
+.account-card .input-group > input[type=text] + input[type=email],
 .account-card .input-group > input[type=email] + input[type=email],
 .account-card .input-group > input[type=password] + input[type=email],
 .account-card .input-group > .form-control + input[type=password],
+.account-card .input-group > input[type=text] + input[type=password],
 .account-card .input-group > input[type=email] + input[type=password],
 .account-card .input-group > input[type=password] + input[type=password],
 .input-group > .form-control + .custom-select,
+.account-card .input-group > input[type=text] + .custom-select,
 .account-card .input-group > input[type=email] + .custom-select,
 .account-card .input-group > input[type=password] + .custom-select,
 .input-group > .form-control + .custom-file,
+.account-card .input-group > input[type=text] + .custom-file,
 .account-card .input-group > input[type=email] + .custom-file,
 .account-card .input-group > input[type=password] + .custom-file,
 .input-group > .custom-select + .form-control,
+.account-card .input-group > .custom-select + input[type=text],
 .account-card .input-group > .custom-select + input[type=email],
 .account-card .input-group > .custom-select + input[type=password],
 .input-group > .custom-select + .custom-select,
 .input-group > .custom-select + .custom-file,
 .input-group > .custom-file + .form-control,
+.account-card .input-group > .custom-file + input[type=text],
 .account-card .input-group > .custom-file + input[type=email],
 .account-card .input-group > .custom-file + input[type=password],
 .input-group > .custom-file + .custom-select,
@@ -4667,6 +4719,7 @@ input[type="button"].btn-block {
 }
 
 .input-group > .form-control:focus,
+.account-card .input-group > input:focus[type=text],
 .account-card .input-group > input:focus[type=email],
 .account-card .input-group > input:focus[type=password],
 .input-group > .custom-select:focus,
@@ -4679,6 +4732,7 @@ input[type="button"].btn-block {
 }
 
 .input-group > .form-control:not(:last-child),
+.account-card .input-group > input:not(:last-child)[type=text],
 .account-card .input-group > input:not(:last-child)[type=email],
 .account-card .input-group > input:not(:last-child)[type=password],
 .input-group > .custom-select:not(:last-child) {
@@ -4687,6 +4741,7 @@ input[type="button"].btn-block {
 }
 
 .input-group > .form-control:not(:first-child),
+.account-card .input-group > input:not(:first-child)[type=text],
 .account-card .input-group > input:not(:first-child)[type=email],
 .account-card .input-group > input:not(:first-child)[type=password],
 .input-group > .custom-select:not(:first-child) {
@@ -4960,6 +5015,7 @@ input[type="button"].btn-block {
 }
 
 .input-group-lg > .form-control,
+.account-card .input-group-lg > input[type=text],
 .account-card .input-group-lg > input[type=email],
 .account-card .input-group-lg > input[type=password],
 .input-group-lg > .input-group-prepend > .input-group-text,
@@ -4984,6 +5040,7 @@ input[type="button"].btn-block {
 }
 
 .input-group-sm > .form-control,
+.account-card .input-group-sm > input[type=text],
 .account-card .input-group-sm > input[type=email],
 .account-card .input-group-sm > input[type=password],
 .input-group-sm > .input-group-prepend > .input-group-text,
@@ -5713,6 +5770,8 @@ input[type="button"].btn-block {
 .admin .main-nav > .content,
 .navbar > .login-section,
 .main-nav > .login-section,
+.navbar > .signup-section,
+.main-nav > .signup-section,
 .navbar > .container-fluid,
 .main-nav > .container-fluid {
   display: -webkit-box;
@@ -5826,6 +5885,7 @@ input[type="button"].btn-block {
   .navbar-expand-sm > .about,
   .admin .navbar-expand-sm > .content,
   .navbar-expand-sm > .login-section,
+  .navbar-expand-sm > .signup-section,
   .navbar-expand-sm > .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -5873,6 +5933,7 @@ input[type="button"].btn-block {
   .navbar-expand-sm > .about,
   .admin .navbar-expand-sm > .content,
   .navbar-expand-sm > .login-section,
+  .navbar-expand-sm > .signup-section,
   .navbar-expand-sm > .container-fluid {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -5904,6 +5965,8 @@ input[type="button"].btn-block {
   .admin .main-nav > .content,
   .navbar-expand-md > .login-section,
   .main-nav > .login-section,
+  .navbar-expand-md > .signup-section,
+  .main-nav > .signup-section,
   .navbar-expand-md > .container-fluid,
   .main-nav > .container-fluid {
     padding-right: 0;
@@ -5960,6 +6023,8 @@ input[type="button"].btn-block {
   .admin .main-nav > .content,
   .navbar-expand-md > .login-section,
   .main-nav > .login-section,
+  .navbar-expand-md > .signup-section,
+  .main-nav > .signup-section,
   .navbar-expand-md > .container-fluid,
   .main-nav > .container-fluid {
     -ms-flex-wrap: nowrap;
@@ -5988,6 +6053,7 @@ input[type="button"].btn-block {
   .navbar-expand-lg > .about,
   .admin .navbar-expand-lg > .content,
   .navbar-expand-lg > .login-section,
+  .navbar-expand-lg > .signup-section,
   .navbar-expand-lg > .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -6035,6 +6101,7 @@ input[type="button"].btn-block {
   .navbar-expand-lg > .about,
   .admin .navbar-expand-lg > .content,
   .navbar-expand-lg > .login-section,
+  .navbar-expand-lg > .signup-section,
   .navbar-expand-lg > .container-fluid {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -6061,6 +6128,7 @@ input[type="button"].btn-block {
   .navbar-expand-xl > .about,
   .admin .navbar-expand-xl > .content,
   .navbar-expand-xl > .login-section,
+  .navbar-expand-xl > .signup-section,
   .navbar-expand-xl > .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -6108,6 +6176,7 @@ input[type="button"].btn-block {
   .navbar-expand-xl > .about,
   .admin .navbar-expand-xl > .content,
   .navbar-expand-xl > .login-section,
+  .navbar-expand-xl > .signup-section,
   .navbar-expand-xl > .container-fluid {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -6143,6 +6212,7 @@ input[type="button"].btn-block {
 .navbar-expand > .about,
 .admin .navbar-expand > .content,
 .navbar-expand > .login-section,
+.navbar-expand > .signup-section,
 .navbar-expand > .container-fluid {
   padding-right: 0;
   padding-left: 0;
@@ -6178,6 +6248,7 @@ input[type="button"].btn-block {
 .navbar-expand > .about,
 .admin .navbar-expand > .content,
 .navbar-expand > .login-section,
+.navbar-expand > .signup-section,
 .navbar-expand > .container-fluid {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
@@ -9975,7 +10046,8 @@ button.bg-dark:focus {
 
 .mr-0,
 .mx-0,
-.login-section .row {
+.login-section .row,
+.signup-section .row {
   margin-right: 0 !important;
 }
 
@@ -9986,7 +10058,8 @@ button.bg-dark:focus {
 
 .ml-0,
 .mx-0,
-.login-section .row {
+.login-section .row,
+.signup-section .row {
   margin-left: 0 !important;
 }
 
@@ -10046,7 +10119,6 @@ button.bg-dark:focus {
 .mt-3,
 .about p,
 .admin p,
-.account-content p,
 .my-3 {
   margin-top: 1rem !important;
 }
@@ -10073,6 +10145,7 @@ button.bg-dark:focus {
 .mt-4,
 .landing .description,
 .landing .actions,
+.account-content p,
 .my-4 {
   margin-top: 1.5rem !important;
 }
@@ -10202,7 +10275,6 @@ button.bg-dark:focus {
 }
 
 .pt-3,
-.account-content p,
 .py-3 {
   padding-top: 1rem !important;
 }
@@ -10229,6 +10301,7 @@ button.bg-dark:focus {
 
 .pt-4,
 .landing .description,
+.account-content p,
 .py-4 {
   padding-top: 1.5rem !important;
 }
@@ -11844,7 +11917,8 @@ a.text-dark:focus {
   .landing,
   .about,
   .admin .content,
-  .login-section {
+  .login-section,
+  .signup-section {
     min-width: 992px !important;
   }
 
@@ -12051,6 +12125,11 @@ a.text-dark:focus {
   padding-bottom: 60px;
 }
 
+.signup-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
 .account-content h1 {
   font-weight: 700;
 }
@@ -12101,6 +12180,7 @@ h6 {
 }
 
 .form-control:focus,
+.account-card input:focus[type=text],
 .account-card input:focus[type=email],
 .account-card input:focus[type=password] {
   color: #495057;

@@ -7,6 +7,15 @@
     }
 }
 
+.signup-section {
+    @extend .container;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    .row {
+        @extend .mx-0;
+    }
+}
+
 .account-content {
     @extend .col-lg-7;
     @extend .px-0;
@@ -17,9 +26,9 @@
     p {
         @extend .position-relative;
         font-size: 1.125rem;
-        @extend .mt-3;
+        @extend .mt-4;
         @extend .mb-5;
-        @extend .pt-3;
+        @extend .pt-4;
 
         &::before {
             @extend .position-absolute;
@@ -39,7 +48,7 @@
     form > div {
         @extend .form-group;
     }
-    input[type=email], input[type=password] {
+    input[type=text], input[type=email], input[type=password] {
         @extend .form-control;
     }
     .remember-me {
