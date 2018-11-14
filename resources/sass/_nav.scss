@@ -24,10 +24,8 @@
                         cursor: pointer;
                         @extend .pr-3;
                     }
-                    &.signup {
-                        @extend .btn;
-                        @extend .btn-danger;
-                        background: $accent;
+                    &.dashboard-action {
+                        @extend .main-action;
                     }
                 }
             }

@@ -35911,7 +35911,7 @@ module.exports = function(module) {
 
 __webpack_require__("./resources/js/bootstrap.js");
 
-$('.main-body').css({ 'margin-top': $('.main-nav').height() });
+$('.main-body').css({ 'margin-top': $('.main-nav').outerHeight() });
 
 /***/ }),
 

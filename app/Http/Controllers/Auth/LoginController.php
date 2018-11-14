@@ -36,4 +36,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Override default show login form
+     *
+     * @return View
+     */
+    public function showLoginForm()
+    {
+        return view('auth.login', ['title' => 'Login']);
+    }
 }

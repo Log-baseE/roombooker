@@ -8,12 +8,12 @@
         </button>
         <div id="navbarLinks" class="navbar-links left-links">
             <ul>
-                <li><a href="rooms">Rooms</a></li>
+                <li><a href="rooms">{{ __('Rooms') }}</a></li>
                 <li class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <a href="#" class="dropdown-toggle" id="navbarDropdown" role="button">Support</a>
+                    <a href="#" class="dropdown-toggle" id="navbarDropdown" role="button">{{ __('Support') }}</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="faq">FAQ</a>
-                        <a class="dropdown-item" href="contact">Contact us</a>
+                        <a class="dropdown-item" href="contact">{{ __('Contact us') }}</a>
                     </div>
                 </li>
                 <li role="separator" class="divider"></li>
@@ -21,12 +21,18 @@
         </div>
         <div id="navbarLinks" class="navbar-links right-links">
             <ul>
+                @guest
                 <li>
-                    <a class="login">Log in</a>
+                    <a class="login" href="{{ route('login') }}">{{ __('Log in') }}</a>
                 </li>
                 <li>
-                    <a class="signup">Sign up</a>
+                    <a class="dashboard-action" href="{{ route('signup') }}">{{ __('Sign up') }}</a>
                 </li>
+                @else
+                <li>
+                    <a class="dashboard-action">{{ __('Go to dashboard') }}</a>
+                </li>
+                @endguest
             </ul>
         </div>
     </div>

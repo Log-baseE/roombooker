@@ -1,4 +1,4 @@
-@extends('layouts.front.template')
+@extends('layouts.front.app')
 
 @section('content')
 <section class="landing">

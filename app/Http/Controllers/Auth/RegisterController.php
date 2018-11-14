@@ -69,4 +69,14 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    /**
+     * Override parent's register controller
+     *
+     * @return View
+     */
+    public function showRegistrationForm()
+    {
+        return view('auth.register', ['title' => 'Sign up']);
+    }
 }

@@ -8,4 +8,4 @@
 require('./bootstrap');
 
 
-$('.main-body').css({ 'margin-top': $('.main-nav').height() });
+$('.main-body').css({ 'margin-top': $('.main-nav').outerHeight() });
