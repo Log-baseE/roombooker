@@ -24,7 +24,7 @@
                     </div>
 
                     <div>
-                        <label for="email">{{ __('E-Mmil Address') }}</label>
+                        <label for="email">{{ __('E-mail Address') }}</label>
 
                         <input id="email" type="email" class="{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="ex. johndoe@mail.com" required>
 
