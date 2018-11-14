@@ -20,10 +20,10 @@ Route::get('/adminator', function () {
 });
 
 Route::get('/', function () {
-    return view('index');
+    return view('index', ['title' => 'Welcome']);
 });
 
-Route::get('/about', function () {
+Route::get('/rooms', function () {
 
 });
 
@@ -36,10 +36,6 @@ Route::get('/support/faq', function () {
 });
 
 Route::get('/support/contact', function () {
-
-});
-
-Route::post('/support/contact', function () {
 
 });
 

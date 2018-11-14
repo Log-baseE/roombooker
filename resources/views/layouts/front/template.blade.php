@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="The room booking solution for event organizers">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title') · RoomBooker</title>
+    <title>{{ $title }} · RoomBooker</title>
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 </head>
 <body>
