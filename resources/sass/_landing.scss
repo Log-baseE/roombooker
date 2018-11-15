@@ -1,14 +1,12 @@
 .main-action {
     @extend .btn,
-    .btn-danger,
-    .btn-lg;
+    .btn-danger;
     background: $accent;
 }
 
 .secondary-action {
     @extend .btn,
-    .btn-outline-secondary,
-    .btn-lg;
+    .btn-outline-secondary;
 
     &:hover,
     &:focus,
@@ -16,6 +14,10 @@
         @extend .text-secondary;
         background: $hover-light;
     }
+}
+
+.main-body {
+    min-height: 600px;
 }
 
 .landing {
@@ -58,7 +60,7 @@
             left: 0;
             content: " ";
             width: 250px;
-            height: 1px;
+            height: 1.5px;
             background: $accent;
         }
     }
@@ -67,7 +69,12 @@
         @extend .mt-4;
     }
 
+    .main-action {
+        @extend .btn-lg;
+    }
+
     .secondary-action {
+        @extend .btn-lg;
         @extend .ml-2;
     }
 }
@@ -163,6 +170,7 @@
 
     .secondary-action {
         @extend .mt-5;
+        @extend .btn-lg;
     }
 }
 
@@ -195,5 +203,6 @@
 
     .main-action {
         @extend .mt-5;
+        @extend .btn-lg;
     }
 }

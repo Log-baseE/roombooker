@@ -11,6 +11,7 @@
 // Pages
 @import 'nav';
 @import 'landing';
+@import 'login';
 
 .navbar-laravel {
   background-color: #fff;
@@ -24,4 +25,13 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: $font-heading;
     font-weight: 800;
+}
+
+.form-control:focus{
+    color: #495057;
+    background-color: #fff;
+    border-color: $accent-light;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.2rem $accent-lighter;
+    box-shadow: 0 0 0 0.2rem $accent-lighter;
 }
