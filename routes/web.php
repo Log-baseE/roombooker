@@ -44,11 +44,11 @@ Route::get('email/verify', 'Auth\VerificationController@show')->name('verificati
 Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
 Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
+Route::get('home', function(){ return view('home');});
+
 Route::prefix('dashboard')->group(function () {
 
-    Route::get('/', function () {
-
-    });
+    Route::get('/', 'DashboardController@index')->name('dashboard.index');
 
     Route::get('/profile', function () {
 
