@@ -31,7 +31,7 @@
                 </li>
                 @else
                 <li>
-                    <a class="dashboard-action">{{ __('Go to dashboard') }}</a>
+                    <a class="dashboard-action" href="{{ route('dashboard.index') }}">{{ __('Go to dashboard') }}</a>
                 </li>
                 @endguest
             </ul>
