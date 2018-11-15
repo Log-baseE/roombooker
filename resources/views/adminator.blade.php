@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Dashboard</title>
-    <link href="{{ asset('css/admin-vendor.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet" type="text/css">
     <style>
       #loader {
         transition: all 0.3s ease-in-out;
@@ -98,7 +98,7 @@
                   <div class="peers ai-c fxw-nw">
                     <div class="peer">
                       <div class="logo">
-                        <img src="assets/static/images/logo.png" alt="">
+                        <img src="static/img/logo.png" alt="">
                       </div>
                     </div>
                     <div class="peer peer-greed">
@@ -234,7 +234,7 @@
               <ul class="dropdown-menu">
                 <li>
                   <a class='sidebar-link' href="blank.html">Blank</a>
-                </li>                 
+                </li>
                 <li>
                   <a class='sidebar-link' href="404.html">404</a>
                 </li>
@@ -1096,6 +1096,6 @@
         </footer>
       </div>
     </div>
-    <script src="{{ asset('js/admin-vendor.js')}}"></script>
+    <script src="{{ asset('js/dashboard.js')}}"></script>
   </body>
 </html>

@@ -11,10 +11,24 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.webpackConfig(webpack => {
+    return {
+        plugins: [
+            new webpack.ProvidePlugin({
+                $: 'jquery',
+                jQuery: 'jquery',
+                'window.jQuery': 'jquery',
+                Popper: ['popper.js', 'default'],
+            })
+        ]
+    };
+});
+
 mix.browserSync('roombooker.test');
-mix
-   .js('resources/js/app.js', 'public/js').version()
-   .js('resources/adminator/scripts/index.js', 'public/js/admin-vendor.js').version()
-   .sass('resources/sass/app.scss', 'public/css').version()
-   .sass('resources/adminator/styles/index.scss', 'public/css/admin-vendor.css').version()
-   .copyDirectory('resources/adminator/static', 'public/assets/static').version();
+mix.js('resources/js/front/app.js', 'public/js')
+    .sass('resources/sass/front/app.scss', 'public/css').version();
+mix.js('resources/js/dashboard/index.js', 'public/js/dashboard.js')
+    .sass('resources/sass/dashboard/index.scss', 'public/css/dashboard.css').version();
+mix.copyDirectory('resources/fonts/', 'public/static/fonts/')
+    .copyDirectory('resources/img/', 'public/static/img/');
+mix.sourceMaps();
