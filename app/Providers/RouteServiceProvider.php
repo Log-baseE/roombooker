@@ -39,7 +39,13 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapDashboardWebRoutes();
+
+        $this->mapRoomWebRoutes();
+
+        $this->mapUserWebRoutes();
+
+        $this->mapBookingWebRoutes();
     }
 
     /**
@@ -53,7 +59,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
              ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+             ->group(base_path('routes/web/web.php'));
     }
 
     /**
@@ -69,5 +75,57 @@ class RouteServiceProvider extends ServiceProvider
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define dashboard routes
+     *
+     * @return void
+     */
+    protected function mapDashboardWebRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->prefix('dashboard')
+             ->group(base_path('routes/web/dashboard.php'));
+    }
+
+    /**
+     * Define booking routes
+     *
+     * @return void
+     */
+    protected function mapBookingWebRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->prefix('dashboard/bookings')
+             ->group(base_path('routes/web/booking.php'));
+    }
+
+    /**
+     * Define room routes
+     *
+     * @return void
+     */
+    protected function mapRoomWebRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->prefix('dashboard/rooms')
+             ->group(base_path('routes/web/room.php'));
+    }
+
+    /**
+     * Define user routes
+     *
+     * @return void
+     */
+    protected function mapUserWebRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->prefix('dashboard/users')
+             ->group(base_path('routes/web/user.php'));
     }
 }
