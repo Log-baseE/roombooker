@@ -5,7 +5,8 @@
     <div class="row">
         <header class="account-content">
             <h1>{{ __('Log in to RoomBooker') }}</h1>
-            <p>Log in to see stuff. Praesent iaculis neque quis velit malesuada, a ornare augue maximus. Etiam eget nulla vel velit aliquet ultrices.</p>
+            <p>Log in to see stuff. Praesent iaculis neque quis velit malesuada, a ornare augue maximus. Etiam eget
+                nulla vel velit aliquet ultrices.</p>
         </header>
         <div class="account-card">
             <div class="card-body">
@@ -15,7 +16,8 @@
                     <div>
                         <label for="email">{{ __('E-mail Address') }}</label>
                         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                name="email" value="{{ old('email') }}" placeholder="ex. johndoe@mail.com" required autofocus>
+                            name="email" value="{{ old('email') }}" placeholder="ex. johndoe@mail.com" required
+                            autofocus>
 
                         @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
@@ -28,7 +30,7 @@
                         <label for="password">{{ __('Password') }}</label>
 
                         <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                name="password" placeholder="{{ __('Enter your password') }}" required>
+                            name="password" placeholder="{{ __('Enter your password') }}" required>
 
                         @if ($errors->has('password'))
                         <span class="invalid-feedback" role="alert">
@@ -39,8 +41,7 @@
 
                     <div>
                         <div class="remember-me">
-                            <input type="checkbox" name="remember" id="remember"
-                                {{ old('remember') ? 'checked' : '' }}>
+                            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                             <label for="remember">
                                 {{ __('Remember Me') }}
