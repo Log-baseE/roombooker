@@ -96,7 +96,7 @@ Route::prefix('dashboard')->group(function () {
         });
     });
 
-    Route::prefix('reservations')->group(function () {
+    Route::prefix('bookings')->group(function () {
         Route::get('/', function () {
 
         });
@@ -105,23 +105,23 @@ Route::prefix('dashboard')->group(function () {
 
         });
 
-        Route::get('/r/add', function () {
+        Route::get('/b/add', function () {
 
         });
 
-        Route::get('/r/{id}', function () {
+        Route::get('/b/{id}', function () {
 
         });
 
-        Route::get('/r/{id}/edit', function () {
+        Route::get('/b/{id}/edit', function () {
 
         });
 
-        Route::put('/r/{id}', function () {
+        Route::put('/b/{id}', function () {
 
         });
 
-        Route::delete('/r/{id}', function () {
+        Route::delete('/b/{id}', function () {
 
         });
     });
