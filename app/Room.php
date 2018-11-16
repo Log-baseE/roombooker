@@ -33,13 +33,13 @@ class Room extends Model
         parent::boot();
 
         static::creating(function($model) {
-            print($model->generatePrimaryKey());
+            $model->generatePrimaryKey();
         });
     }
 
     protected function generatePrimaryKey()
     {
-        $id = preg_replace("/[^A-Za-z0-9 ]/", '', Hash::make($this->name.time()));
+        $id = preg_replace("/[^A-Za-z0-9 ]/", '', Hash::make($this->name . time()));
         $id = substr($id, -8);
         print($id);
         $this->attributes['id'] = $id;

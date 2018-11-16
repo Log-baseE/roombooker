@@ -12,7 +12,7 @@ class FrontController extends Controller
      * @return View
      */
     public function index() {
-        return view('front.index', ['title' => 'Room Booking, Simpler']);
+        return view('front.index', ['title' => 'Room booking, simpler']);
     }
 
     /**

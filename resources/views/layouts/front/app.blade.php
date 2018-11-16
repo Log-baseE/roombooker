@@ -7,13 +7,14 @@
     <meta name="description" content="The room booking solution for event organizers">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title }} · RoomBooker</title>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
 </head>
 <body>
     @include('layouts.front.nav')
-    <div class="main-body">
+    <main class="main-body">
         @yield('content')
-    </div>
+    </main>
     @include('layouts.front.footer')
     <script src="{{ mix('js/app.js' )}}"></script>
 </body>
