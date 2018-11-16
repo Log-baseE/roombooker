@@ -5,10 +5,18 @@ namespace roombooker;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Hash;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
+    const STATUS_ACTIVE = true;
+    const STATUS_INACTIVE = false;
+
+    const ROLE_USER = 1;
+    const ROLE_AUTHORITY = 10;
+    const ROLE_ADMIN = 100;
 
     /**
      * The attributes that are mass assignable.
@@ -29,10 +37,42 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get role of user
+     * Default values for attributes
+     *
+     * @var array
      */
-    public function role() {
-        return $this->belongsTo('roombooker\UserRole');
+    protected $attributes = [
+        'active' => self::STATUS_ACTIVE,
+        'role_id' => self::ROLE_USER,
+    ];
+
+    /**
+     * Check if user is admin
+     *
+     * @return boolean
+     */
+    public function getIsAdminAttribute()
+    {
+        return $this->role_id == self::ROLE_ADMIN;
+    }
+
+    /**
+     * Check if user is authority
+     *
+     * @return boolean
+     */
+    public function getIsAuthorityAttribute()
+    {
+        return $this->role_id == self::ROLE_AUTHORITY
+            || $this->role_id == self::ROLE_ADMIN;
+    }
+
+    public function getKeypairAttribute()
+    {
+        return sodium_crypto_sign_keypair_from_secretkey_and_publickey(
+            $this->private_key,
+            $this->public_key
+        );
     }
 
     protected static function boot()
@@ -53,8 +93,11 @@ class User extends Authenticatable
     protected function generateRSAPair()
     {
         $keypair = sodium_crypto_sign_keypair();
+        print_r($keypair);
         $secret = sodium_crypto_sign_secretkey($keypair);
+        print_r($secret);
         $public = sodium_crypto_sign_publickey($keypair);
+        print_r($public);
 
         $this->attributes['public_key'] = $public;
         $this->attributes['private_key'] = $secret;

@@ -15,13 +15,13 @@ class AddColumnsToUser extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('id')->change();
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->boolean('active');
             $table->unsignedInteger('role_id');
-            $table->string('public_key');
-            $table->string('private_key');
-            $table->boolean('verified');
-            $table->longText('description');
+            $table->binary('public_key');
+            $table->binary('private_key');
+            $table->boolean('verified')->nullable();
+            $table->longText('description')->nullable();
         });
     }
 

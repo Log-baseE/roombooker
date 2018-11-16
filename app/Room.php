@@ -19,8 +19,14 @@ class Room extends Model
     /**
      * Get building of room
      */
-    public function building() {
+    public function building()
+    {
         return $this->belongsTo('roombooker\Building');
+    }
+
+    public function facilities()
+    {
+        return $this->belongsToMany('roombooker\Facility');
     }
 
     /**
