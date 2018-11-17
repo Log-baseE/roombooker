@@ -9,19 +9,17 @@ jobs:
       # Specify the version you desire here
       - image: circleci/php:7.2-apache-stretch-node-browsers
         environment:
+          DB_CONNECTION: mysql
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_DATABASE: circle_test
           DB_USERNAME: root
-          DB_PASSWORD:
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_DB: homestead
-          MYSQL_USER: root
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_PASSWORD:
+          DB_PASSWORD: enFn8dsmQBi4gkcP
       - image: circleci/mysql:5.7
         command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin --innodb-large-prefix=true --innodb-file-format=Barracuda
         environment:
           MYSQL_ROOT_HOST: "%"
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_PASSWORD:
+          MYSQL_ROOT_PASSWORD: enFn8dsmQBi4gkcP
 
     parallelism: 4
     working_directory: ~/laravel
@@ -70,7 +68,7 @@ jobs:
 
       - run:
           name: Create database
-          command: mysql -h 127.0.0.1 -u root -e "CREATE DATABASE homestead;"
+          command: mysql -h 127.0.0.1 -u root -e "CREATE DATABASE circle_test;"
 
       # setting up environment
       - run: cp .env.example .env
