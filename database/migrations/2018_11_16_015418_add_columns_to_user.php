@@ -17,7 +17,7 @@ class AddColumnsToUser extends Migration
             $table->string('id')->change();
             $table->string('phone')->nullable();
             $table->boolean('active')->default(true);
-            $table->unsignedInteger('role_id');
+            $table->unsignedInteger('role_id')->default(0);
             $table->binary('public_key');
             $table->binary('private_key');
             $table->boolean('verified')->nullable();
