@@ -7,29 +7,46 @@ jobs:
   build:
     docker:
       # Specify the version you desire here
-      - image: circleci/php:7.1-jessie-node-browsers-legacy
+      - image: circleci/php:7.2-apache-stretch-node-browsers
         environment:
           MYSQL_HOST: 127.0.0.1
           MYSQL_DB: homestead
           MYSQL_USER: root
           MYSQL_ALLOW_EMPTY_PASSWORD: true
           MYSQL_PASSWORD:
-      - image: circleci/mysql:5.7-ram
+      - image: circleci/mysql:5.7
         command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin --innodb-large-prefix=true --innodb-file-format=Barracuda
         environment:
           MYSQL_USER: root
           MYSQL_ALLOW_EMPTY_PASSWORD: true
+
     parallelism: 4
     working_directory: ~/laravel
     steps:
       - checkout
+      - run:
+          name: Install apt packages
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y libzip-dev
+            sudo apt-get install -y zlib1g-dev libicu-dev g++
+            sudo apt-get install mysql-client
+            sudo apt-get -y install mysql-server
 
-      - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
-      - run: sudo apt install -y mysql-client
+      - run:
+          name: Install PHP extensions
+          command: |
+            sudo docker-php-ext-install zip
+            sudo docker-php-ext-configure intl
+            sudo docker-php-ext-install intl
+            sudo docker-php-ext-install pdo_mysql
+
+      - run:
+          name: Fix MySQL socket config
+          command: |
+            sudo sh -c "echo 'pdo_mysql.default_socket=/var/run/mysqld/mysqld.sock' > /usr/local/etc/php/conf.d/pdo.ini"
+
       - run: sudo composer self-update
-      - run: sudo docker-php-ext-install zip
-      - run: sudo docker-php-ext-install pdo_mysql
-      - run: sudo docker-php-ext-enable pdo_mysql
 
       # Download and cache dependencies
 
@@ -51,6 +68,7 @@ jobs:
       - run:
           name: Create database
           command: mysql -h 127.0.0.1 -u root -e "CREATE DATABASE homestead;"
+
       # setting up environment
       - run: cp .env.example .env
 
