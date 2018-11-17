@@ -8,6 +8,12 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.1-jessie-node-browsers-legacy
+        environment:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_DB: homestead
+          MYSQL_USER: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_PASSWORD:
       - image: mysql:5.7
         command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin --innodb-large-prefix=true --innodb-file-format=Barracuda
         environment:
@@ -20,6 +26,7 @@ jobs:
 
       - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
+      - run: sudo composer self-update
       - run: sudo apt install -y mysql-client
 
       # Download and cache dependencies
@@ -61,7 +68,7 @@ jobs:
             - ~/.yarn
 
       # prepare the database
-      - run: php artisan migrate --env=testing --force
+      - run: php artisan migrate
 
       # run phpunit tests
       - run: ./vendor/bin/phpunit
