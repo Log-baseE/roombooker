@@ -25,13 +25,10 @@ jobs:
       - checkout
 
       - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
-      - run:
-          name: Install PHP extensions
-          command: |
-            sudo docker-php-ext-install zip
-            sudo docker-php-ext-install pdo_mysql
       - run: sudo composer self-update
       - run: sudo apt install -y mysql-client
+      - run: sudo docker-php-ext-install zip
+      - run: sudo docker-php-ext-install pdo_mysql
 
       # Download and cache dependencies
 
