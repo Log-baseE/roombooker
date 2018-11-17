@@ -3,6 +3,7 @@
 namespace roombooker\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class FrontController extends Controller
 {

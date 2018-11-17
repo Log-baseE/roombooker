@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return response('Room route', 200);
-});
+Route::get('/', 'RoomController@index')->name('rooms.index');
 
 Route::post('/', function () {
 
