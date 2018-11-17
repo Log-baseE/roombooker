@@ -1,3 +1,5 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,800|Work+Sans:400,700');
 @import 'spec/settings/index';
 @import 'spec/tools/index';
 @import "~bootstrap/scss/bootstrap";
@@ -54,4 +56,15 @@
         transform: scale(1.0);
         opacity: 0;
     }
+}
+
+$light: #ffffff;
+$dark: #272930;
+$hover-light: rgba(39, 41, 48, .05);
+$accent: #ef6461;
+$accent-light: #ef646180;
+$accent-lighter: #ef646140;
+
+.sidebar-logo {
+    background: $dark;
 }

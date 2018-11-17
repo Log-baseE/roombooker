@@ -8,7 +8,7 @@
 // + @Inverted Colors
 // + @Others
 // + @Header Themes
-// + @Social Networks Colors
+// + @Custom Colors
 
 // ---------------------------------------------------------
 // @Greyscale Colors
@@ -98,3 +98,14 @@ $theme-dark           : lighten($side-nav-dark, 10%);
 $theme-info           : $default-info;
 $theme-primary        : $default-primary;
 $theme-success        : desaturate($default-success, 5%);
+
+// ---------------------------------------------------------
+// @Custom Colors
+// ---------------------------------------------------------
+
+$light: #ffffff;
+$custom-dark: #272930;
+$custom-hover-light: rgba(39, 41, 48, .05);
+$custom-accent: #ef6461;
+$custom-accent-light: #ef646180;
+$custom-accent-lighter: #ef646140;

@@ -9,7 +9,7 @@
 // ---------------------------------------------------------
 
 .header {
-  background-color: $default-white;
+  background-color: $custom-dark;
   border-bottom: 1px solid $border-color;
   display: block;
   margin-bottom: 0;
@@ -43,7 +43,7 @@
         float: left;
 
         > a {
-          color: $default-text-color;
+          color: $default-white;
           display: block;
           line-height: $header-height;
           min-height: $header-height;
@@ -56,7 +56,7 @@
 
           &:hover,
           &:focus {
-            color: $default-dark;
+            color: $default-text-color;
             text-decoration: none;
           }
 
@@ -70,7 +70,7 @@
         position: relative;
 
         .counter {
-          background-color: $default-danger;
+          background-color: $custom-accent;
           border-radius: 50px;
           color: $default-white;
           font-size: 10px;
@@ -181,7 +181,7 @@
       }
 
       @include placeholder {
-        color: lighten($default-text-color, 20%);
+        color: lighten($default-white, 20%);
         font-style: italic;
       }
     }

@@ -9,11 +9,12 @@
                         <div class="peers ai-c fxw-nw">
                             <div class="peer">
                                 <div class="logo">
-                                    <img src="static/img/logo.png" alt="">
+                                    <img src="static/img/logo.svg" alt="">
                                 </div>
                             </div>
                             <div class="peer peer-greed">
-                                <h5 class="lh-1 mB-0 logo-text">Adminator</h5>
+                                <h5 class="lh-1 mB-0 logo-text d-none d-lg-block">ROOMBOOKER</h5>
+                                <h5 class="lh-1 mB-0 logo-text sfz-xs d-block d-lg-none">RB</h5>
                             </div>
                         </div>
                     </a>

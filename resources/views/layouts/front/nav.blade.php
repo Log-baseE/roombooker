@@ -1,7 +1,7 @@
 <nav class="main-nav">
     <div class="container">
         <a href="{{ route('front.index') }}" class="logo">
-            LOGO
+            <img src="/static/img/logo-big.svg" height="30" class="d-inline-block align-top" alt="room booker logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLinks" aria-controls="navbarLinks"
             aria-expanded="false" aria-label="Toggle navigation">

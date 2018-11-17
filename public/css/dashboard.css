@@ -1,4 +1,4 @@
-/*!
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700,800|Work+Sans:400,700);/*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
  * Copyright 2011-2018 Twitter, Inc.
@@ -25,7 +25,7 @@
   --info: #00bcd4;
   --warning: #ffeb3b;
   --danger: #f44336;
-  --light: #f8f9fa;
+  --light: #ffffff;
   --dark: #343a40;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -2072,16 +2072,16 @@ pre code {
 .table-light,
 .table-light > th,
 .table-light > td {
-  background-color: #fdfdfe;
+  background-color: white;
 }
 
 .table-hover .table-light:hover {
-  background-color: #ececf6;
+  background-color: #f2f2f2;
 }
 
 .table-hover .table-light:hover > td,
 .table-hover .table-light:hover > th {
-  background-color: #ececf6;
+  background-color: #f2f2f2;
 }
 
 .table-dark,
@@ -3059,42 +3059,42 @@ fieldset:disabled a.btn {
 
 .btn-light {
   color: #212529;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .btn-light:hover {
   color: #212529;
-  background-color: #e2e6ea;
-  border-color: #dae0e5;
+  background-color: #ececec;
+  border-color: #e6e5e5;
 }
 
 .btn-light:focus,
 .btn-light.focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
 .btn-light.disabled,
 .btn-light:disabled {
   color: #212529;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .btn-light:not(:disabled):not(.disabled):active,
 .btn-light:not(:disabled):not(.disabled).active,
 .show > .btn-light.dropdown-toggle {
   color: #212529;
-  background-color: #dae0e5;
-  border-color: #d3d9df;
+  background-color: #e6e5e5;
+  border-color: #dfdfdf;
 }
 
 .btn-light:not(:disabled):not(.disabled):active:focus,
 .btn-light:not(:disabled):not(.disabled).active:focus,
 .show > .btn-light.dropdown-toggle:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
 .btn-dark {
@@ -3378,27 +3378,27 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-light {
-  color: #f8f9fa;
+  color: #ffffff;
   background-color: transparent;
   background-image: none;
-  border-color: #f8f9fa;
+  border-color: #ffffff;
 }
 
 .btn-outline-light:hover {
   color: #212529;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .btn-outline-light:focus,
 .btn-outline-light.focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
 .btn-outline-light.disabled,
 .btn-outline-light:disabled {
-  color: #f8f9fa;
+  color: #ffffff;
   background-color: transparent;
 }
 
@@ -3406,15 +3406,15 @@ fieldset:disabled a.btn {
 .btn-outline-light:not(:disabled):not(.disabled).active,
 .show > .btn-outline-light.dropdown-toggle {
   color: #212529;
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .btn-outline-light:not(:disabled):not(.disabled):active:focus,
 .btn-outline-light:not(:disabled):not(.disabled).active:focus,
 .show > .btn-outline-light.dropdown-toggle:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
-          box-shadow: 0 0 0 0.2rem rgba(248, 249, 250, 0.5);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
 }
 
 .btn-outline-dark {
@@ -5614,14 +5614,14 @@ input[type="button"].btn-block {
 
 .badge-light {
   color: #212529;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
 }
 
 .badge-light[href]:hover,
 .badge-light[href]:focus {
   color: #212529;
   text-decoration: none;
-  background-color: #dae0e5;
+  background-color: #e6e5e5;
 }
 
 .badge-dark {
@@ -5768,17 +5768,17 @@ input[type="button"].btn-block {
 }
 
 .alert-light {
-  color: #818182;
-  background-color: #fefefe;
-  border-color: #fdfdfe;
+  color: #858585;
+  background-color: white;
+  border-color: white;
 }
 
 .alert-light hr {
-  border-top-color: #ececf6;
+  border-top-color: #f2f2f2;
 }
 
 .alert-light .alert-link {
-  color: #686868;
+  color: #6c6b6b;
 }
 
 .alert-dark {
@@ -6063,20 +6063,20 @@ input[type="button"].btn-block {
 }
 
 .list-group-item-light {
-  color: #818182;
-  background-color: #fdfdfe;
+  color: #858585;
+  background-color: white;
 }
 
 .list-group-item-light.list-group-item-action:hover,
 .list-group-item-light.list-group-item-action:focus {
-  color: #818182;
-  background-color: #ececf6;
+  color: #858585;
+  background-color: #f2f2f2;
 }
 
 .list-group-item-light.list-group-item-action.active {
   color: #fff;
-  background-color: #818182;
-  border-color: #818182;
+  background-color: #858585;
+  border-color: #858585;
 }
 
 .list-group-item-dark {
@@ -6980,14 +6980,14 @@ button.bg-danger:focus {
 }
 
 .bg-light {
-  background-color: #f8f9fa !important;
+  background-color: #ffffff !important;
 }
 
 a.bg-light:hover,
 a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
-  background-color: #dae0e5 !important;
+  background-color: #e6e5e5 !important;
 }
 
 .bg-dark {
@@ -7074,7 +7074,7 @@ button.bg-dark:focus {
 }
 
 .border-light {
-  border-color: #f8f9fa !important;
+  border-color: #ffffff !important;
 }
 
 .border-dark {
@@ -10318,12 +10318,12 @@ a.text-danger:focus {
 }
 
 .text-light {
-  color: #f8f9fa !important;
+  color: #ffffff !important;
 }
 
 a.text-light:hover,
 a.text-light:focus {
-  color: #dae0e5 !important;
+  color: #e6e5e5 !important;
 }
 
 .text-dark {
@@ -10478,7 +10478,7 @@ a {
 }
 
 body {
-  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Work Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   font-size: 14px;
   color: #72777a;
   line-height: 1.5;
@@ -10492,7 +10492,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Work Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   letter-spacing: 0.5px;
   line-height: 1.5;
 }
@@ -10503,7 +10503,7 @@ h3 a,
 h4 a,
 h5 a,
 h6 a {
-  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Work Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 h1 small,
@@ -10517,7 +10517,7 @@ h6 small {
 }
 
 p {
-  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Work Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.9;
 }
 
@@ -10662,7 +10662,9 @@ hr {
 }
 
 .sidebar-logo a .logo-text {
-  color: #313435;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
 }
 
 .sidebar-logo .mobile-toggle {
@@ -10916,7 +10918,7 @@ hr {
 }
 
 .header {
-  background-color: #fff;
+  background-color: #272930;
   border-bottom: 1px solid rgba(0, 0, 0, 0.0625);
   display: block;
   margin-bottom: 0;
@@ -10965,7 +10967,7 @@ hr {
 
 .header .header-container .nav-left > li > a,
 .header .header-container .nav-right > li > a {
-  color: #72777a;
+  color: #fff;
   display: block;
   line-height: 65px;
   min-height: 65px;
@@ -10983,7 +10985,7 @@ hr {
 .header .header-container .nav-left > li > a:focus,
 .header .header-container .nav-right > li > a:hover,
 .header .header-container .nav-right > li > a:focus {
-  color: #313435;
+  color: #72777a;
   text-decoration: none;
 }
 
@@ -11001,7 +11003,7 @@ hr {
 
 .header .header-container .nav-left .notifications .counter,
 .header .header-container .nav-right .notifications .counter {
-  background-color: #ff3c7e;
+  background-color: #ef6461;
   border-radius: 50px;
   color: #fff;
   font-size: 10px;
@@ -11117,22 +11119,22 @@ hr {
 }
 
 .header .search-input input::-webkit-input-placeholder {
-  color: #a6aaac;
+  color: white;
   font-style: italic;
 }
 
 .header .search-input input:-moz-placeholder {
-  color: #a6aaac;
+  color: white;
   font-style: italic;
 }
 
 .header .search-input input::-moz-placeholder {
-  color: #a6aaac;
+  color: white;
   font-style: italic;
 }
 
 .header .search-input input:-ms-input-placeholder {
-  color: #a6aaac;
+  color: white;
   font-style: italic;
 }
 
@@ -80729,5 +80731,9 @@ table.dataTable.no-footer {
     transform: scale(1);
     opacity: 0;
   }
+}
+
+.sidebar-logo {
+  background: #272930;
 }
 
