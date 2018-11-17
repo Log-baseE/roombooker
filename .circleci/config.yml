@@ -10,6 +10,7 @@ jobs:
       - image: circleci/php:7.2-apache-stretch-node-browsers
         environment:
           DB_USERNAME: root
+          DB_PASSWORD:
           MYSQL_HOST: 127.0.0.1
           MYSQL_DB: homestead
           MYSQL_USER: root
