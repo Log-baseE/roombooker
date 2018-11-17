@@ -8,6 +8,11 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.1-jessie-node-browsers-legacy
+      - image: mysql:5.7
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin --innodb-large-prefix=true --innodb-file-format=Barracuda
+        environment:
+          MYSQL_USER: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
     parallelism: 4
     working_directory: ~/laravel
     steps:
@@ -15,6 +20,7 @@ jobs:
 
       - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
+      - run: sudo apt install -y mysql-client
 
       # Download and cache dependencies
 
@@ -33,6 +39,9 @@ jobs:
           paths:
             - vendor
 
+      - run:
+          name: Create database
+          command: mysql -h 127.0.0.1 -u root -e "CREATE DATABASE homestead;"
       # setting up environment
       - run: cp .env.example .env
 
@@ -52,8 +61,7 @@ jobs:
             - ~/.yarn
 
       # prepare the database
-      - run: touch storage/testing.sqlite
-      - run: php artisan migrate --env=testing --database=sqlite_testing --force
+      - run: php artisan migrate --env=testing --force
 
       # run phpunit tests
       - run: ./vendor/bin/phpunit
