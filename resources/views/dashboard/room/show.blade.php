@@ -27,19 +27,19 @@
                         </form>
                     </div>
                     <div class="layer w-100">
-                        <table class="table">
+                        <table class="table-borderless">
                             <tbody>
                                 <tr>
-                                    <th class="pX-20" scope="row">{{__('Building')}}</th>
-                                    <td class="pX-20" >{{ $room->building->name }}</td>
+                                    <th class="pX-20 pY-10 va-t" scope="row">{{__('Building')}}</th>
+                                    <td class="pX-20 pY-10 va-t" >{{ $room->building->name }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="pX-20"  scope="row">{{__('Floor')}}</th>
-                                    <td class="pX-20" >{{ $room->floor }}</td>
+                                    <th class="pX-20 pY-10 va-t" scope="row">{{__('Floor')}}</th>
+                                    <td class="pX-20 pY-10 va-t" >{{ $room->floor }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="pX-20"  scope="row">{{__('Type')}}</th>
-                                    <td class="pX-20" >
+                                    <th class="pX-20 pY-10 va-t" scope="row">{{__('Type')}}</th>
+                                    <td class="pX-20 pY-10 va-t" >
                                         @forelse ( $room->types as $type )
                                             {{ $loop->first ? '' : ', '}}
                                             {{ ucwords(__($type->type)) }}
@@ -49,8 +49,8 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th class="pX-20"  scope="row">{{__('Facilities')}}</th>
-                                    <td class="pX-20" >
+                                    <th class="pX-20 pY-10 va-t" scope="row">{{__('Facilities')}}</th>
+                                    <td class="pX-20 pY-10 va-t">
                                         @forelse ( $room->facilities as $facility )
                                             {{ $loop->first ? '' : ', '}}
                                             {{ ucwords(__($facility->name)) }}
