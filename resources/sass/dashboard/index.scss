@@ -68,3 +68,18 @@ $accent-lighter: #ef646140;
 .sidebar-logo {
     background: $dark;
 }
+
+.datepicker {
+    @extend .p-10;
+}
+
+.datepicker, .timepicker, .picker-switch {
+    table {
+        @extend .m-0;
+        @extend .w-100;
+        @extend .ta-c;
+    }
+    td {
+        @extend .va-m;
+    }
+}

@@ -2,15 +2,15 @@
 
 Route::get('/', function () {
     return response('Booking route', 200);
-});
+})->name('bookings.index');
 
 Route::post('/', function () {
 
-});
+})->name('bookings.store');
 
-Route::get('/b/new', 'BookingController@create')->name('booking.create.empty');
+Route::get('/new', 'BookingController@create')->name('bookings.create.empty');
 
-Route::post('/b/new', 'BookingController@create')->name('booking.create.filled');
+Route::post('/new', 'BookingController@create')->name('bookings.create.filled');
 
 Route::get('/b/{id}', function () {
 

@@ -1,8 +1,28 @@
 import * as $ from 'jquery';
-import 'bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js';
-import 'bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css';
 
 export default (function () {
-  $('.start-date').datepicker();
-  $('.end-date').datepicker();
-}())
+    global.moment = require('moment');
+    require('tempusdominus-bootstrap-4');
+    $('#startDateTime').datetimepicker({
+        format: 'DD/MM/YYYY HH:mm',
+        widgetPositioning: {
+            horizontal: 'left',
+            vertical: 'bottom',
+        },
+    });
+    $('#endDateTime').datetimepicker({
+        format: 'DD/MM/YYYY HH:mm',
+        useCurrent: false,
+        widgetPositioning: {
+            horizontal: 'left',
+            vertical: 'bottom',
+        },
+    });
+    $('#startDateTime').on('dp.change', function(e) {
+        console.log(e.date);
+        $('#endDateTime').data('DateTimePicker').minDate(e.date);
+    });
+    $('#endDateTime').on('dp.change', function(e) {
+        $('#startDateTime').data('DateTimePicker').maxDate(e.date);
+    });
+}());

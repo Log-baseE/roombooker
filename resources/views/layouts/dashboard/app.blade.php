@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title }} · RoomBooker</title>
     <link href="{{ mix('css/dashboard.css') }}" rel="stylesheet" type="text/css">
+    @yield('custom-css')
 </head>
 
 <body class="app">
@@ -67,6 +68,7 @@
         </div>
     </div>
     <script src="{{ mix('js/dashboard.js')}}"></script>
+    @yield('custom-script')
 </body>
 
 </html>

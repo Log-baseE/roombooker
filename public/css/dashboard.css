@@ -8541,7 +8541,10 @@ button.bg-dark:focus {
   width: 75% !important;
 }
 
-.w-100 {
+.w-100,
+.datepicker table,
+.timepicker table,
+.picker-switch table {
   width: 100% !important;
 }
 
@@ -8577,7 +8580,10 @@ button.bg-dark:focus {
   max-height: 100% !important;
 }
 
-.m-0 {
+.m-0,
+.datepicker table,
+.timepicker table,
+.picker-switch table {
   margin: 0 !important;
 }
 
@@ -27119,7 +27125,10 @@ footer {
   vertical-align: top !important;
 }
 
-.va-m {
+.va-m,
+.datepicker td,
+.timepicker td,
+.picker-switch td {
   vertical-align: middle !important;
 }
 
@@ -28380,7 +28389,10 @@ footer {
   list-style-type: lower-alpha;
 }
 
-.m-0 {
+.m-0,
+.datepicker table,
+.timepicker table,
+.picker-switch table {
   margin: 0px !important;
 }
 
@@ -51474,7 +51486,8 @@ footer {
   }
 }
 
-.p-10 {
+.p-10,
+.datepicker {
   padding: 10px !important;
 }
 
@@ -68430,7 +68443,10 @@ footer {
   }
 }
 
-.ta-c {
+.ta-c,
+.datepicker table,
+.timepicker table,
+.picker-switch table {
   text-align: center !important;
 }
 
