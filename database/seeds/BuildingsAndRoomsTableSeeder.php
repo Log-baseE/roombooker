@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use roombooker\Building;
 use roombooker\Room;
 use roombooker\RoomType;
+use roombooker\Facility;
 
 class BuildingsAndRoomsTableSeeder extends Seeder
 {
@@ -15,6 +16,9 @@ class BuildingsAndRoomsTableSeeder extends Seeder
     public function run()
     {
         RoomType::create(['type' => 'classroom']);
+        Facility::create(['name' => 'Elevator']);
+        Facility::create(['name' => 'Lighting']);
+        Facility::create(['name' => 'Air Conditioning']);
 
         $bs = "ABCDEFG";
         for($i = 0; $i < 7; $i++) {
@@ -30,7 +34,9 @@ class BuildingsAndRoomsTableSeeder extends Seeder
                     $room->save();
 
                     $category = RoomType::find(1);
+                    $facilities = Facility::find([1, 2, 3]);
                     $room->types()->attach($category);
+                    $room->facilities()->attach($facilities);
                 }
             }
         }

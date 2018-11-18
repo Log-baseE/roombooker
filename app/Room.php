@@ -25,7 +25,7 @@ class Room extends Model
 
     public function facilities()
     {
-        return $this->belongsToMany('roombooker\Facility');
+        return $this->belongsToMany('roombooker\Facility', 'room_facilities', 'room_id', 'facility_id');
     }
 
     public function types()

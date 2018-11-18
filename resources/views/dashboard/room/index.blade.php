@@ -66,7 +66,7 @@
                                                     -
                                                 @endforelse
                                             </td>
-                                            <td class="text-right pT-5 pB-3"><a class="btn btn-dark" href="#">Book</a></td>
+                                            <td class="text-right pT-5 pB-3"><a class="btn btn-dark" href="{{ route('rooms.show', ['id' => $room->id]) }}">Details</a></td>
                                         </tr>
                                     @empty
                                         <p class="mB-0">{{ __('No rooms in this building') }}</p>

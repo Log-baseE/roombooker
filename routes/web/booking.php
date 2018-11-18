@@ -8,9 +8,9 @@ Route::post('/', function () {
 
 });
 
-Route::get('/b/add', function () {
+Route::get('/b/new', 'BookingController@create')->name('booking.create.empty');
 
-});
+Route::post('/b/new', 'BookingController@create')->name('booking.create.filled');
 
 Route::get('/b/{id}', function () {
 

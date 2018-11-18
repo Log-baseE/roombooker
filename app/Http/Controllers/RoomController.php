@@ -29,13 +29,12 @@ class RoomController extends Controller
         $b = Input::get('b');
         $chosen = Building::find($b);
         $rooms = Room::where('building_id', $b)->orderBy('name', 'asc')->get();
-        return view('dashboard.room.index', [
-            'title' => 'Rooms',
-            'active' => 'rooms',
+        $payload = [
             'buildings' => Building::all(),
             'chosen' => $chosen,
             'rooms' => $rooms,
-        ]);
+        ];
+        return view('dashboard.room.index', self::getContextData($payload));
     }
 
     /**
@@ -67,7 +66,11 @@ class RoomController extends Controller
      */
     public function show($id)
     {
-        //
+        $room = Room::findOrFail($id);
+        $payload = [
+            'room' => $room,
+        ];
+        return view('dashboard.room.show', self::getContextData($payload));
     }
 
     /**
@@ -102,5 +105,23 @@ class RoomController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Get context data of requests
+     *
+     * @param array $payload
+     * @return array
+     */
+    private static function getContextData($payload)
+    {
+        $context = [
+            'title' => 'Rooms',
+            'active' => 'rooms',
+        ];
+        foreach ($payload as $key => $value) {
+            $context[$key] = $value;
+        }
+        return $context;
     }
 }

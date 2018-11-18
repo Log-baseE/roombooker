@@ -10,9 +10,7 @@ Route::get('/r/add', function () {
 
 });
 
-Route::get('/r/{id}', function () {
-
-});
+Route::get('/r/{id}', 'RoomController@show')->name('rooms.show');
 
 Route::get('/r/{id}/edit', function () {
 
