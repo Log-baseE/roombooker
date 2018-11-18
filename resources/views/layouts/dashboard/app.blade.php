@@ -50,6 +50,15 @@
 
             <!-- ### $App Screen Content ### -->
             <main class='main-content bgc-grey-100'>
+                @hasSection('breadcrumb')
+                    <div class="row">
+                        <nav class="col-12" aria-label="breadcrumb">
+                            <ol class="breadcrumb bgc-white bd">
+                                @yield('breadcrumb')
+                            </ol>
+                        </nav>
+                    </div>
+                @endif
                 @yield('content')
             </main>
 

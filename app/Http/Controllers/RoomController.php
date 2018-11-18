@@ -3,10 +3,22 @@
 namespace roombooker\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use roombooker\Building;
+use roombooker\Room;
 
 class RoomController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,10 +26,15 @@ class RoomController extends Controller
      */
     public function index()
     {
+        $b = Input::get('b');
+        $chosen = Building::find($b);
+        $rooms = Room::where('building_id', $b)->orderBy('name', 'asc')->get();
         return view('dashboard.room.index', [
             'title' => 'Rooms',
             'active' => 'rooms',
             'buildings' => Building::all(),
+            'chosen' => $chosen,
+            'rooms' => $rooms,
         ]);
     }
 

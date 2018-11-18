@@ -16,9 +16,8 @@ class Room extends Model
         'active' => true
     ];
 
-    /**
-     * Get building of room
-     */
+    // Attributes
+
     public function building()
     {
         return $this->belongsTo('roombooker\Building');
@@ -27,6 +26,11 @@ class Room extends Model
     public function facilities()
     {
         return $this->belongsToMany('roombooker\Facility');
+    }
+
+    public function types()
+    {
+        return $this->belongsToMany('roombooker\RoomType', 'room_room_type', 'room_id', 'type_id');
     }
 
     /**
@@ -45,9 +49,8 @@ class Room extends Model
 
     protected function generatePrimaryKey()
     {
-        $id = preg_replace("/[^A-Za-z0-9 ]/", '', Hash::make($this->name . time()));
+        $id = preg_replace("/[^A-Za-z0-9 ]/", '', Hash::make($this->name . microtime()));
         $id = substr($id, -8);
-        print($id);
         $this->attributes['id'] = $id;
         if( is_null($this->attributes['id']) )
             return false;
