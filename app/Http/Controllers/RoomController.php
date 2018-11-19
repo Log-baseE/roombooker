@@ -68,6 +68,7 @@ class RoomController extends Controller
     {
         $room = Room::findOrFail($id);
         $payload = [
+            'title' => "Room ".$room->name,
             'room' => $room,
         ];
         return view('dashboard.room.show', self::getContextData($payload));

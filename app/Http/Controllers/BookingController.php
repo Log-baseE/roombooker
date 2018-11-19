@@ -32,15 +32,7 @@ class BookingController extends Controller
      */
     public function create(Request $request)
     {
-        $context = [
-            'buildings' => Building::all(),
-        ];
-        $id = $request->input('r_id');
-        if (isset($id)) {
-            $current = Room::find($id);
-            $context['current'] = $current;
-        }
-        return view('dashboard.booking.create', self::getContextData($context));
+        //
     }
 
     /**

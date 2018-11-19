@@ -46,6 +46,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapUserWebRoutes();
 
         $this->mapBookingWebRoutes();
+
+        $this->mapDraftWebRoutes();
     }
 
     /**
@@ -127,5 +129,14 @@ class RouteServiceProvider extends ServiceProvider
              ->namespace($this->namespace)
              ->prefix('dashboard/users')
              ->group(base_path('routes/web/user.php'));
+    }
+
+
+    protected function mapDraftWebRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->prefix('dashboard/bookings/draft')
+             ->group(base_path('routes/web/draft.php'));
     }
 }

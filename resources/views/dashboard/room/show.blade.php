@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="layer w-100 p-20">
-                        <form action="{{ route('bookings.create.filled') }}" method="POST">
+                        <form action="{{ route('drafts.create.filled') }}" method="POST">
                             @csrf
                             <input type="hidden" name="r_id" value="{{ $room->id }}">
                             <button class="btn btn-dark" type="submit">

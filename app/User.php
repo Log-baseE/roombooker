@@ -18,6 +18,8 @@ class User extends Authenticatable
     const ROLE_AUTHORITY = 10;
     const ROLE_ADMIN = 100;
 
+    public $incrementing = false;
+
     /**
      * The attributes that are mass assignable.
      *

@@ -4,13 +4,7 @@ Route::get('/', function () {
     return response('Booking route', 200);
 })->name('bookings.index');
 
-Route::post('/', function () {
-
-})->name('bookings.store');
-
-Route::get('/new', 'BookingController@create')->name('bookings.create.empty');
-
-Route::post('/new', 'BookingController@create')->name('bookings.create.filled');
+Route::post('/', 'BookingController@store')->name('bookings.store');
 
 Route::get('/b/{id}', function () {
 
@@ -27,3 +21,5 @@ Route::put('/b/{id}', function () {
 Route::delete('/b/{id}', function () {
 
 });
+
+
