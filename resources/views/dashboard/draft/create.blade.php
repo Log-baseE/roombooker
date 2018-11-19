@@ -3,7 +3,8 @@
 @section('breadcrumb')
 <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{__('Dashboard')}}</a></li>
 <li class="breadcrumb-item"><a href="{{ route('bookings.index') }}">{{__('Bookings')}}</a></li>
-<li class="breadcrumb-item active fw-700" aria-current="page">{{ __('New draft') }}</li>
+<li class="breadcrumb-item"><a href="{{ route('drafts.index') }}">{{__('Drafts')}}</a></li>
+<li class="breadcrumb-item active" aria-current="page">{{ __('New') }}</li>
 @endsection
 
 @section('content')

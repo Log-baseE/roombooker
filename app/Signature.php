@@ -6,14 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Signature extends Model
 {
-    protected function setKeysForSaveQuery(Builder $query)
-    {
-        $query
-            ->where('signee_id', '=', $this->getAttribute('signee_id'))
-            ->where('booking_id', '=', $this->getAttribute('booking_id'));
-        return $query;
-    }
-
     public function signee()
     {
         return $this->belongsTo('roombooker\User');
@@ -21,7 +13,7 @@ class Signature extends Model
 
     public function booking()
     {
-        return $this->belongsTo('roombooker\Booking');
+        return $this->belongsTo('roombooker\Booking', 'booking_id');
     }
 
     protected static function boot()
@@ -35,14 +27,20 @@ class Signature extends Model
 
     protected function generateSignature()
     {
-        $message = $this->booking_id . $this->created_at;
+        $message = $this->booking_id . time();
         $secret = $this->signee->private_key;
         $signature = sodium_crypto_sign_detached($message, $secret);
-
+        $this->attributes['message'] = $message;
         $this->attributes['signature'] = $signature;
-        if( is_null($this->attributes['signature']) )
+        if( is_null($this->attributes['signature']) || is_null($this->attributes['message']))
             return false;
         else
             return true;
     }
+
+    public function verify()
+    {
+        return sodium_crypto_sign_verify_detached($this->signature, $this->message, $this->signee->public_key);
+    }
+
 }

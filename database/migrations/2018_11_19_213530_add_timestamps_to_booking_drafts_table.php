@@ -14,8 +14,8 @@ class AddTimestampsToBookingDraftsTable extends Migration
     public function up()
     {
         Schema::table('booking_drafts', function (Blueprint $table) {
-            $table->dateTime('start_datetime');
-            $table->dateTime('end_datetime');
+            $table->dateTime('start_datetime')->nullable();
+            $table->dateTime('end_datetime')->nullable();
         });
     }
 

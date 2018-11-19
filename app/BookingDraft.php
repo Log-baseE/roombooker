@@ -29,6 +29,11 @@ class BookingDraft extends Model
                     ->wherePivot('room_id', $this->room_id);
     }
 
+    public function booking()
+    {
+        return $this->hasOne('roombooker\Booking', 'draft_id');
+    }
+
     protected static function boot()
     {
         parent::boot();
@@ -48,5 +53,10 @@ class BookingDraft extends Model
             return false;
         else
             return true;
+    }
+
+    public function getTrimmedIdAttribute()
+    {
+        return preg_replace('/BD\-(.*)/','$1',$this->id);
     }
 }

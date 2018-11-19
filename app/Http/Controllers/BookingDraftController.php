@@ -8,6 +8,8 @@ use roombooker\Building;
 use roombooker\Room;
 use roombooker\BookingDraft;
 use roombooker\Facility;
+use roombooker\Booking;
+use roombooker\Signature;
 
 class BookingDraftController extends Controller
 {
@@ -66,8 +68,8 @@ class BookingDraftController extends Controller
         $draft->facilities()->attach($facilities, [
             'room_id' => $draft->room_id
         ]);
-        return response()->json($draft, 200);
-        // return redirect()->action('BookingDraftController@show', ['id' => preg_replace('/BD\-(.*)/','$1',$draft->id)]);
+        // return response()->json($draft, 200);
+        return redirect()->action('BookingDraftController@show', ['id' => $draft->trimmed_id]);
     }
 
     /**
@@ -78,7 +80,13 @@ class BookingDraftController extends Controller
      */
     public function show($id)
     {
-        return response()->json(BookingDraft::find('BD-'.$id),200);
+        $draft = BookingDraft::where('booker_id', '=', Auth::user()->id)->findOrFail('BD-'.$id);
+        $context = [
+            'title' => 'Draft '.$draft->id,
+            'draft' => $draft,
+        ];
+        return view('dashboard.draft.show', self::getContextData($context));
+        // return response()->json(,200);
     }
 
     /**
@@ -116,10 +124,35 @@ class BookingDraftController extends Controller
     }
 
     /**
+     * Commit a booking draft
+     *
+     * @param Request $request
+     * @return Redirect
+     */
+    public function commit(Request $request, $id)
+    {
+        $draft = BookingDraft::where('booker_id', '=', $request->user()->id)->findOrFail('BD-'.$id);
+        $draft->committed = true;
+        $draft->committed_at = date('Y-m-d h:i:s');
+        $draft->save();
+
+        $booking = new Booking;
+        $draft->booking()->save($booking);
+
+        $signature = new Signature;
+        $signature->signee_id = $request->user()->id;
+        $signature->booking_id = $booking->id;
+        $signature->save();
+
+        return response()->json($booking, 200);
+    }
+
+    /**
      * Get context data of request
      *
      * @param array $payload
-     * @return array
+     * @return array\
+     *
      */
     private static function getContextData($payload)
     {
