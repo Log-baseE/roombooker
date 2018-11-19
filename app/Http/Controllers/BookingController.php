@@ -4,9 +4,16 @@ namespace roombooker\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use roombooker\Building;
+use roombooker\Room;
 
 class BookingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,8 +32,15 @@ class BookingController extends Controller
      */
     public function create(Request $request)
     {
+        $context = [
+            'buildings' => Building::all(),
+        ];
         $id = $request->input('r_id');
-        return view('dashboard.booking.create', self::getContextData(null));
+        if (isset($id)) {
+            $current = Room::find($id);
+            $context['current'] = $current;
+        }
+        return view('dashboard.booking.create', self::getContextData($context));
     }
 
     /**
@@ -97,7 +111,7 @@ class BookingController extends Controller
             'title' => 'Bookings',
             'active' => 'bookings',
         ];
-        if( is_a($payload, 'array') ) {
+        if( isset($payload) ) {
             foreach ($payload as $key => $value) {
                 $context[$key] = $value;
             }

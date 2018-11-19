@@ -18,11 +18,10 @@ export default (function () {
             vertical: 'bottom',
         },
     });
-    $('#startDateTime').on('dp.change', function(e) {
-        console.log(e.date);
-        $('#endDateTime').data('DateTimePicker').minDate(e.date);
+    $('#startDateTime').on('change.datetimepicker', function(e) {
+        $('#endDateTime').datetimepicker('minDate', e.date);
     });
-    $('#endDateTime').on('dp.change', function(e) {
-        $('#startDateTime').data('DateTimePicker').maxDate(e.date);
+    $('#endDateTime').on('change.datetimepicker', function(e) {
+        $('#startDateTime').datetimepicker('maxDate', e.date);
     });
 }());

@@ -3,6 +3,7 @@
 @import 'spec/settings/index';
 @import 'spec/tools/index';
 @import "~bootstrap/scss/bootstrap";
+@import '~@fortawesome/fontawesome-free/css/all.css';
 @import 'spec/index';
 @import 'vendor/index';
 
@@ -73,13 +74,33 @@ $accent-lighter: #ef646140;
     @extend .p-10;
 }
 
-.datepicker, .timepicker, .picker-switch {
+.datepicker,
+.timepicker,
+.picker-switch {
     table {
         @extend .m-0;
         @extend .w-100;
         @extend .ta-c;
     }
+
     td {
         @extend .va-m;
+        padding: .1rem .5rem;
+    }
+}
+
+.loading-cog {
+    animation: spin .5s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+        -webkit-transform: rotate(359deg);
     }
 }

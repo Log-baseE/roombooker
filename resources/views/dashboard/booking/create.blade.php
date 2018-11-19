@@ -21,16 +21,31 @@
                             <div class="form-group">
                                 <label for="building">Building <span class="c-red-500">*</span></label>
                                 <select class="custom-select" name="building" id="building">
-                                    <option selected>Select one</option>
-                                    <option value="">A</option>
-                                    <option value="">B</option>
-                                    <option value="">C</option>
+                                    @isset($current)
+                                        <option value="-1">Select one</option>
+                                        @foreach ($buildings as $building)
+                                            <option value="{{$building->id}}" {{$current->building->id == $building->id ? 'selected' : ''}}>{{$building->name}}</option>
+                                        @endforeach
+                                    @else
+                                        <option value="-1" selected>Select one</option>
+                                        @foreach ($buildings as $building)
+                                            <option value="{{$building->id}}">{{$building->name}}</option>
+                                        @endforeach
+                                    @endisset
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="room">Room <span class="c-red-500">*</span></label>
-                                <select class="custom-select" name="room" id="room" disabled>
-                                    <option selected>Select a building first</option>
+                                <label for="room">Room <span class="c-red-500">*</span>
+                                    <i class="loading-cog fas fa-circle-notch d-n"></i>
+                                </label>
+                                <select class="custom-select" name="room" id="room" {{ isset($current) ? '' : 'disabled'}}>
+                                    @isset($current)
+                                        @foreach ($current->building->rooms as $room)
+                                            <option value="{{$room->id}}" {{$current->id == $room->id ? 'selected' : ''}}>{{$room->name}}</option>
+                                        @endforeach
+                                    @else
+                                        <option selected>Select a building first</option>
+                                    @endisset
                                 </select>
                             </div>
                             <div class="form-row">
@@ -44,28 +59,28 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div id="facilities" class="form-group col-12">
-                                    <label class="d-b" for="facilities">Facilities required</label>
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" name="ac" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Air conditioning</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" name="ac" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Air conditioning</label>
-                                    </div>
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" name="ac" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Air conditioning</label>
-                                    </div>
+                                <div class="form-group col-12 facilities-container">
+                                    <label class="d-b" for="facilities">Facilities required
+                                        <i class="mL-5 loading-cog fas fa-circle-notch d-n"></i>
+                                    </label>
+                                    @isset($current)
+                                        @foreach ($current->facilities as $facility)
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" name="facility-{{$facility->id}}" id="facility-{{$facility->id}}">
+                                                <label class="custom-control-label" for="facility-{{$facility->id}}">{{$facility->name}}</label>
+                                            </div>
+                                        @endforeach
+                                    @else
+                                        <small>Select a room to view its facilities</small>
+                                    @endisset
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="purpose">Purpose <span class="c-red-500">*</span></label>
+                                <label for="purpose">{{__('Purpose')}} <span class="c-red-500">*</span></label>
                                 <input type="text" class="form-control" name="purpose" id="purpose" placeholder="">
                             </div>
                             <div class="form-group">
-                                <label for="comment">Other comments</label>
+                                <label for="comment">{{__('Other comments')}}</label>
                                 <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
                             </div>
                             <button class="btn btn-dark" type="submit">
@@ -88,7 +103,83 @@
 @endsection
 
 @section('custom-script')
-    <script>
-
-    </script>
+<script>
+    var changed = false;
+    $('input, select').change(function(e) {
+        changed = true;
+    });
+    window.onbeforeunload = function() {
+        return "Are you sure you want to leave? Changes would not be saved";
+    }
+    $('#building').change(function(e) {
+        var b_id = $('#building').val();
+        var data = {
+            _token: $('meta[name=csrf-token]').attr('content'),
+            b_id: b_id,
+        };
+        if(b_id == -1) {
+            $('#room').prop('disabled', 'disabled').empty();
+            $('.facilities-container .custom-checkbox').remove();
+            $('.facilities-container small').remove();
+            $('.facilities-container').append(`<small>Select a room to view its facilities</small>`);
+        } else {
+            $.ajax({
+                url: '/api/roomsInBuilding',
+                method: 'post',
+                data: $.param(data),
+                beforeSend: function(xhr) {
+                    $('#building, #room').prop('disabled', 'disabled');
+                    $('label[for=room] .loading-cog').removeClass('d-n').addClass('d-ib');
+                    $('.facilities-container small').remove();
+                    $('.facilities-container .custom-checkbox').remove();
+                    $('.facilities-container').append(`<small>Select a room to view its facilities</small>`);
+                },
+                success: async function(rooms) {
+                    $('#building').prop('disabled', false);
+                    $('#room').empty().append(`<option value="-1" selected>Select a room...</option>`);
+                    await rooms.forEach(room => {
+                        $('#room').append(`<option value="${room.id}">${room.name}</option>`);
+                    });
+                    $('#room').prop('disabled', false);
+                    $('label[for=room] .loading-cog').removeClass('d-ib').addClass('d-n');
+                }
+            });
+        }
+    });
+    $('#room').change(function(e) {
+        var r_id = $('#room').val();
+        var data = {
+            _token: $('meta[name=csrf-token]').attr('content'),
+            r_id: r_id,
+        };
+        if(r_id == -1) {
+            $('.facilities-container .custom-checkbox').remove();
+            $('.facilities-container small').remove();
+            $('.facilities-container').append(`<small>Select a room to view its facilities</small>`);
+        } else {
+            $.ajax({
+                url: '/api/roomDetail',
+                method: 'post',
+                data: $.param(data),
+                beforeSend: function(xhr) {
+                    $('#building, #room').prop('disabled', 'disabled');
+                    $('label[for=facilities] .loading-cog').removeClass('d-n').addClass('d-ib');
+                    $('.facilities-container .custom-checkbox').remove()
+                    $('.facilities-container').append(`<small>Select a room to view its facilities</small>`);
+                },
+                success: function(room) {
+                    $('#building, #room').prop('disabled', false);
+                    $('.facilities-container small').remove();
+                    room.facilities.forEach(facility => {
+                        $('.facilities-container').append(`<div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="facility-${facility.id}" id="facility-${facility.id}">
+                            <label class="custom-control-label" for="facility-${facility.id}">${facility.name}</label>
+                        </div>`);
+                    });
+                    $('label[for=facilities] .loading-cog').removeClass('d-ib').addClass('d-n');
+                }
+            });
+        }
+    });
+</script>
 @endsection
