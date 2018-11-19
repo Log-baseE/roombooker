@@ -136,7 +136,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::middleware('web')
              ->namespace($this->namespace)
-             ->prefix('dashboard/bookings/draft')
+             ->prefix('dashboard/bookings/drafts')
              ->group(base_path('routes/web/draft.php'));
     }
 }

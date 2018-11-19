@@ -14,8 +14,11 @@ class CreateBookedFacilitiesTable extends Migration
     public function up()
     {
         Schema::create('booked_facilities', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->string('room_id');
+            $table->unsignedInteger('facility_id');
+            $table->string('draft_id');
+
+            $table->primary(['room_id', 'facility_id', 'draft_id']);
         });
     }
 

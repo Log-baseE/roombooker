@@ -10,9 +10,7 @@ Route::get('/new', 'BookingDraftController@create')->name('drafts.create.empty')
 
 Route::post('/new', 'BookingDraftController@create')->name('drafts.create.filled');
 
-Route::get('/d/{id}', function () {
-
-});
+Route::get('/d/{id}', 'BookingDraftController@show')->name('drafts.show');
 
 Route::get('/d/{id}/edit', function () {
 

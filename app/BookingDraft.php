@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BookingDraft extends Model
 {
+    public $incrementing = false;
+
     public function booker()
     {
         return $this->belongsTo('roombooker\User');
@@ -19,6 +21,12 @@ class BookingDraft extends Model
     public function schedules()
     {
         return $this->hasMany('roombooker\Schedule');
+    }
+
+    public function facilities()
+    {
+        return $this->belongsToMany('roombooker\Facility', 'booked_facilities', 'draft_id', 'facility_id')
+                    ->wherePivot('room_id', $this->room_id);
     }
 
     protected static function boot()

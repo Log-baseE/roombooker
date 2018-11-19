@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use roombooker\Building;
 use roombooker\Room;
 use roombooker\BookingDraft;
+use roombooker\Facility;
 
 class BookingDraftController extends Controller
 {
@@ -55,8 +56,18 @@ class BookingDraftController extends Controller
         $draft->room_id = $request->input('room');
         $draft->purpose = $request->input('purpose');
         $draft->comments = $request->input('comment');
+        $draft->start_datetime = date('Y-m-d h:m:s',strtotime($request->input('startDateTime')));
+        $draft->end_datetime = date('Y-m-d h:m:s',strtotime($request->input('endDateTime')));
+        $draft->committed = false;
         $draft->booker_id = $request->user()->id;
+        $draft->save();
+        $ids = array_keys($request->input('facility'));
+        $facilities = Facility::find($ids);
+        $draft->facilities()->attach($facilities, [
+            'room_id' => $draft->room_id
+        ]);
         return response()->json($draft, 200);
+        // return redirect()->action('BookingDraftController@show', ['id' => preg_replace('/BD\-(.*)/','$1',$draft->id)]);
     }
 
     /**
@@ -67,7 +78,7 @@ class BookingDraftController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json(BookingDraft::find('BD-'.$id),200);
     }
 
     /**

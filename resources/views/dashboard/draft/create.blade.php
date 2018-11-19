@@ -69,7 +69,7 @@
                                     @isset($current)
                                         @foreach ($current->facilities as $facility)
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" name="facility-{{$facility->id}}" id="facility-{{$facility->id}}">
+                                                <input type="checkbox" class="custom-control-input" name="facility[{{$facility->id}}]" id="facility-{{$facility->id}}">
                                                 <label class="custom-control-label" for="facility-{{$facility->id}}">{{$facility->name}}</label>
                                             </div>
                                         @endforeach
@@ -168,7 +168,8 @@
                 beforeSend: function(xhr) {
                     $('#building, #room').prop('disabled', 'disabled');
                     $('label[for=facilities] .loading-cog').removeClass('d-n').addClass('d-ib');
-                    $('.facilities-container .custom-checkbox').remove()
+                    $('.facilities-container .custom-checkbox').remove();
+                    $('.facilities-container small').remove();
                     $('.facilities-container').append(`<small>Select a room to view its facilities</small>`);
                 },
                 success: function(room) {
@@ -176,7 +177,7 @@
                     $('.facilities-container small').remove();
                     room.facilities.forEach(facility => {
                         $('.facilities-container').append(`<div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="facility-${facility.id}" id="facility-${facility.id}">
+                            <input type="checkbox" class="custom-control-input" name="facility[${facility.id}]" id="facility-${facility.id}">
                             <label class="custom-control-label" for="facility-${facility.id}">${facility.name}</label>
                         </div>`);
                     });
