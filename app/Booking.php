@@ -7,9 +7,10 @@ use Hash;
 
 class Booking extends Model
 {
-    const PENDING_STATUS = 0;
+    const INCOMPLETE_STATUS = 0;
+    const ACKNOWLEDGED_STATUS = 100;
     const ACCEPTED_STATUS = 200;
-    const REJECTED_STATUS = -1;
+    const REJECTED_STATUS = 1;
 
     public $incrementing = false;
 
@@ -20,7 +21,7 @@ class Booking extends Model
     ];
 
     protected $attributes = [
-        'status' => self::PENDING_STATUS
+        'status' => self::INCOMPLETE_STATUS
     ];
 
     public function details()
@@ -56,6 +57,26 @@ class Booking extends Model
             return false;
         else
             return true;
+    }
+
+    public function getIsIncompleteAttribute()
+    {
+        return $this->status == self::INCOMPLETE_STATUS;
+    }
+
+    public function getIsAcknowledgedAttribute()
+    {
+        return $this->status == self::ACKNOWLEDGED_STATUS;
+    }
+
+    public function getIsAcceptedAttribute()
+    {
+        return $this->status == self::ACCEPTED_STATUS;
+    }
+
+    public function getIsRejectedAttribute()
+    {
+        return $this->status = self::REJECTED_STATUS;
     }
 
     public function getTrimmedIdAttribute()

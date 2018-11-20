@@ -18,7 +18,15 @@
                             <h5 class="mB-0">{{__('Booking')}}: {{ $booking->id }}</h5>
                         </div>
                         <div class="peer">
-                            <span class="badge badge-pill badge-light text-danger mL-10">Incomplete</span>
+                            @if($booking->is_incomplete)
+                                <span class="badge badge-pill badge-light text-danger mL-10">INCOMPLETE</span>
+                            @elseif($booking->is_acknowledged)
+                                <span class="badge badge-pill badge-secondary mL-10">PENDING</span>
+                            @elseif($booking->is_accepted)
+                                <span class="badge badge-pill badge-success mL-10">ACCEPTED</span>
+                            @elseif($booking->is_rejected)
+                                <span class="badge badge-pill badge-danger mL-10">REJECTED</span>
+                            @endif
                         </div>
                     </div>
                     <div class="layer w-100 pY-10">
@@ -78,7 +86,8 @@
         <div class="col-md-6 order-md-last order-first">
             <div class="bd bgc-white h-100">
                 <div class="layers">
-                    <div class="layer bdB bg-secondary c-white peers w-100 p-20">
+                @if($booking->is_incomplete)
+                    <div class="layer bdB text-danger peers w-100 p-20">
                         <div class="peer peer-greed">
                             <h5 class="mB-0"><strong>Almost there!</strong></h5>
                         </div>
@@ -94,6 +103,41 @@
                         </div>
                         <button type="button" id="generate" class="btn btn-primary">Generate</button>
                     </div>
+                @elseif($booking->is_acknowledged)
+                    <div class="layer bdB bg-secondary c-white peers w-100 p-20">
+                        <div class="peer peer-greed">
+                            <h5 class="mB-0"><strong>PROCESSING</strong></h5>
+                        </div>
+                    </div>
+                    <div class="layer w-100 p-20">
+                        <p>Your booking request is being processed. A response should appear in 24 hours.</p>
+                    </div>
+                @elseif($booking->is_accepted)
+                    <div class="layer bdB bg-success c-white peers w-100 p-20">
+                        <div class="peer peer-greed">
+                            <h5 class="mB-0"><strong>ACCEPTED</strong></h5>
+                        </div>
+                    </div>
+                    <div class="layer w-100 p-20">
+                        <p>Hurray! Your booking request was <strong class="text-success">accepted</strong>.{{ isset($booking->admin_message) ? ' The admin left the following message:' : ''}}</p>
+                        @isset($booking->admin_message)
+                        <p><strong>{{$booking->admin_message}}</strong></p>
+                        @endisset
+                    </div>
+                @elseif($booking->is_rejected)
+                    <div class="layer bdB bg-danger c-white peers w-100 p-20">
+                        <div class="peer peer-greed">
+                            <h5 class="mB-0"><strong>REJECTED</strong></h5>
+                        </div>
+                    </div>
+                    <div class="layer w-100 p-20">
+                        <p>Your booking request was <strong class="text-danger">rejected</strong>.{{ isset($booking->admin_message) ? ' The admin left the following message:' : ''}}</p>
+                        @isset($booking->admin_message)
+                        <p><strong>{{$booking->admin_message}}</strong></p>
+                        @endisset
+                    </div>
+                @endif
+
                 </div>
             </div>
         </div>
@@ -101,6 +145,7 @@
 </div>
 @endsection
 
+@if($booking->is_incomplete)
 @section('custom-script')
 <script>
     var x;
@@ -151,3 +196,4 @@
     })
 </script>
 @endsection
+@endif
