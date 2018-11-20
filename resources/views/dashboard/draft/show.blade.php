@@ -138,10 +138,10 @@
                 </div>
             <div class="modal-body">
                 <div class="layers">
-                    <div class="layer">
+                    <div class="layer w-100">
                         Once signed, all data are considered <strong class="text-danger">final</strong> and <strong class="text-danger">cannot be changed</strong>.
                     </div>
-                    <div class="layer pT-20">
+                    <div class="layer w-100 pT-20">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" name="agree" id="agree" required>
                             <label class="custom-control-label" for="agree">By clicking submit, I acknowledge that all submitted data are <strong class="text-danger">valid</strong> and will <strong class="text-danger">not</strong> be changed.</label>

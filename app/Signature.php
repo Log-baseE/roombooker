@@ -3,6 +3,7 @@
 namespace roombooker;
 
 use Illuminate\Database\Eloquent\Model;
+use Hash;
 
 class Signature extends Model
 {
@@ -38,7 +39,7 @@ class Signature extends Model
             return true;
     }
 
-    public function verify()
+    public function getIsValidAttribute()
     {
         return sodium_crypto_sign_verify_detached($this->signature, $this->message, $this->signee->public_key);
     }

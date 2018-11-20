@@ -25,4 +25,8 @@ Route::post('/roomsInBuilding', 'API\APIController@roomsInBuilding');
 
 Route::post('/roomDetail', 'API\APIController@roomDetail');
 
-Route::post('accessCode', 'API\APIController@generateAccessCode');
+Route::post('/accessCode', 'API\APIController@generateAccessCode');
+
+Route::post('/accessBooking', 'API\APIController@accessBooking');
+
+Route::post('/sign', 'API\APIController@sign');

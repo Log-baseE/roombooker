@@ -48,11 +48,19 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class='sidebar-link{{ $active == 'bookings' ? ' active' : '' }}' href="compose.html">
+                <a class='sidebar-link{{ $active == 'bookings' ? ' active' : '' }}' href="{{ route('bookings.index') }}">
                     <span class="icon-holder">
                         <i class="c-blue-500 ti-bookmark-alt"></i>
                     </span>
                     <span class="title">Bookings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class='sidebar-link{{ $active == 'sign' ? ' active' : '' }}' href="{{ route('make.signature') }}">
+                    <span class="icon-holder">
+                        <i class="c-pink-500 ti-ink-pen"></i>
+                    </span>
+                    <span class="title">Sign</span>
                 </a>
             </li>
             <li class="nav-item">

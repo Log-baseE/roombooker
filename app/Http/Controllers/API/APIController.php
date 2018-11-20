@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use roombooker\Http\Controllers\Controller;
 use roombooker\Room;
 use roombooker\Booking;
+use roombooker\Signature;
 use Carbon\Carbon;
 
 class APIController extends Controller
@@ -48,6 +49,45 @@ class APIController extends Controller
             'code' => $booking->access_code,
             'expiry' => $booking->code_expiry->timestamp,
         ], 200);
+    }
+
+    public function accessBooking(Request $request)
+    {
+        if(!$request->user()->is_authority) {
+            return response('Unauthorized', 403);
+        } else {
+            $code = $request->input('code');
+            $booking = Booking::where('access_code', $code)
+                            ->where('code_expiry', '>=', Carbon::now())
+                            ->where('status', Booking::INCOMPLETE_STATUS)
+                            ->with('details')
+                            ->firstOrFail();
+            $booking['details']['start'] = $booking->details->start_datetime->format('d/m/Y H:i');
+            $booking['details']['end'] = $booking->details->end_datetime->format('d/m/Y H:i');
+            $booking['details']['facilities'] = $booking->details->facilities;
+            $booking['details']['room'] = $booking->details->room;
+            $booking['details']['building'] = $booking->details->room->building;
+            return response()->json($booking, 200);
+        }
+    }
+
+    public function sign(Request $request)
+    {
+        if(!$request->user()->is_authority) {
+            return response('Unauthorized', 403);
+        } else {
+            $bid = $request->input('bid');
+            $booking = Booking::findOrFail($bid);
+            $booking->status = Booking::ACKNOWLEDGED_STATUS;
+            $booking->save();
+
+            $signature = new Signature;
+            $signature->signee_id = $request->user()->id;
+            $signature->booking_id = $booking->id;
+            $signature->save();
+
+            return response()->json(['status' => $signature->is_valid], 200);
+        }
     }
 
     /**

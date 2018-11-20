@@ -17,3 +17,5 @@ Route::get('/profile/edit', function () {
 Route::get('/inbox', function () {
 
 });
+
+Route::get('/sign', 'MakeSignature')->name('make.signature');
