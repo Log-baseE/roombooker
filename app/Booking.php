@@ -13,6 +13,12 @@ class Booking extends Model
 
     public $incrementing = false;
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'code_expiry',
+    ];
+
     protected $attributes = [
         'status' => self::PENDING_STATUS
     ];

@@ -24,3 +24,5 @@ Route::post('contact', function (Request $request) {
 Route::post('/roomsInBuilding', 'API\APIController@roomsInBuilding');
 
 Route::post('/roomDetail', 'API\APIController@roomDetail');
+
+Route::post('accessCode', 'API\APIController@generateAccessCode');

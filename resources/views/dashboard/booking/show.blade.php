@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+<input type="hidden" name="bid" value="{{ $booking->id }}">
 <div id='mainContent'>
     <div class="row gap-20 pos-r">
         <div class="col-md-6">
@@ -84,15 +85,69 @@
                     </div>
                     <div class="layer w-100 p-20">
                         <h5>Request a signature from a head of faculty or department by giving them the generated access code below</h5>
-                        <div class="peers gap-20 ai-c mB-10 mT-20">
+                        <div id="code-container" class="peers gap-20 ai-c mB-10 mT-20">
                             <h5 class="peer m-0">Access code: </h5>
-                            <h5 class="peer m-0 bd pX-10 pY-5 fw-700 ta-c h-100" style="box-sizing: content-box; min-width: 75px; min-height: 26px"></h5>
+                            <h5 id="code" class="peer m-0 bd pX-10 pY-5 fw-700 ta-c h-100" style="box-sizing: content-box; min-width: 75px; min-height: 26px">
+                            </h5>
+                            <span class="peer"><i class="loading-cog fas fa-circle-notch d-n"></i></span>
+                            <small class="w-100 pY-5">Click button to generate access code</small>
                         </div>
-                        <button type="button" class="btn btn-primary">Generate</button>
+                        <button type="button" id="generate" class="btn btn-primary">Generate</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-script')
+<script>
+    var x;
+    $('#generate').click(function() {
+        $.ajax({
+            method: 'post',
+            url: '/api/accessCode',
+            data: $.param({
+                _token: $('meta[name=csrf-token]').attr('content'),
+                bid: $('input[name=bid]').val(),
+            }),
+            beforeSend: function(xhr) {
+                $('#generate').attr('disabled', 'disabled');
+                $('#code-container small').remove();
+                $('#code').text('');
+                $('#code-container .loading-cog').removeClass('d-n').addClass('d-ib');
+                clearInterval(x);
+            },
+            success: function(data) {
+                console.log(data);
+                $('#code').text(data.code);
+                $('#code-container .loading-cog').removeClass('d-ib').addClass('d-n');
+                var eventTime= data.expiry;
+                var currentTime = Math.floor(Date.now() / 1000);
+                var diffTime = eventTime - currentTime;
+                var duration = moment.duration(diffTime*1000, 'milliseconds');
+                var interval = 1000;
+                $('#code-container').append(`<small class="w-100 pY-5">Code will expire in <span class="countdown"></span></small>`);
+                x = setInterval(async function(){
+                    duration = moment.duration(duration - interval, 'milliseconds');
+                    console.log(moment.utc(duration.as('milliseconds')).format('HH:mm:ss'));
+                    $('.countdown').text(moment.utc(duration.as('milliseconds')).format('HH:mm:ss'));
+                    if(duration.seconds() < 0) {
+                        $('#generate').attr('disabled', false);
+                        clearInterval(x);
+                        await $('#code-container small').remove();
+                        $('#code-container').append(`<small class="w-100 pY-5 text-danger"><strong>Expired. Please generate another code</strong></small>`);
+                    }
+                }, interval);
+            },
+            error: function(xhr, message, error) {
+                console.log(xhr, message, error);
+                $('#generate').attr('disabled', false);
+                $('#code-container .loading-cog').removeClass('d-ib').addClass('d-n');
+                $('#code-container').append(`<small class="w-100 pY-5 text-danger"><strong>Failed to obtain access code. Please try again</strong></small>`);
+            }
+        });
+    })
+</script>
 @endsection
