@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return response('Booking route', 200);
-})->name('bookings.index');
+Route::get('/', 'BookingController@index')->name('bookings.index');
 
 Route::post('/', 'BookingController@store')->name('bookings.store');
 

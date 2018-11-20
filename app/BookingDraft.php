@@ -66,4 +66,14 @@ class BookingDraft extends Model
     {
         return preg_replace('/BD\-(.*)/','$1',$this->id);
     }
+
+    public function getIsCompleteAttribute()
+    {
+        return
+            true
+            && $this->room_id
+            && $this->start_datetime
+            && $this->end_datetime
+            && $this->purpose;
+    }
 }

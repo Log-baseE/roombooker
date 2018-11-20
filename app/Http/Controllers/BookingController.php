@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Input;
 use roombooker\Building;
 use roombooker\Room;
 use roombooker\Booking;
-use Auth;
+use roombooker\BookingDraft;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
@@ -23,7 +24,16 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+        $context = [
+            'drafts' => BookingDraft::where('booker_id', Auth::user()->id)->where('committed', false)->get(),
+            'incompletes' => Booking::whereHas('details', function($query) {
+                $query->where('booker_id', Auth::user()->id);
+            })->where('status', Booking::INCOMPLETE_STATUS)->get(),
+            'completes' => Booking::whereHas('details', function($query) {
+                $query->where('booker_id', Auth::user()->id);
+            })->where('status', '<>', Booking::INCOMPLETE_STATUS)->get(),
+        ];
+        return view('dashboard.booking.index', self::getContextData($context));
     }
 
     /**

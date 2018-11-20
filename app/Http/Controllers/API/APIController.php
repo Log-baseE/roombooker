@@ -90,6 +90,16 @@ class APIController extends Controller
         }
     }
 
+    public function bookingStatus(Request $request)
+    {
+        $user_id = $request->user()->id;
+        $booking_id = $request->input('bid');
+        $booking = Booking::whereHas('details', function($query) use($user_id) {
+            $query->where('booker_id', $user_id);
+        })->findOrFail($booking_id);
+        return response()->json($booking->status, 200);
+    }
+
     /**
      * Generate random string
      *
