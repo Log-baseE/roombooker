@@ -27,7 +27,7 @@ class Signature extends Model
 
     protected function generateSignature()
     {
-        $message = $this->booking_id . time();
+        $message = Hash::make($this->booking_id . time());
         $secret = $this->signee->private_key;
         $signature = sodium_crypto_sign_detached($message, $secret);
         $this->attributes['message'] = $message;

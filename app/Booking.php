@@ -3,6 +3,7 @@
 namespace roombooker;
 
 use Illuminate\Database\Eloquent\Model;
+use Hash;
 
 class Booking extends Model
 {
@@ -18,7 +19,7 @@ class Booking extends Model
 
     public function details()
     {
-        return $this->belongsTo('roombooker\BookingDraft');
+        return $this->belongsTo('roombooker\BookingDraft', 'draft_id');
     }
 
     public function signatures()
@@ -49,5 +50,10 @@ class Booking extends Model
             return false;
         else
             return true;
+    }
+
+    public function getTrimmedIdAttribute()
+    {
+        return preg_replace('/B\-(.*)/','$1',$this->id);
     }
 }

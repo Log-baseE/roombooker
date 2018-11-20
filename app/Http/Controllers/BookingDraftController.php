@@ -58,8 +58,8 @@ class BookingDraftController extends Controller
         $draft->room_id = $request->input('room');
         $draft->purpose = $request->input('purpose');
         $draft->comments = $request->input('comment');
-        $draft->start_datetime = date('Y-m-d h:m:s',strtotime($request->input('startDateTime')));
-        $draft->end_datetime = date('Y-m-d h:m:s',strtotime($request->input('endDateTime')));
+        $draft->start_datetime = strtotime(str_replace('/', '-', $request->input('startDateTime')));
+        $draft->end_datetime = strtotime(str_replace('/', '-', $request->input('endDateTime')));
         $draft->committed = false;
         $draft->booker_id = $request->user()->id;
         $draft->save();
@@ -81,11 +81,15 @@ class BookingDraftController extends Controller
     public function show($id)
     {
         $draft = BookingDraft::where('booker_id', '=', Auth::user()->id)->findOrFail('BD-'.$id);
-        $context = [
-            'title' => 'Draft '.$draft->id,
-            'draft' => $draft,
-        ];
-        return view('dashboard.draft.show', self::getContextData($context));
+        if($draft->committed) {
+            return redirect()->action('BookingController@show', ['id' => $draft->booking->trimmed_id]);
+        } else {
+            $context = [
+                'title' => 'Draft '.$draft->id,
+                'draft' => $draft,
+            ];
+            return view('dashboard.draft.show', self::getContextData($context));
+        }
         // return response()->json(,200);
     }
 
@@ -131,20 +135,24 @@ class BookingDraftController extends Controller
      */
     public function commit(Request $request, $id)
     {
-        $draft = BookingDraft::where('booker_id', '=', $request->user()->id)->findOrFail('BD-'.$id);
-        $draft->committed = true;
-        $draft->committed_at = date('Y-m-d h:i:s');
-        $draft->save();
+        $draft = BookingDraft::where('booker_id', $request->user()->id)->findOrFail('BD-'.$id);
+        $booking = $draft->booking;
+        if(!isset($booking))
+        {
+            $draft->committed = true;
+            $draft->committed_at = date('Y-m-d H:i:s');
+            $draft->save();
 
-        $booking = new Booking;
-        $draft->booking()->save($booking);
+            $booking = new Booking;
+            $draft->booking()->save($booking);
 
-        $signature = new Signature;
-        $signature->signee_id = $request->user()->id;
-        $signature->booking_id = $booking->id;
-        $signature->save();
+            $signature = new Signature;
+            $signature->signee_id = $request->user()->id;
+            $signature->booking_id = $booking->id;
+            $signature->save();
+        }
 
-        return response()->json($booking, 200);
+        return redirect()->action('BookingController@show', ['id' => $booking->trimmed_id]);
     }
 
     /**

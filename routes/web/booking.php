@@ -6,9 +6,7 @@ Route::get('/', function () {
 
 Route::post('/', 'BookingController@store')->name('bookings.store');
 
-Route::get('/b/{id}', function () {
-
-});
+Route::get('/b/{id}', 'BookingController@show')->name('bookings.show');
 
 Route::get('/b/{id}/edit', function () {
 

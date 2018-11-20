@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use roombooker\Building;
 use roombooker\Room;
+use roombooker\Booking;
+use Auth;
 
 class BookingController extends Controller
 {
@@ -54,7 +56,14 @@ class BookingController extends Controller
      */
     public function show($id)
     {
-        //
+        $booking = Booking::whereHas('details', function($query) {
+            $query->where('booker_id', Auth::user()->id);
+        })->findOrFail('B-'.$id);
+        $context = [
+            'title' => 'Booking '.$booking->id,
+            'booking' => $booking,
+        ];
+        return view('dashboard.booking.show', self::getContextData($context));
     }
 
     /**

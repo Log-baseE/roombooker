@@ -48,7 +48,7 @@
                                     <th class="pX-20 pY-10 va-t" scope="row">{{__('Start use')}}</th>
                                     <td class="pX-20 pY-10 va-t" >
                                         @isset($draft->start_datetime)
-                                            {{$draft->start_datetime->format('D/M/Y h:m')}}
+                                            {{$draft->start_datetime->format('d/m/Y H:i')}}
                                         @else
                                             <strong class="text-danger">not set</strong>
                                         @endisset
@@ -58,7 +58,7 @@
                                     <th class="pX-20 pY-10 va-t" scope="row">{{__('End use')}}</th>
                                     <td class="pX-20 pY-10 va-t" >
                                         @isset($draft->end_datetime)
-                                            {{$draft->end_datetime->format('D/M/Y h:m')}}
+                                            {{$draft->end_datetime->format('d/m/Y H:i')}}
                                         @else
                                             <strong class="text-danger">not set</strong>
                                         @endisset

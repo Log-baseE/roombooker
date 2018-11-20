@@ -8,6 +8,13 @@ class BookingDraft extends Model
 {
     public $incrementing = false;
 
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'start_datetime',
+        'end_datetime'
+    ];
+
     public function booker()
     {
         return $this->belongsTo('roombooker\User');
