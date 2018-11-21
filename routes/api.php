@@ -30,3 +30,9 @@ Route::post('/accessCode', 'API\APIController@generateAccessCode');
 Route::post('/accessBooking', 'API\APIController@accessBooking');
 
 Route::post('/sign', 'API\APIController@sign');
+
+Route::post('/checkSignature', 'API\APIController@checkSignature');
+
+Route::post('/accept', 'API\APIController@accept');
+
+Route::post('/reject', 'API\APIController@reject');

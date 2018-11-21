@@ -28,7 +28,10 @@ class BookingController extends Controller
         if(Auth::user()->is_admin) {
             $context = [
                 'queue' => Booking::where('status', Booking::ACKNOWLEDGED_STATUS)->orderBy('updated_at', 'asc')->get(),
-                'history' => Booking::where('status', '<>', Booking::INCOMPLETE_STATUS)->orderBy('updated_at', 'dsc')->take(100)->get(),
+                'history' =>
+                    Booking::where('status', '<>', Booking::INCOMPLETE_STATUS)
+                           ->where('status', '<>', Booking::ACKNOWLEDGED_STATUS)
+                           ->orderBy('updated_at', 'dsc')->take(100)->get(),
             ];
         } else {
             $context = [

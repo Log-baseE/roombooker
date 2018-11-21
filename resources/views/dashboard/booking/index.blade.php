@@ -19,12 +19,12 @@
                             @if($queue->isEmpty())
                                 <p class="m-0">{{__('No queued booking requests')}}</p>
                             @else
-                                <table id="dataTable" class="table table-striped" cellspacing="0" width="100%">
+                                <table class="table table-striped" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
                                             <th>Room</th>
                                             <th>Purpose</th>
-                                            <th>Complete at</th>
+                                            <th>Requested at</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -48,17 +48,18 @@
                 <div class="bd bgc-white">
                     <div class="layers">
                         <div class="layer w-100 p-20 bdB">
-                            <h5 class="lh-1 font-weight-bold m-0 c-light-blue-500">HISTORY</h5>
+                            <h5 class="lh-1 font-weight-bold m-0 c-light-blue-500">COMPLETED BOOKINGS</h5>
                         </div>
                         <div class="layer w-100 p-20 bdB">
                             @if($history->isEmpty())
-                                <p class="m-0">{{__('No past booking requests')}}</p>
+                                <p class="m-0">{{__('No past completed booking requests')}}</p>
                             @else
                                 <table id="dataTable" class="table table-striped" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
                                             <th>Room</th>
                                             <th>Booked on</th>
+                                            <th>Status</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -67,6 +68,17 @@
                                             <tr>
                                                 <td>{{ $booking->details->room->name }}</td>
                                                 <td>{{ $booking->details->start_datetime->format('d/m/Y')}}</td>
+                                                <td>
+                                                    @if($booking->is_incomplete)
+                                                        <span class="badge badge-pill badge-light text-danger">INCOMPLETE</span>
+                                                    @elseif($booking->is_acknowledged)
+                                                        <span class="badge badge-pill badge-secondary">PENDING</span>
+                                                    @elseif($booking->is_accepted)
+                                                        <span class="badge badge-pill badge-success mL-10">ACCEPTED</span>
+                                                    @elseif($booking->is_rejected)
+                                                        <span class="badge badge-pill badge-danger">REJECTED</span>
+                                                    @endif
+                                                </td>
                                                 <td class="text-right pT-5 pB-3"><a class="btn btn-dark" href="{{ route('bookings.show', ['id' => $booking->trimmed_id]) }}">Details</a></td>
                                             </tr>
                                         @endforeach

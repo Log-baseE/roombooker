@@ -3,6 +3,7 @@
 namespace roombooker\Http\Controllers\API;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
 use roombooker\Http\Controllers\Controller;
 use roombooker\Room;
 use roombooker\Booking;
@@ -93,6 +94,17 @@ class APIController extends Controller
         }
     }
 
+    public function checkSignature(Request $request)
+    {
+        $sgn = base64_decode($request->input('sgn'));
+        $sid = base64_decode($request->input('sid'));
+        $msg = base64_decode($request->input('msg'));
+        $pub = User::findOrFail($sid)->public_key;
+        return response()->json([
+            'valid' => sodium_crypto_sign_verify_detached($sgn, $msg, $pub),
+        ], 200);
+    }
+
     public function bookingStatus(Request $request)
     {
         $user_id = $request->user()->id;
@@ -101,6 +113,54 @@ class APIController extends Controller
             $query->where('booker_id', $user_id);
         })->findOrFail($booking_id);
         return response()->json($booking->status, 200);
+    }
+
+    public function accept(Request $request)
+    {
+        if(!$request->user()->is_admin) {
+            return response('Unauthorized', 403);
+        } else {
+            $bid = $request->input('bid');
+            $msg = $request->input('msg');
+            $booking = Booking::findOrFail($bid);
+            $booking->status = Booking::ACCEPTED_STATUS;
+            $booking->status_changed_at = Carbon::now();
+            $booking->admin_message = $msg;
+            $booking->save();
+
+            $signature = new Signature;
+            $signature->signee_id = $request->user()->id;
+            $signature->booking_id = $booking->id;
+            $signature->save();
+
+            return response()->json([
+                'status' => intval($signature->is_valid)
+            ], 200);
+        }
+    }
+
+    public function reject(Request $request)
+    {
+        if(!$request->user()->is_admin) {
+            return response('Unauthorized', 403);
+        } else {
+            $bid = $request->input('bid');
+            $msg = $request->input('msg');
+            $booking = Booking::findOrFail($bid);
+            $booking->status = Booking::REJECTED_STATUS;
+            $booking->status_changed_at = Carbon::now();
+            $booking->admin_message = $msg;
+            $booking->save();
+
+            $signature = new Signature;
+            $signature->signee_id = $request->user()->id;
+            $signature->booking_id = $booking->id;
+            $signature->save();
+
+            return response()->json([
+                'status' => intval($signature->is_valid)
+            ], 200);
+        }
     }
 
     /**

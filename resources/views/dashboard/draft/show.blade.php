@@ -51,7 +51,7 @@
                                     <th class="pX-20 pY-10 va-t" scope="row">{{__('Start use')}}</th>
                                     <td class="pX-20 pY-10 va-t" >
                                         @isset($draft->start_datetime)
-                                            {{$draft->start_datetime->format('d/m/Y H:i')}}
+                                            {{$draft->start_datetime->format('d-M-Y H:i')}}
                                         @else
                                             <strong class="text-danger">not set</strong>
                                         @endisset
@@ -61,7 +61,7 @@
                                     <th class="pX-20 pY-10 va-t" scope="row">{{__('End use')}}</th>
                                     <td class="pX-20 pY-10 va-t" >
                                         @isset($draft->end_datetime)
-                                            {{$draft->end_datetime->format('d/m/Y H:i')}}
+                                            {{$draft->end_datetime->format('d-M-Y H:i')}}
                                         @else
                                             <strong class="text-danger">not set</strong>
                                         @endisset
@@ -172,11 +172,22 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Sign</button>
+                <button type="submit" class="btn btn-primary" id="sign" disabled>Sign</button>
             </div>
             </div>
         </div>
     </form>
 </div>
 @endif
+@endsection
+
+@section('custom-script')
+<script>
+    $('#agree').change(function(e) {
+        if($('#agree').is(":checked"))
+            $('#sign').attr('disabled', false);
+        else
+            $('#sign').attr('disabled', 'disabled');
+    });
+</script>
 @endsection

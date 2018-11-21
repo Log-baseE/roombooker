@@ -10,6 +10,7 @@ use roombooker\BookingDraft;
 use roombooker\Facility;
 use roombooker\Booking;
 use roombooker\Signature;
+use Carbon\Carbon;
 
 class BookingDraftController extends Controller
 {
@@ -144,7 +145,7 @@ class BookingDraftController extends Controller
         if(!isset($booking))
         {
             $draft->committed = true;
-            $draft->committed_at = date('Y-m-d H:i:s');
+            $draft->committed_at = Carbon::now();
             $draft->save();
 
             $booking = new Booking;

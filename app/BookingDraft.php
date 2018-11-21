@@ -9,6 +9,7 @@ class BookingDraft extends Model
     public $incrementing = false;
 
     protected $dates = [
+        'committed_at',
         'created_at',
         'updated_at',
         'start_datetime',
