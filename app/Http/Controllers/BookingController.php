@@ -24,15 +24,23 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $context = [
-            'drafts' => BookingDraft::where('booker_id', Auth::user()->id)->where('committed', false)->get(),
-            'incompletes' => Booking::whereHas('details', function($query) {
-                $query->where('booker_id', Auth::user()->id);
-            })->where('status', Booking::INCOMPLETE_STATUS)->get(),
-            'completes' => Booking::whereHas('details', function($query) {
-                $query->where('booker_id', Auth::user()->id);
-            })->where('status', '<>', Booking::INCOMPLETE_STATUS)->get(),
-        ];
+        $context = [];
+        if(Auth::user()->is_admin) {
+            $context = [
+                'queue' => Booking::where('status', Booking::ACKNOWLEDGED_STATUS)->orderBy('updated_at', 'asc')->get(),
+                'history' => Booking::where('status', '<>', Booking::INCOMPLETE_STATUS)->orderBy('updated_at', 'dsc')->take(100)->get(),
+            ];
+        } else {
+            $context = [
+                'drafts' => BookingDraft::where('booker_id', Auth::user()->id)->where('committed', false)->get(),
+                'incompletes' => Booking::whereHas('details', function($query) {
+                    $query->where('booker_id', Auth::user()->id);
+                })->where('status', Booking::INCOMPLETE_STATUS)->get(),
+                'completes' => Booking::whereHas('details', function($query) {
+                    $query->where('booker_id', Auth::user()->id);
+                })->where('status', '<>', Booking::INCOMPLETE_STATUS)->get(),
+            ];
+        }
         return view('dashboard.booking.index', self::getContextData($context));
     }
 
@@ -66,9 +74,13 @@ class BookingController extends Controller
      */
     public function show($id)
     {
-        $booking = Booking::whereHas('details', function($query) {
-            $query->where('booker_id', Auth::user()->id);
-        })->findOrFail('B-'.$id);
+        $booking = null;
+        if(Auth::user()->is_admin)
+            $booking = Booking::findOrFail('B-'.$id);
+        else
+            $booking = Booking::whereHas('details', function($query) {
+                $query->where('booker_id', Auth::user()->id);
+            })->findOrFail('B-'.$id);
         $context = [
             'title' => 'Booking '.$booking->id,
             'booking' => $booking,

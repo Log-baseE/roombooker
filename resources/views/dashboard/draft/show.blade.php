@@ -17,7 +17,11 @@
                             <h5 class="mB-0">{{__('Booking Draft')}}: {{ $draft->id }}</h5>
                         </div>
                         <div class="peer">
-                            <span class="badge badge-pill badge-light text-danger mL-10">Incomplete</span>
+                            @if ($draft->is_complete)
+                                <span class="badge badge-pill badge-light text-success mL-10">Complete</span>
+                            @else
+                                <span class="badge badge-pill badge-light text-danger mL-10">Incomplete</span>
+                            @endif
                         </div>
                     </div>
                     <div class="layer w-100 pY-10">
@@ -80,7 +84,7 @@
                                             {{ $loop->first ? '' : ', '}}
                                             {{ ucwords(__($facility->name)) }}
                                         @empty
-                                        - <strong class="text-warning">(Are you sure you won't be needing any facilities?)</strong>
+                                        -
                                         @endforelse
                                     </td>
                                 </tr>
@@ -102,19 +106,36 @@
                 <div class="layers">
                     <div class="layer bdB peers w-100 p-20">
                         <div class="peer peer-greed">
-                            <h5 class="mB-0"><strong>Completion: xx%</strong></h5>
+                            <h5 class="mB-0"><strong>Completion: {{ $draft->completion['percent'] }}%</strong></h5>
                         </div>
                         <div class="peer">
-                            <button type="button" class="btn btn-primary mL-20" data-toggle="modal" data-target="#commitModal"><i class="ti-alert"></i> Sign form</button>
+                            @if ($draft->is_complete)
+                                <button type="button" class="btn btn-primary mL-20" data-toggle="modal" data-target="#commitModal"><i class="ti-alert"></i> Sign form</button>
+                            @else
+                                <button type="button" class="btn btn-primary mL-20" disabled title="Complete the followng"><i class="ti-alert"></i> Sign form</button>
+                            @endif
                         </div>
                     </div>
                     <div class="layer w-100 p-20">
                         <ul class="list-group">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Morbi leo risus</li>
-                            <li class="list-group-item">Porta ac consectetur ac</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
+                            @foreach ($draft->completion['messages'] as $message)
+                                <li class="list-group-item">
+                                    @switch($message['status'])
+                                        @case('complete')
+                                            <i class="fas fa-check-circle mR-10 text-success"></i>
+                                            @break
+                                        @case('incomplete')
+                                            <i class="fas fa-times-circle mR-10 text-danger"></i>
+                                            @break
+                                        @case('warning')
+                                            <i class="fas fa-exclamation-circle mR-10 c-amber-700"></i>
+                                            @break
+                                        @default
+
+                                    @endswitch
+                                    {{ $message['message'] }}
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -123,6 +144,7 @@
     </div>
 </div>
 
+@if ($draft->is_complete)
 <div class="modal fade" id="commitModal" tabindex="-1" role="dialog" aria-labelledby="commitModalTitle" aria-hidden="true">
     <form action="{{route('drafts.commit', ['id' => $draft->trimmed_id])}}" method="post">
         @method('PUT')
@@ -156,4 +178,5 @@
         </div>
     </form>
 </div>
+@endif
 @endsection

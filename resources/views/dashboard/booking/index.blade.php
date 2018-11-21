@@ -7,12 +7,84 @@
 
 @section('content')
 <div id='mainContent'>
+    @if(Auth::user()->is_admin)
+        <div class="row gap-20 pos-r">
+            <div class="col-md-6">
+                <div class="bd bgc-white">
+                    <div class="layers">
+                        <div class="layer bgc-light-blue-500 c-white w-100 p-20 bdB">
+                            <h5 class="lh-1 font-weight-bold m-0">QUEUE</h5>
+                        </div>
+                        <div class="layer w-100 p-20 bdB">
+                            @if($queue->isEmpty())
+                                <p class="m-0">{{__('No queued booking requests')}}</p>
+                            @else
+                                <table id="dataTable" class="table table-striped" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Room</th>
+                                            <th>Purpose</th>
+                                            <th>Complete at</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($queue as $booking)
+                                            <tr>
+                                                <td>{{ $booking->details->room->name }}</td>
+                                                <td>{{ $booking->details->purpose}}</td>
+                                                <td>{{ $booking->updated_at}}</td>
+                                                <td class="text-right pT-5 pB-3"><a class="btn btn-dark" href="{{ route('bookings.show', ['id' => $booking->trimmed_id]) }}">Details</a></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            @endempty
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bd bgc-white">
+                    <div class="layers">
+                        <div class="layer w-100 p-20 bdB">
+                            <h5 class="lh-1 font-weight-bold m-0 c-light-blue-500">HISTORY</h5>
+                        </div>
+                        <div class="layer w-100 p-20 bdB">
+                            @if($history->isEmpty())
+                                <p class="m-0">{{__('No past booking requests')}}</p>
+                            @else
+                                <table id="dataTable" class="table table-striped" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Room</th>
+                                            <th>Booked on</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($history as $booking)
+                                            <tr>
+                                                <td>{{ $booking->details->room->name }}</td>
+                                                <td>{{ $booking->details->start_datetime->format('d/m/Y')}}</td>
+                                                <td class="text-right pT-5 pB-3"><a class="btn btn-dark" href="{{ route('bookings.show', ['id' => $booking->trimmed_id]) }}">Details</a></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            @endempty
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @else
     <div class="row gap-20 pos-r">
         <div class="col-12">
             <div>
                 <div class="layers">
                     <div class="layer w-100 pX-20 pB-10">
-                        <a class="btn btn-secondary" href="{{ route('drafts.create.empty')}}" role="button"><i class="ti-bookmark"></i> Book a room</a>
+                        <a class="btn btn-secondary c-white" href="{{ route('drafts.create.empty')}}" role="button"><i class="ti-bookmark"></i> Book a room</a>
                     </div>
                 </div>
             </div>
@@ -93,5 +165,7 @@
             </div>
         </div>
     </div>
+    @endif
+
 </div>
 @endsection

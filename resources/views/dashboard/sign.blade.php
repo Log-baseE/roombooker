@@ -233,6 +233,7 @@
                 }, 5000);
             },
             error: function(xhr, message, error) {
+                console.log(xhr);
                 $('#status-pending').remove();
                 $('#status-container').addClass('bg-danger c-white');
                 $('#status-error').removeClass('d-n');

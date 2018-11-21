@@ -76,4 +76,39 @@ class BookingDraft extends Model
             && $this->end_datetime
             && $this->purpose;
     }
+
+    public function getCompletionAttribute()
+    {
+        $completion = [
+            'percent' => 0,
+            'messages' => [],
+        ];
+        $incomplete_count = 0;
+        array_push($completion['messages'], [
+            'status' => isset($this->room_id) ? 'complete' : 'incomplete',
+            'message' => isset($this->room_id) ? 'Room chosen' : 'Which room are you gonna pick?'
+        ]);
+        $incomplete_count += !isset($this->room_id);
+        array_push($completion['messages'], [
+            'status' => isset($this->start_datetime) ? 'complete' : 'incomplete',
+            'message' => isset($this->start_datetime) ? 'Start date time chosen' : 'When is the room booked?'
+        ]);
+        $incomplete_count += !isset($this->start_datetime);
+        array_push($completion['messages'], [
+            'status' => isset($this->end_datetime) ? 'complete' : 'incomplete',
+            'message' => isset($this->end_datetime) ? 'End date time chosen' : 'When is the booking finished?'
+        ]);
+        $incomplete_count += !isset($this->end_datetime);
+        array_push($completion['messages'], [
+            'status' => isset($this->purpose) ? 'complete' : 'incomplete',
+            'message' => isset($this->purpose) ? 'Booking purpose set' : 'What is the booking for?'
+        ]);
+        $incomplete_count += !isset($this->purpose);
+        array_push($completion['messages'], [
+            'status' => !$this->facilities->isEmpty() ? 'complete' : 'warning',
+            'message' => !$this->facilities->isEmpty() ? 'Required facilities chosen' : 'Are you sure no facilities are required?'
+        ]);
+        $completion['percent'] = (count($completion['messages']) - $incomplete_count)/count($completion['messages']) * 100;
+        return $completion;
+    }
 }

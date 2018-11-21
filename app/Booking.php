@@ -18,6 +18,7 @@ class Booking extends Model
         'created_at',
         'updated_at',
         'code_expiry',
+        'status_changed_at',
     ];
 
     protected $attributes = [

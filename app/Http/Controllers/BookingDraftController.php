@@ -58,16 +58,20 @@ class BookingDraftController extends Controller
         $draft->room_id = $request->input('room');
         $draft->purpose = $request->input('purpose');
         $draft->comments = $request->input('comment');
-        $draft->start_datetime = strtotime(str_replace('/', '-', $request->input('startDateTime')));
-        $draft->end_datetime = strtotime(str_replace('/', '-', $request->input('endDateTime')));
+        $sdt = strtotime(str_replace('/', '-', $request->input('startDateTime')));
+        $draft->start_datetime = $sdt ? $sdt : null;
+        $edt = strtotime(str_replace('/', '-', $request->input('endDateTime')));
+        $draft->end_datetime = $edt ? $edt : null;
         $draft->committed = false;
         $draft->booker_id = $request->user()->id;
         $draft->save();
-        $ids = array_keys($request->input('facility'));
-        $facilities = Facility::find($ids);
-        $draft->facilities()->attach($facilities, [
-            'room_id' => $draft->room_id
-        ]);
+        if($request->input('facility')) {
+            $ids = array_keys($request->input('facility'));
+            $facilities = Facility::find($ids);
+            $draft->facilities()->attach($facilities, [
+                'room_id' => $draft->room_id
+            ]);
+        }
         // return response()->json($draft, 200);
         return redirect()->action('BookingDraftController@show', ['id' => $draft->trimmed_id]);
     }

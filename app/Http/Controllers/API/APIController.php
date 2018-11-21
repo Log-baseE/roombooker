@@ -79,6 +79,7 @@ class APIController extends Controller
             $bid = $request->input('bid');
             $booking = Booking::findOrFail($bid);
             $booking->status = Booking::ACKNOWLEDGED_STATUS;
+            $booking->status_changed_at = Carbon::now();
             $booking->save();
 
             $signature = new Signature;
@@ -86,7 +87,9 @@ class APIController extends Controller
             $signature->booking_id = $booking->id;
             $signature->save();
 
-            return response()->json(['status' => $signature->is_valid], 200);
+            return response()->json([
+                'status' => intval($signature->is_valid)
+            ], 200);
         }
     }
 

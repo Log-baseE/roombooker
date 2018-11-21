@@ -10,28 +10,48 @@
 <input type="hidden" name="bid" value="{{ $booking->id }}">
 <div id='mainContent'>
     <div class="row gap-20 pos-r">
-        <div class="col-md-6">
+        <div class="{{ Auth::user()->is_admin && $booking->is_acknowledged ? 'col-md-4' : 'col-md-6 order-md-last order-first' }}">
             <div class="bd bgc-white h-100">
                 <div class="layers">
                     <div class="layer peers bdB w-100 p-20">
-                        <div class="peer">
+                        <div class="peer mR-10">
                             <h5 class="mB-0">{{__('Booking')}}: {{ $booking->id }}</h5>
                         </div>
                         <div class="peer">
                             @if($booking->is_incomplete)
-                                <span class="badge badge-pill badge-light text-danger mL-10">INCOMPLETE</span>
+                                <span class="badge badge-pill badge-light text-danger">INCOMPLETE</span>
                             @elseif($booking->is_acknowledged)
-                                <span class="badge badge-pill badge-secondary mL-10">PENDING</span>
+                                <span class="badge badge-pill badge-secondary">PENDING</span>
                             @elseif($booking->is_accepted)
                                 <span class="badge badge-pill badge-success mL-10">ACCEPTED</span>
                             @elseif($booking->is_rejected)
-                                <span class="badge badge-pill badge-danger mL-10">REJECTED</span>
+                                <span class="badge badge-pill badge-danger">REJECTED</span>
                             @endif
                         </div>
                     </div>
                     <div class="layer w-100 pY-10">
                         <table class="table-borderless">
                             <tbody>
+                                @if (Auth::user()->is_admin)
+                                <tr>
+                                    <th class="pX-20 pY-10 va-t" scope="row">{{__('Date of request')}}</th>
+                                    <td class="pX-20 pY-10 va-t" >
+                                        {{$booking->status_changed_at->format('d-M-Y')}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="pX-20 pY-10 va-t" scope="row">{{__('Requested by')}}</th>
+                                    <td class="pX-20 pY-10 va-t" >
+                                        {{$booking->details->booker->name}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="pX-20 pY-10 va-t" scope="row">{{__('Phone number')}}</th>
+                                    <td class="pX-20 pY-10 va-t" >
+                                        {{$booking->details->booker->phone}}
+                                    </td>
+                                </tr>
+                                @endif
                                 <tr>
                                     <th class="pX-20 pY-10 va-t" scope="row">{{__('Building')}}</th>
                                     <td class="pX-20 pY-10 va-t" >
@@ -47,13 +67,13 @@
                                 <tr>
                                     <th class="pX-20 pY-10 va-t" scope="row">{{__('Start use')}}</th>
                                     <td class="pX-20 pY-10 va-t" >
-                                        {{$booking->details->start_datetime->format('d/m/Y H:i')}}
+                                        {{$booking->details->start_datetime->format('d-M-Y H:i')}}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="pX-20 pY-10 va-t" scope="row">{{__('End use')}}</th>
                                     <td class="pX-20 pY-10 va-t" >
-                                        {{$booking->details->end_datetime->format('d/m/Y H:i')}}
+                                        {{$booking->details->end_datetime->format('d-M-Y H:i')}}
                                     </td>
                                 </tr>
                                 <tr>
@@ -83,17 +103,48 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 order-md-last order-first">
+        @if (Auth::user()->is_admin && $booking->is_acknowledged)
+            <div class="col-md-8">
+                <div id='full-calendar'></div>
+            </div>
+        @endif
+        <div class="{{ Auth::user()->is_admin && $booking->is_acknowledged ? 'col-12' : 'col-md-6 order-md-last order-first' }}">
             <div class="bd bgc-white h-100">
                 <div class="layers">
-                @if($booking->is_incomplete)
+                @if(Auth::user()->is_admin && $booking->is_acknowledged)
+                    <div class="layer bdB bg-dark c-white peers w-100 p-20">
+                        <div class="peer peer-greed">
+                            <h5 class="mB-0"><strong>ACTION</strong></h5>
+                        </div>
+                    </div>
+                    <div class="layer w-100 p-20 h-100">
+                        <h6>Signed by:</h6>
+                        <table class="table table-borderless va-m">
+                            <tbody>
+                                @foreach ($booking->signatures as $sgn)
+                                    <tr>
+                                        <th class="va-m whs-nw" scope="row">{{$sgn->signee->name}}</th>
+                                        <td class="va-m whs-nw">on</td>
+                                        <td class="va-m" style="width:99%">{{$sgn->created_at->format('d-M-Y H:i')}}</td>
+                                        <td class="va-m whs-nw"><button type="button" class="btn btn-secondary">Verify</button></td>
+                                        <input type="hidden" name="uid" value="{{$sgn->signee->id}}">
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="layer w-100 p-20">
+                        <button type="button" id="accept" class="btn btn-success">ACCEPT</button>
+                        <button type="button" id="reject" class="btn btn-light text-danger">REJECT</button>
+                    </div>
+                @elseif($booking->is_incomplete)
                     <div class="layer bdB text-danger peers w-100 p-20">
                         <div class="peer peer-greed">
                             <h5 class="mB-0"><strong>Almost there!</strong></h5>
                         </div>
                     </div>
                     <div class="layer w-100 p-20">
-                        <h5>Request a signature from a head of faculty or department by giving them the generated access code below</h5>
+                        <h5>Request a signature from a head of faculty or department by giving them the generated access code below. Once signed, refresh the page.</h5>
                         <div id="code-container" class="peers gap-20 ai-c mB-10 mT-20">
                             <h5 class="peer m-0">Access code: </h5>
                             <h5 id="code" class="peer m-0 bd pX-10 pY-5 fw-700 ta-c h-100" style="box-sizing: content-box; min-width: 75px; min-height: 26px">
