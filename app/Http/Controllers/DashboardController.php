@@ -4,6 +4,9 @@ namespace roombooker\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use roombooker\Booking;
+use Illuminate\Support\Carbon;
+use roombooker\Announcement;
 
 class DashboardController extends Controller
 {
@@ -25,24 +28,42 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $context_data = self::getContextData('Dashboard', 'dashboard', []);
+        $upcoming =
+            Booking::whereHas('details', function($query) {
+                $query->where('booker_id', Auth::user()->id)
+                      ->where('start_datetime', '>=', Carbon::now())
+                      ->orderBy('start_datetime', 'asc');
+            })->where('status', Booking::ACCEPTED_STATUS)->first();
+
+        $pending =
+            Booking::whereHas('details', function($query) {
+                $query->where('booker_id', Auth::user()->id)
+                      ->where('start_datetime', '>=', Carbon::now());
+            })->where('status', Booking::ACCEPTED_STATUS)->count();
+
+        $context_data = self::getContextData([
+            'upcoming' => $upcoming,
+            'pending_num' => $pending,
+            'announcements' => Announcement::take(10)->get(),
+        ]);
         return view('dashboard.index', $context_data);
     }
 
     /**
-     * Get context data of request
+     * Get context data of requests
      *
-     * @param string $title
-     * @param string $active_tab
      * @param array $payload
      * @return array
      */
-    private static function getContextData($title, $active_tab, $payload)
+    private static function getContextData($payload)
     {
-        return [
-            'title' => $title,
-            'active' => $active_tab,
-            'payload' => $payload
+        $context = [
+            'title' => 'Dashboard',
+            'active' => 'dashboard',
         ];
+        foreach ($payload as $key => $value) {
+            $context[$key] = $value;
+        }
+        return $context;
     }
 }
