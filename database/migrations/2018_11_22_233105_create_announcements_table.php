@@ -16,8 +16,10 @@ class CreateAnnouncementsTable extends Migration
         Schema::create('announcements', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->longText('content');
-            $table->dateTime('expired_at');
+            $table->longText('content')->nullable();
+            $table->boolean('posted')->default(false);
+            $table->dateTime('posted_at')->nullable();
+            $table->dateTime('expired_at')->nullable();
             $table->string('announcer_id');
             $table->timestamps();
 

@@ -37,6 +37,9 @@
             setTimeout(() => {
                 loader.classList.add('fadeOut');
             }, 300);
+            setTimeout(() => {
+                loader.parentNode.removeChild(loader);
+            }, 600);
         });
     </script>
 

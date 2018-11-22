@@ -48,6 +48,8 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapBookingWebRoutes();
 
         $this->mapDraftWebRoutes();
+
+        $this->mapAnnouncementWebRoutes();
     }
 
     /**
@@ -138,5 +140,18 @@ class RouteServiceProvider extends ServiceProvider
              ->namespace($this->namespace)
              ->prefix('dashboard/bookings/drafts')
              ->group(base_path('routes/web/draft.php'));
+    }
+
+    /**
+     * Define announcement routes
+     *
+     * @return void
+     */
+    protected function mapAnnouncementWebRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->prefix('dashboard/announcements')
+             ->group(base_path('routes/web/announcement.php'));
     }
 }

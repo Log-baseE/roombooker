@@ -63,7 +63,7 @@
                     <span class="title">Sign</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class='sidebar-link{{ $active == 'inbox' ? ' active' : '' }}' href="calendar.html">
                     <span class="icon-holder">
                         <i class="c-deep-orange-500 ti-email"></i>
@@ -78,9 +78,9 @@
                     </span>
                     <span class="title">Accounts</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
-                <a class='sidebar-link{{ $active == 'announcements' ? ' active' : '' }}no' href="charts.html">
+                <a class='sidebar-link{{ $active == 'announcements' ? ' active' : '' }}' href="{{ route('announcements.index') }}">
                     <span class="icon-holder">
                         <i class="c-indigo-500 ti-announcement"></i>
                     </span>

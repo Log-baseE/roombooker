@@ -15483,18 +15483,6 @@ hr {
   background-color: #5cb85c;
 }
 
-#loader {
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  opacity: 1;
-  display: default;
-}
-
-#loader.fadeOut {
-  opacity: 0;
-  display: none;
-}
-
 .spinner {
   width: 40px;
   height: 40px;
@@ -84665,11 +84653,12 @@ table.dataTable.no-footer {
   width: 100%;
   background: #fff;
   z-index: 90000;
+  margin-top: 0;
 }
 
 #loader.fadeOut {
   opacity: 0;
-  visibility: hidden;
+  visibility: none;
 }
 
 .spinner {

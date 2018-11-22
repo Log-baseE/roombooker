@@ -171,7 +171,7 @@
                                 </a>
                                 @endforeach
                             </div>
-                        @endempty
+                        @endif
                     </div>
                 </div>
             </div>

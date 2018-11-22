@@ -16,11 +16,12 @@
     width: 100%;
     background: #fff;
     z-index: 90000;
+    margin-top: 0;
 }
 
 #loader.fadeOut {
     opacity: 0;
-    visibility: hidden;
+    visibility: none;
 }
 
 .spinner {
