@@ -96,7 +96,7 @@
                         </table>
                     </div>
                     <div class="layer w-100 pB-20">
-                        <a name="edit" id="edit" class="btn btn-link" href="#" role="button" style="margin-left: 8px"><i class="ti-pencil"></i> Edit</a>|<button type="button" class="btn btn-link c-grey-500">Delete</button>
+                    <a name="edit" id="edit" class="btn btn-link" href="{{ route('drafts.edit', ['id' => $draft->trimmed_id])}}" role="button" style="margin-left: 8px"><i class="ti-pencil"></i> Edit</a>|<button type="button" id="_delete" data-toggle="modal" data-target="#deleteModal" class="btn btn-link c-grey-500">Delete</button>
                     </div>
                 </div>
             </div>
@@ -144,6 +144,40 @@
     </div>
 </div>
 
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalTitle" aria-hidden="true">
+    <form action="{{route('drafts.delete', ['id' => $draft->trimmed_id])}}" method="post">
+        @method('DELETE')
+        @csrf
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="deleteModalTitle"><strong>No turning back!</strong></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <div class="modal-body">
+                <div class="layers">
+                    <div class="layer w-100">
+                        Once submitted, all data related to the current draft will be permanently <strong class="text-danger">lost</strong> and <strong class="text-danger">cannot be recovered</strong>.
+                    </div>
+                    <div class="layer w-100 pT-20">
+                        <div class="form-group">
+                            <label for="digits">Enter <strong><span id="randoms"></span></strong> to delete</label>
+                            <input type="text" name="digits" id="digits" class="form-control" placeholder="XXXXXX" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-danger" id="delete" disabled>Delete</button>
+            </div>
+            </div>
+        </div>
+    </form>
+</div>
+
 @if ($draft->is_complete)
 <div class="modal fade" id="commitModal" tabindex="-1" role="dialog" aria-labelledby="commitModalTitle" aria-hidden="true">
     <form action="{{route('drafts.commit', ['id' => $draft->trimmed_id])}}" method="post">
@@ -189,5 +223,31 @@
         else
             $('#sign').attr('disabled', 'disabled');
     });
+    $('#_delete').click(function(e) {
+        $('#randoms').text(Math.random().toString(10).replace(/0\.?/, '').slice(0,6).toUpperCase());
+    });
+    $('#digits').keydown(function(e) {
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13]) !== -1 ||
+            (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+            (e.keyCode == 67 && (e.ctrlKey === true || e.metaKey === true)) ||
+            (e.keyCode == 88 && (e.ctrlKey === true || e.metaKey === true)) ||
+            (e.keyCode >= 35 && e.keyCode <= 40)) {
+                return;
+        }
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+        if ($(this).val().length >= 6) e.preventDefault();
+    });
+    $('#digits').keyup(function(e) {
+        let val = $(this).val();
+        let random = $('#randoms').text();
+        if(val == random){
+            $('#delete').attr('disabled', false);
+        } else {
+            $('#delete').attr('disabled', 'disabled');
+        }
+    });
+
 </script>
 @endsection

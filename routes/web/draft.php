@@ -14,16 +14,10 @@ Route::get('/d/{id}', 'BookingDraftController@show')->name('drafts.show');
 
 Route::put('/d/{id}/commit', 'BookingDraftController@commit')->name('drafts.commit');
 
-Route::get('/d/{id}/edit', function () {
+Route::get('/d/{id}/edit', 'BookingDraftController@edit')->name('drafts.edit');
 
-});
+Route::put('/d/{id}', 'BookingDraftController@update')->name('drafts.update');
 
-Route::put('/d/{id}', function () {
-
-});
-
-Route::delete('/d/{id}', function () {
-
-});
+Route::delete('/d/{id}', 'BookingDraftController@destroy')->name('drafts.delete');
 
 

@@ -3,8 +3,8 @@
 @section('breadcrumb')
 <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">{{__('Dashboard')}}</a></li>
 <li class="breadcrumb-item"><a href="{{ route('bookings.index') }}">{{__('Bookings')}}</a></li>
-<li class="breadcrumb-item"><a href="{{ route('bookings.index') }}">{{__('Drafts')}}</a></li>
-<li class="breadcrumb-item active" aria-current="page">{{ __('New') }}</li>
+<li class="breadcrumb-item"><a href="{{ route('drafts.show', ['id' => $draft->trimmed_id]) }}">{{ $draft->id }}</a></li>
+<li class="breadcrumb-item active" aria-current="page">{{ __('Edit') }}</li>
 @endsection
 
 @section('content')
@@ -14,18 +14,19 @@
             <div class="bd bgc-white h-100">
                 <div class="layers">
                     <div class="layer w-100 pX-20 pT-20">
-                        <h6 class="lh-1 font-weight-bold">{{__('MAKE A BOOKING DRAFT')}}</h6>
+                        <h6 class="lh-1 font-weight-bold">{{ $draft->id }} (edit)</h6>
                     </div>
                     <div class="layer w-100 p-20">
-                        <form id="bookingForm" action="{{ route('drafts.store') }}" method="POST">
+                        <form id="bookingForm" action="{{ route('drafts.update', ['id' => $draft->trimmed_id]) }}" method="POST">
                             @csrf
+                            @method('put')
                             <div class="form-group">
                                 <label for="building">Building <span class="c-red-500">*</span></label>
                                 <select class="custom-select" name="building" id="building">
-                                    @isset($current)
+                                    @isset($draft->room)
                                         <option value="">Select one</option>
                                         @foreach ($buildings as $building)
-                                            <option value="{{$building->id}}" {{$current->building->id == $building->id ? 'selected' : ''}}>{{$building->name}}</option>
+                                            <option value="{{$building->id}}" {{$draft->room->building->id == $building->id ? 'selected' : ''}}>{{$building->name}}</option>
                                         @endforeach
                                     @else
                                         <option value="" selected>Select one</option>
@@ -39,10 +40,10 @@
                                 <label for="room">Room <span class="c-red-500">*</span>
                                     <i class="loading-cog fas fa-circle-notch d-n"></i>
                                 </label>
-                                <select class="custom-select" name="room" id="room" {{ isset($current) ? '' : 'disabled'}}>
-                                    @isset($current)
-                                        @foreach ($current->building->rooms as $room)
-                                            <option value="{{$room->id}}" {{$current->id == $room->id ? 'selected' : ''}}>{{$room->name}}</option>
+                                <select class="custom-select" name="room" id="room" {{ isset($draft->room) ? '' : 'disabled'}}>
+                                    @isset($draft->room)
+                                        @foreach ($draft->room->building->rooms as $room)
+                                            <option value="{{$room->id}}" {{$draft->room->id == $room->id ? 'selected' : ''}}>{{$room->name}}</option>
                                         @endforeach
                                     @else
                                         <option value="" selected>Select a building first</option>
@@ -67,10 +68,14 @@
                                     <label class="d-b" for="facilities">Facilities required
                                         <i class="mL-5 loading-cog fas fa-circle-notch d-n"></i>
                                     </label>
-                                    @isset($current)
-                                        @foreach ($current->facilities as $facility)
+                                    @isset($draft->room)
+                                        @foreach ($draft->room->facilities as $facility)
                                             <div class="custom-control custom-checkbox">
+                                                @if($draft->facilities()->where('id', $facility->id)->first() !== null)
+                                                <input type="checkbox" class="custom-control-input" name="facility[{{$facility->id}}]" id="facility-{{$facility->id}}" checked>
+                                                @else
                                                 <input type="checkbox" class="custom-control-input" name="facility[{{$facility->id}}]" id="facility-{{$facility->id}}">
+                                                @endisset
                                                 <label class="custom-control-label" for="facility-{{$facility->id}}">{{$facility->name}}</label>
                                             </div>
                                         @endforeach
@@ -81,17 +86,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="purpose">{{__('Purpose')}} <span class="c-red-500">*</span></label>
-                                <input type="text" class="form-control" name="purpose" id="purpose" placeholder="">
+                                <input value="{{$draft->purpose}}" type="text" class="form-control" name="purpose" id="purpose" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="comment">{{__('Other comments')}}</label>
-                                <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
+                                <textarea class="form-control" name="comment" id="comment" rows="3">{{$draft->comments}}</textarea>
                             </div>
                             <button class="btn btn-dark" type="submit">
                                 <i class="ti-save fsz-xs mR-5"></i>
                                 {{__('Save draft')}}
                             </button>
-                            <button class="btn btn-link c-red-500" type="submit" onclick="window.history.go(-1)">
+                            <button class="btn btn-link c-red-500" type="submit" onclick="{{ route('drafts.show', ['id' => $draft->trimmed_id]) }}">
                                 {{__('Cancel')}}
                             </button>
                         </form>
@@ -187,5 +192,7 @@
             });
         }
     });
+    $('#startDateTime').datetimepicker('date', '{{isset($draft->start_datetime) ? $draft->start_datetime->format('d/m/Y H:i') : '' }}');
+    $('#endDateTime').datetimepicker('date', '{{isset($draft->end_datetime) ? $draft->end_datetime->format('d/m/Y H:i') : '' }}');
 </script>
 @endsection

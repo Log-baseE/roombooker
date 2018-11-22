@@ -37,6 +37,11 @@ class BookingDraft extends Model
                     ->wherePivot('room_id', $this->room_id);
     }
 
+    public function bookedFacilities()
+    {
+        return $this->hasMany('roombooker\BookedFacility', 'draft_id');
+    }
+
     public function booking()
     {
         return $this->hasOne('roombooker\Booking', 'draft_id');
