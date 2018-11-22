@@ -128,7 +128,7 @@ class AnnouncementController extends Controller
      */
     public function destroy($id)
     {
-        $announcement = Announcement::where('announcer_id', $request->user()->id)->findOrFail($id);
+        $announcement = Announcement::where('announcer_id', Auth::user()->id)->findOrFail($id);
         $announcement->delete();
         return redirect()->action('AnnouncementController@index');
     }
