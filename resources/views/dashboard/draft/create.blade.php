@@ -91,7 +91,7 @@
                                 <i class="ti-save fsz-xs mR-5"></i>
                                 {{__('Save draft')}}
                             </button>
-                            <button class="btn btn-link c-red-500" type="submit" onclick="window.history.go(-1)">
+                            <button class="btn btn-link c-red-500" type="button" onclick="window.history.go(-1)">
                                 {{__('Cancel')}}
                             </button>
                         </form>

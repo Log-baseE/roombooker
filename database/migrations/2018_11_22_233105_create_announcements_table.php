@@ -20,6 +20,7 @@ class CreateAnnouncementsTable extends Migration
             $table->boolean('posted')->default(false);
             $table->dateTime('posted_at')->nullable();
             $table->dateTime('expired_at')->nullable();
+            $table->unsignedInteger('expiry');
             $table->string('announcer_id');
             $table->timestamps();
 

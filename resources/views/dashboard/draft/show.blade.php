@@ -159,7 +159,7 @@
             <div class="modal-body">
                 <div class="layers">
                     <div class="layer w-100">
-                        Once submitted, all data related to the current draft will be permanently <strong class="text-danger">lost</strong> and <strong class="text-danger">cannot be recovered</strong>.
+                        Once deleted, all data related to the current draft will be permanently <strong class="text-danger">lost</strong> and <strong class="text-danger">cannot be recovered</strong>.
                     </div>
                     <div class="layer w-100 pT-20">
                         <div class="form-group">
@@ -225,6 +225,8 @@
     });
     $('#_delete').click(function(e) {
         $('#randoms').text(Math.random().toString(10).replace(/0\.?/, '').slice(0,6).toUpperCase());
+        $('#delete').attr('disabled', 'disabled');
+        $('#digits').val('');
     });
     $('#digits').keydown(function(e) {
         if ($.inArray(e.keyCode, [46, 8, 9, 27, 13]) !== -1 ||

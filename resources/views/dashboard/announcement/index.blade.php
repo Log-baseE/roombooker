@@ -30,17 +30,14 @@
                             @if($drafts->isEmpty())
                                 <p class="m-0">{{__('No announcement drafts')}}</p>
                             @else
-                                <ul class="list-group">
+                                <div class="list-group">
                                     @foreach ($drafts as $draft)
-                                    <li href="{{ route('announcements.show', ['id' => $draft->id])}}" class="list-group-item list-group-item-action d-f ai-c">
+                                    <a href="{{ route('announcements.show', ['id' => $draft->id])}}" class="list-group-item list-group-item-action d-f ai-c">
                                         <span class="fxg-1">{{ $draft->title }}</span>
-                                        <a href="{{ route('announcements.edit', ['id' => $draft->id])}}"><i class="ti-pencil"></i></a>
-                                        <button type="button" class="btn btn-dark" data-url="{{ route('announcements.post', ['id' => $draft->id]) }}">
-                                            Post
-                                        </button>
-                                    </li>
+                                        <span class="text-muted">Last edited on: {{ $draft->updated_at->format('d-M-Y h:i') }}</span>
+                                    </a>
                                     @endforeach
-                                </ul>
+                                </div>
                             @endif
                         </div>
                     </div>
@@ -62,9 +59,10 @@
                                 @foreach ($announcements as $a)
                                     <div class="card">
                                         <div class="card-body">
-                                            <h6 class="card-title">{{ $a->title }}</h6>
+                                            <h6 class="card-title font-weight-bold m-0">{{ $a->title }}</h6>
                                             <small class="card-subtitle text-muted mB-10">Posted at {{ $a->posted_at->format('d-M-Y H:i') }}</small>
-                                            <p class="card-text">{{ $a->content }}</p>
+                                            <p class="card-text mT-10">{{ str_limit($a->content, $limit = 100, $end = '...') }}</p>
+                                            <a href="{{ route('announcements.show', ['id' => $a->id])}}">See more &rarr;</a>
                                         </div>
                                     </div>
                                 @endforeach

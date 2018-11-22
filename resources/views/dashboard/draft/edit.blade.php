@@ -96,7 +96,7 @@
                                 <i class="ti-save fsz-xs mR-5"></i>
                                 {{__('Save draft')}}
                             </button>
-                            <button class="btn btn-link c-red-500" type="submit" onclick="{{ route('drafts.show', ['id' => $draft->trimmed_id]) }}">
+                            <button class="btn btn-link c-red-500" type="button" onclick="{{ route('drafts.show', ['id' => $draft->trimmed_id]) }}">
                                 {{__('Cancel')}}
                             </button>
                         </form>

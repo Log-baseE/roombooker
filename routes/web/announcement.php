@@ -14,4 +14,4 @@ Route::put('/a/{id}', 'AnnouncementController@update')->name('announcements.upda
 
 Route::delete('/a/{id}', 'AnnouncementController@destroy')->name('announcements.delete');
 
-
+Route::put('/a/{id}/post', 'AnnouncementController@post')->name('announcements.post');

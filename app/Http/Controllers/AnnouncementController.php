@@ -37,7 +37,10 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        //
+        $context = [
+            'title' => 'Create announcement'
+        ];
+        return view('dashboard.announcement.create', self::getContextData($context));
     }
 
     /**
@@ -48,7 +51,18 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $title = $request->input('title');
+        $expiry = $request->input('expiry');
+        $content = $request->input('content');
+
+        $announcement = new Announcement;
+        $announcement->title = $title;
+        $announcement->expiry = $expiry;
+        $announcement->content = $content;
+        $announcement->announcer_id = $request->user()->id;
+        $announcement->save();
+
+        return redirect()->action('AnnouncementController@show', ['id' => $announcement->id]);
     }
 
     /**
@@ -59,7 +73,12 @@ class AnnouncementController extends Controller
      */
     public function show($id)
     {
-        //
+        $announcement = Announcement::findOrFail($id);
+        $context = [
+            'title' => $announcement->title,
+            'announcement' => $announcement,
+        ];
+        return view('dashboard.announcement.show', self::getContextData($context));
     }
 
     /**
@@ -70,7 +89,12 @@ class AnnouncementController extends Controller
      */
     public function edit($id)
     {
-        //
+        $draft = Announcement::where('announcer_id', Auth::user()->id)->findOrFail($id);
+        $context = [
+            'title' => 'Edit announcement',
+            'draft' => $draft,
+        ];
+        return view('dashboard.announcement.edit', self::getContextData($context));
     }
 
     /**
@@ -82,7 +106,18 @@ class AnnouncementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $title = $request->input('title');
+        $expiry = $request->input('expiry');
+        $content = $request->input('content');
+
+        $announcement = Announcement::where('announcer_id', $request->user()->id)->findOrFail($id);
+        $announcement->title = $title;
+        $announcement->expiry = $expiry;
+        $announcement->content = $content;
+        $announcement->announcer_id = $request->user()->id;
+        $announcement->save();
+
+        return redirect()->action('AnnouncementController@show', ['id' => $id]);
     }
 
     /**
@@ -93,7 +128,36 @@ class AnnouncementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $announcement = Announcement::where('announcer_id', $request->user()->id)->findOrFail($id);
+        $announcement->delete();
+        return redirect()->action('AnnouncementController@index');
+    }
+
+    public function post(Request $request, $id)
+    {
+        $announcement = Announcement::where('announcer_id', $request->user()->id)->findOrFail($id);
+        $announcement->posted = true;
+        $announcement->posted_at = Carbon::now();
+        switch ($announcement->expiry) {
+            case Announcement::ONE_HOUR_EXPIRY:
+                $announcement->expired_at = Carbon::now()->addHour(1);
+                break;
+            case Announcement::ONE_DAY_EXPIRY:
+                $announcement->expired_at = Carbon::now()->addDay(1);
+                break;
+            case Announcement::ONE_WEEK_EXPIRY:
+                $announcement->expired_at = Carbon::now()->addWeek(1);
+                break;
+            case Announcement::ONE_MONTH_EXPIRY:
+                $announcement->expired_at = Carbon::now()->addMonth(1);
+                break;
+            default:
+                $announcement->expired_at = Carbon::now()->addYear(1);
+                break;
+        }
+        $announcement->save();
+
+        return redirect()->action('AnnouncementController@show', ['id' => $id]);
     }
 
     /**
