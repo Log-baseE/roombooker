@@ -44,6 +44,7 @@
     },
     "devDependencies": {
         "browser-sync": "^2.26.3",
-        "browser-sync-webpack-plugin": "^2.0.1"
+        "browser-sync-webpack-plugin": "^2.0.1",
+        "sw-precache-webpack-plugin": "^0.11.5"
     }
 }

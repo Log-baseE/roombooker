@@ -36,3 +36,5 @@ Route::post('/checkSignature', 'API\APIController@checkSignature');
 Route::post('/accept', 'API\APIController@accept');
 
 Route::post('/reject', 'API\APIController@reject');
+
+Route::post('/contact', 'API\MailController');
