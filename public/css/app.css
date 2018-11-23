@@ -454,7 +454,8 @@ h6,
 }
 
 .display-4,
-.account-content h1 {
+.account-content h1,
+.contact-content h1 {
   font-size: 3.5rem;
   font-weight: 300;
   line-height: 1.2;
@@ -591,7 +592,8 @@ pre code {
 .about,
 .admin .content,
 .login-section,
-.signup-section {
+.signup-section,
+.contact-section {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -605,7 +607,8 @@ pre code {
   .about,
   .admin .content,
   .login-section,
-  .signup-section {
+  .signup-section,
+  .contact-section {
     max-width: 540px;
   }
 }
@@ -616,7 +619,8 @@ pre code {
   .about,
   .admin .content,
   .login-section,
-  .signup-section {
+  .signup-section,
+  .contact-section {
     max-width: 720px;
   }
 }
@@ -627,7 +631,8 @@ pre code {
   .about,
   .admin .content,
   .login-section,
-  .signup-section {
+  .signup-section,
+  .contact-section {
     max-width: 960px;
   }
 }
@@ -638,7 +643,8 @@ pre code {
   .about,
   .admin .content,
   .login-section,
-  .signup-section {
+  .signup-section,
+  .contact-section {
     max-width: 1140px;
   }
 }
@@ -705,7 +711,9 @@ pre code {
 .col-md-3,
 .col-md-4,
 .col-md-5,
+.contact-content,
 .col-md-6,
+.contact-card,
 .col-md-7,
 .col-md-8,
 .col-md-9,
@@ -1275,14 +1283,16 @@ pre code {
     max-width: 33.33333333%;
   }
 
-  .col-md-5 {
+  .col-md-5,
+  .contact-content {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 41.66666667%;
             flex: 0 0 41.66666667%;
     max-width: 41.66666667%;
   }
 
-  .col-md-6 {
+  .col-md-6,
+  .contact-card {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 50%;
             flex: 0 0 50%;
@@ -1425,7 +1435,8 @@ pre code {
     margin-left: 0;
   }
 
-  .offset-md-1 {
+  .offset-md-1,
+  .contact-card {
     margin-left: 8.33333333%;
   }
 
@@ -2256,7 +2267,10 @@ pre code {
 .form-control,
 .account-card input[type=text],
 .account-card input[type=email],
-.account-card input[type=password] {
+.account-card input[type=password],
+.contact-card input[type=text],
+.contact-card input[type=email],
+.contact-card input[type=password] {
   display: block;
   width: 100%;
   height: calc(2.19rem + 2px);
@@ -2278,7 +2292,10 @@ pre code {
   .form-control,
   .account-card input[type=text],
   .account-card input[type=email],
-  .account-card input[type=password] {
+  .account-card input[type=password],
+  .contact-card input[type=text],
+  .contact-card input[type=email],
+  .contact-card input[type=password] {
     -webkit-transition: none;
     transition: none;
   }
@@ -2287,7 +2304,10 @@ pre code {
 .form-control::-ms-expand,
 .account-card input[type=text]::-ms-expand,
 .account-card input[type=email]::-ms-expand,
-.account-card input[type=password]::-ms-expand {
+.account-card input[type=password]::-ms-expand,
+.contact-card input[type=text]::-ms-expand,
+.contact-card input[type=email]::-ms-expand,
+.contact-card input[type=password]::-ms-expand {
   background-color: transparent;
   border: 0;
 }
@@ -2295,7 +2315,10 @@ pre code {
 .form-control:focus,
 .account-card input:focus[type=text],
 .account-card input:focus[type=email],
-.account-card input:focus[type=password] {
+.account-card input:focus[type=password],
+.contact-card input:focus[type=text],
+.contact-card input:focus[type=email],
+.contact-card input:focus[type=password] {
   color: #495057;
   background-color: #fff;
   border-color: #a1cbef;
@@ -2307,7 +2330,10 @@ pre code {
 .form-control::-webkit-input-placeholder,
 .account-card input[type=text]::-webkit-input-placeholder,
 .account-card input[type=email]::-webkit-input-placeholder,
-.account-card input[type=password]::-webkit-input-placeholder {
+.account-card input[type=password]::-webkit-input-placeholder,
+.contact-card input[type=text]::-webkit-input-placeholder,
+.contact-card input[type=email]::-webkit-input-placeholder,
+.contact-card input[type=password]::-webkit-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
@@ -2315,7 +2341,10 @@ pre code {
 .form-control::-ms-input-placeholder,
 .account-card input[type=text]::-ms-input-placeholder,
 .account-card input[type=email]::-ms-input-placeholder,
-.account-card input[type=password]::-ms-input-placeholder {
+.account-card input[type=password]::-ms-input-placeholder,
+.contact-card input[type=text]::-ms-input-placeholder,
+.contact-card input[type=email]::-ms-input-placeholder,
+.contact-card input[type=password]::-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
@@ -2323,7 +2352,10 @@ pre code {
 .form-control::placeholder,
 .account-card input[type=text]::placeholder,
 .account-card input[type=email]::placeholder,
-.account-card input[type=password]::placeholder {
+.account-card input[type=password]::placeholder,
+.contact-card input[type=text]::placeholder,
+.contact-card input[type=email]::placeholder,
+.contact-card input[type=password]::placeholder {
   color: #6c757d;
   opacity: 1;
 }
@@ -2332,10 +2364,16 @@ pre code {
 .account-card input:disabled[type=text],
 .account-card input:disabled[type=email],
 .account-card input:disabled[type=password],
+.contact-card input:disabled[type=text],
+.contact-card input:disabled[type=email],
+.contact-card input:disabled[type=password],
 .form-control[readonly],
 .account-card input[readonly][type=text],
 .account-card input[readonly][type=email],
-.account-card input[readonly][type=password] {
+.account-card input[readonly][type=password],
+.contact-card input[readonly][type=text],
+.contact-card input[readonly][type=email],
+.contact-card input[readonly][type=password] {
   background-color: #e9ecef;
   opacity: 1;
 }
@@ -2511,10 +2549,19 @@ textarea.form-control {
 .account-card .was-validated input:valid[type=email],
 .was-validated .account-card input:valid[type=password],
 .account-card .was-validated input:valid[type=password],
+.was-validated .contact-card input:valid[type=text],
+.contact-card .was-validated input:valid[type=text],
+.was-validated .contact-card input:valid[type=email],
+.contact-card .was-validated input:valid[type=email],
+.was-validated .contact-card input:valid[type=password],
+.contact-card .was-validated input:valid[type=password],
 .form-control.is-valid,
 .account-card input.is-valid[type=text],
 .account-card input.is-valid[type=email],
 .account-card input.is-valid[type=password],
+.contact-card input.is-valid[type=text],
+.contact-card input.is-valid[type=email],
+.contact-card input.is-valid[type=password],
 .was-validated
 .custom-select:valid,
 .custom-select.is-valid {
@@ -2528,10 +2575,19 @@ textarea.form-control {
 .account-card .was-validated input:valid:focus[type=email],
 .was-validated .account-card input:valid:focus[type=password],
 .account-card .was-validated input:valid:focus[type=password],
+.was-validated .contact-card input:valid:focus[type=text],
+.contact-card .was-validated input:valid:focus[type=text],
+.was-validated .contact-card input:valid:focus[type=email],
+.contact-card .was-validated input:valid:focus[type=email],
+.was-validated .contact-card input:valid:focus[type=password],
+.contact-card .was-validated input:valid:focus[type=password],
 .form-control.is-valid:focus,
 .account-card input.is-valid:focus[type=text],
 .account-card input.is-valid:focus[type=email],
 .account-card input.is-valid:focus[type=password],
+.contact-card input.is-valid:focus[type=text],
+.contact-card input.is-valid:focus[type=email],
+.contact-card input.is-valid:focus[type=password],
 .was-validated
 .custom-select:valid:focus,
 .custom-select.is-valid:focus {
@@ -2547,6 +2603,12 @@ textarea.form-control {
 .account-card .was-validated input:valid[type=email] ~ .valid-feedback,
 .was-validated .account-card input:valid[type=password] ~ .valid-feedback,
 .account-card .was-validated input:valid[type=password] ~ .valid-feedback,
+.was-validated .contact-card input:valid[type=text] ~ .valid-feedback,
+.contact-card .was-validated input:valid[type=text] ~ .valid-feedback,
+.was-validated .contact-card input:valid[type=email] ~ .valid-feedback,
+.contact-card .was-validated input:valid[type=email] ~ .valid-feedback,
+.was-validated .contact-card input:valid[type=password] ~ .valid-feedback,
+.contact-card .was-validated input:valid[type=password] ~ .valid-feedback,
 .was-validated .form-control:valid ~ .valid-tooltip,
 .was-validated .account-card input:valid[type=text] ~ .valid-tooltip,
 .account-card .was-validated input:valid[type=text] ~ .valid-tooltip,
@@ -2554,14 +2616,26 @@ textarea.form-control {
 .account-card .was-validated input:valid[type=email] ~ .valid-tooltip,
 .was-validated .account-card input:valid[type=password] ~ .valid-tooltip,
 .account-card .was-validated input:valid[type=password] ~ .valid-tooltip,
+.was-validated .contact-card input:valid[type=text] ~ .valid-tooltip,
+.contact-card .was-validated input:valid[type=text] ~ .valid-tooltip,
+.was-validated .contact-card input:valid[type=email] ~ .valid-tooltip,
+.contact-card .was-validated input:valid[type=email] ~ .valid-tooltip,
+.was-validated .contact-card input:valid[type=password] ~ .valid-tooltip,
+.contact-card .was-validated input:valid[type=password] ~ .valid-tooltip,
 .form-control.is-valid ~ .valid-feedback,
 .account-card input.is-valid[type=text] ~ .valid-feedback,
 .account-card input.is-valid[type=email] ~ .valid-feedback,
 .account-card input.is-valid[type=password] ~ .valid-feedback,
+.contact-card input.is-valid[type=text] ~ .valid-feedback,
+.contact-card input.is-valid[type=email] ~ .valid-feedback,
+.contact-card input.is-valid[type=password] ~ .valid-feedback,
 .form-control.is-valid ~ .valid-tooltip,
 .account-card input.is-valid[type=text] ~ .valid-tooltip,
 .account-card input.is-valid[type=email] ~ .valid-tooltip,
 .account-card input.is-valid[type=password] ~ .valid-tooltip,
+.contact-card input.is-valid[type=text] ~ .valid-tooltip,
+.contact-card input.is-valid[type=email] ~ .valid-tooltip,
+.contact-card input.is-valid[type=password] ~ .valid-tooltip,
 .was-validated
 .custom-select:valid ~ .valid-feedback,
 .was-validated
@@ -2713,10 +2787,19 @@ textarea.form-control {
 .account-card .was-validated input:invalid[type=email],
 .was-validated .account-card input:invalid[type=password],
 .account-card .was-validated input:invalid[type=password],
+.was-validated .contact-card input:invalid[type=text],
+.contact-card .was-validated input:invalid[type=text],
+.was-validated .contact-card input:invalid[type=email],
+.contact-card .was-validated input:invalid[type=email],
+.was-validated .contact-card input:invalid[type=password],
+.contact-card .was-validated input:invalid[type=password],
 .form-control.is-invalid,
 .account-card input.is-invalid[type=text],
 .account-card input.is-invalid[type=email],
 .account-card input.is-invalid[type=password],
+.contact-card input.is-invalid[type=text],
+.contact-card input.is-invalid[type=email],
+.contact-card input.is-invalid[type=password],
 .was-validated
 .custom-select:invalid,
 .custom-select.is-invalid {
@@ -2730,10 +2813,19 @@ textarea.form-control {
 .account-card .was-validated input:invalid:focus[type=email],
 .was-validated .account-card input:invalid:focus[type=password],
 .account-card .was-validated input:invalid:focus[type=password],
+.was-validated .contact-card input:invalid:focus[type=text],
+.contact-card .was-validated input:invalid:focus[type=text],
+.was-validated .contact-card input:invalid:focus[type=email],
+.contact-card .was-validated input:invalid:focus[type=email],
+.was-validated .contact-card input:invalid:focus[type=password],
+.contact-card .was-validated input:invalid:focus[type=password],
 .form-control.is-invalid:focus,
 .account-card input.is-invalid:focus[type=text],
 .account-card input.is-invalid:focus[type=email],
 .account-card input.is-invalid:focus[type=password],
+.contact-card input.is-invalid:focus[type=text],
+.contact-card input.is-invalid:focus[type=email],
+.contact-card input.is-invalid:focus[type=password],
 .was-validated
 .custom-select:invalid:focus,
 .custom-select.is-invalid:focus {
@@ -2749,6 +2841,12 @@ textarea.form-control {
 .account-card .was-validated input:invalid[type=email] ~ .invalid-feedback,
 .was-validated .account-card input:invalid[type=password] ~ .invalid-feedback,
 .account-card .was-validated input:invalid[type=password] ~ .invalid-feedback,
+.was-validated .contact-card input:invalid[type=text] ~ .invalid-feedback,
+.contact-card .was-validated input:invalid[type=text] ~ .invalid-feedback,
+.was-validated .contact-card input:invalid[type=email] ~ .invalid-feedback,
+.contact-card .was-validated input:invalid[type=email] ~ .invalid-feedback,
+.was-validated .contact-card input:invalid[type=password] ~ .invalid-feedback,
+.contact-card .was-validated input:invalid[type=password] ~ .invalid-feedback,
 .was-validated .form-control:invalid ~ .invalid-tooltip,
 .was-validated .account-card input:invalid[type=text] ~ .invalid-tooltip,
 .account-card .was-validated input:invalid[type=text] ~ .invalid-tooltip,
@@ -2756,14 +2854,26 @@ textarea.form-control {
 .account-card .was-validated input:invalid[type=email] ~ .invalid-tooltip,
 .was-validated .account-card input:invalid[type=password] ~ .invalid-tooltip,
 .account-card .was-validated input:invalid[type=password] ~ .invalid-tooltip,
+.was-validated .contact-card input:invalid[type=text] ~ .invalid-tooltip,
+.contact-card .was-validated input:invalid[type=text] ~ .invalid-tooltip,
+.was-validated .contact-card input:invalid[type=email] ~ .invalid-tooltip,
+.contact-card .was-validated input:invalid[type=email] ~ .invalid-tooltip,
+.was-validated .contact-card input:invalid[type=password] ~ .invalid-tooltip,
+.contact-card .was-validated input:invalid[type=password] ~ .invalid-tooltip,
 .form-control.is-invalid ~ .invalid-feedback,
 .account-card input.is-invalid[type=text] ~ .invalid-feedback,
 .account-card input.is-invalid[type=email] ~ .invalid-feedback,
 .account-card input.is-invalid[type=password] ~ .invalid-feedback,
+.contact-card input.is-invalid[type=text] ~ .invalid-feedback,
+.contact-card input.is-invalid[type=email] ~ .invalid-feedback,
+.contact-card input.is-invalid[type=password] ~ .invalid-feedback,
 .form-control.is-invalid ~ .invalid-tooltip,
 .account-card input.is-invalid[type=text] ~ .invalid-tooltip,
 .account-card input.is-invalid[type=email] ~ .invalid-tooltip,
 .account-card input.is-invalid[type=password] ~ .invalid-tooltip,
+.contact-card input.is-invalid[type=text] ~ .invalid-tooltip,
+.contact-card input.is-invalid[type=email] ~ .invalid-tooltip,
+.contact-card input.is-invalid[type=password] ~ .invalid-tooltip,
 .was-validated
 .custom-select:invalid ~ .invalid-feedback,
 .was-validated
@@ -2941,7 +3051,13 @@ textarea.form-control {
   .form-inline .account-card input[type=email],
   .account-card .form-inline input[type=email],
   .form-inline .account-card input[type=password],
-  .account-card .form-inline input[type=password] {
+  .account-card .form-inline input[type=password],
+  .form-inline .contact-card input[type=text],
+  .contact-card .form-inline input[type=text],
+  .form-inline .contact-card input[type=email],
+  .contact-card .form-inline input[type=email],
+  .form-inline .contact-card input[type=password],
+  .contact-card .form-inline input[type=password] {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -2999,8 +3115,10 @@ textarea.form-control {
 .main-action,
 .main-nav .navbar-links ul li > a.dashboard-action,
 .account-card button[type=submit],
+.contact-card button[type=submit],
 .secondary-action,
-.account-card .forgot-password {
+.account-card .forgot-password,
+.contact-card .forgot-password {
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -3026,8 +3144,10 @@ textarea.form-control {
   .main-action,
   .main-nav .navbar-links ul li > a.dashboard-action,
   .account-card button[type=submit],
+  .contact-card button[type=submit],
   .secondary-action,
-  .account-card .forgot-password {
+  .account-card .forgot-password,
+  .contact-card .forgot-password {
     -webkit-transition: none;
     transition: none;
   }
@@ -3037,14 +3157,18 @@ textarea.form-control {
 .main-action:hover,
 .main-nav .navbar-links ul li > a.dashboard-action:hover,
 .account-card button:hover[type=submit],
+.contact-card button:hover[type=submit],
 .secondary-action:hover,
 .account-card .forgot-password:hover,
+.contact-card .forgot-password:hover,
 .btn:focus,
 .main-action:focus,
 .main-nav .navbar-links ul li > a.dashboard-action:focus,
 .account-card button:focus[type=submit],
+.contact-card button:focus[type=submit],
 .secondary-action:focus,
-.account-card .forgot-password:focus {
+.account-card .forgot-password:focus,
+.contact-card .forgot-password:focus {
   text-decoration: none;
 }
 
@@ -3052,14 +3176,18 @@ textarea.form-control {
 .main-action:focus,
 .main-nav .navbar-links ul li > a.dashboard-action:focus,
 .account-card button:focus[type=submit],
+.contact-card button:focus[type=submit],
 .secondary-action:focus,
 .account-card .forgot-password:focus,
+.contact-card .forgot-password:focus,
 .btn.focus,
 .focus.main-action,
 .main-nav .navbar-links ul li > a.focus.dashboard-action,
 .account-card button.focus[type=submit],
+.contact-card button.focus[type=submit],
 .focus.secondary-action,
-.account-card .focus.forgot-password {
+.account-card .focus.forgot-password,
+.contact-card .focus.forgot-password {
   outline: 0;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
           box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
@@ -3069,14 +3197,18 @@ textarea.form-control {
 .disabled.main-action,
 .main-nav .navbar-links ul li > a.disabled.dashboard-action,
 .account-card button.disabled[type=submit],
+.contact-card button.disabled[type=submit],
 .disabled.secondary-action,
 .account-card .disabled.forgot-password,
+.contact-card .disabled.forgot-password,
 .btn:disabled,
 .main-action:disabled,
 .main-nav .navbar-links ul li > a.dashboard-action:disabled,
 .account-card button:disabled[type=submit],
+.contact-card button:disabled[type=submit],
 .secondary-action:disabled,
-.account-card .forgot-password:disabled {
+.account-card .forgot-password:disabled,
+.contact-card .forgot-password:disabled {
   opacity: 0.65;
 }
 
@@ -3084,8 +3216,10 @@ textarea.form-control {
 .main-action:not(:disabled):not(.disabled),
 .main-nav .navbar-links ul li > a.dashboard-action:not(:disabled):not(.disabled),
 .account-card button:not(:disabled):not(.disabled)[type=submit],
+.contact-card button:not(:disabled):not(.disabled)[type=submit],
 .secondary-action:not(:disabled):not(.disabled),
-.account-card .forgot-password:not(:disabled):not(.disabled) {
+.account-card .forgot-password:not(:disabled):not(.disabled),
+.contact-card .forgot-password:not(:disabled):not(.disabled) {
   cursor: pointer;
 }
 
@@ -3094,13 +3228,16 @@ a.disabled.main-action,
 .main-nav .navbar-links ul li > a.disabled.dashboard-action,
 a.disabled.secondary-action,
 .account-card a.disabled.forgot-password,
+.contact-card a.disabled.forgot-password,
 fieldset:disabled a.btn,
 fieldset:disabled a.main-action,
 fieldset:disabled .main-nav .navbar-links ul li > a.dashboard-action,
 .main-nav .navbar-links ul fieldset:disabled li > a.dashboard-action,
 fieldset:disabled a.secondary-action,
 fieldset:disabled .account-card a.forgot-password,
-.account-card fieldset:disabled a.forgot-password {
+.account-card fieldset:disabled a.forgot-password,
+fieldset:disabled .contact-card a.forgot-password,
+.contact-card fieldset:disabled a.forgot-password {
   pointer-events: none;
 }
 
@@ -3307,7 +3444,8 @@ fieldset:disabled .account-card a.forgot-password,
 .btn-danger,
 .main-action,
 .main-nav .navbar-links ul li > a.dashboard-action,
-.account-card button[type=submit] {
+.account-card button[type=submit],
+.contact-card button[type=submit] {
   color: #fff;
   background-color: #e3342f;
   border-color: #e3342f;
@@ -3316,7 +3454,8 @@ fieldset:disabled .account-card a.forgot-password,
 .btn-danger:hover,
 .main-action:hover,
 .main-nav .navbar-links ul li > a.dashboard-action:hover,
-.account-card button:hover[type=submit] {
+.account-card button:hover[type=submit],
+.contact-card button:hover[type=submit] {
   color: #fff;
   background-color: #d0211c;
   border-color: #c51f1a;
@@ -3326,10 +3465,12 @@ fieldset:disabled .account-card a.forgot-password,
 .main-action:focus,
 .main-nav .navbar-links ul li > a.dashboard-action:focus,
 .account-card button:focus[type=submit],
+.contact-card button:focus[type=submit],
 .btn-danger.focus,
 .focus.main-action,
 .main-nav .navbar-links ul li > a.focus.dashboard-action,
-.account-card button.focus[type=submit] {
+.account-card button.focus[type=submit],
+.contact-card button.focus[type=submit] {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(227, 52, 47, 0.5);
           box-shadow: 0 0 0 0.2rem rgba(227, 52, 47, 0.5);
 }
@@ -3338,10 +3479,12 @@ fieldset:disabled .account-card a.forgot-password,
 .disabled.main-action,
 .main-nav .navbar-links ul li > a.disabled.dashboard-action,
 .account-card button.disabled[type=submit],
+.contact-card button.disabled[type=submit],
 .btn-danger:disabled,
 .main-action:disabled,
 .main-nav .navbar-links ul li > a.dashboard-action:disabled,
-.account-card button:disabled[type=submit] {
+.account-card button:disabled[type=submit],
+.contact-card button:disabled[type=submit] {
   color: #fff;
   background-color: #e3342f;
   border-color: #e3342f;
@@ -3351,14 +3494,17 @@ fieldset:disabled .account-card a.forgot-password,
 .main-action:not(:disabled):not(.disabled):active,
 .main-nav .navbar-links ul li > a.dashboard-action:not(:disabled):not(.disabled):active,
 .account-card button:not(:disabled):not(.disabled):active[type=submit],
+.contact-card button:not(:disabled):not(.disabled):active[type=submit],
 .btn-danger:not(:disabled):not(.disabled).active,
 .main-action:not(:disabled):not(.disabled).active,
 .main-nav .navbar-links ul li > a.dashboard-action:not(:disabled):not(.disabled).active,
 .account-card button:not(:disabled):not(.disabled).active[type=submit],
+.contact-card button:not(:disabled):not(.disabled).active[type=submit],
 .show > .btn-danger.dropdown-toggle,
 .show > .dropdown-toggle.main-action,
 .main-nav .navbar-links ul li.show > a.dropdown-toggle.dashboard-action,
-.account-card .show > button.dropdown-toggle[type=submit] {
+.account-card .show > button.dropdown-toggle[type=submit],
+.contact-card .show > button.dropdown-toggle[type=submit] {
   color: #fff;
   background-color: #c51f1a;
   border-color: #b91d19;
@@ -3368,14 +3514,17 @@ fieldset:disabled .account-card a.forgot-password,
 .main-action:not(:disabled):not(.disabled):active:focus,
 .main-nav .navbar-links ul li > a.dashboard-action:not(:disabled):not(.disabled):active:focus,
 .account-card button:not(:disabled):not(.disabled):active:focus[type=submit],
+.contact-card button:not(:disabled):not(.disabled):active:focus[type=submit],
 .btn-danger:not(:disabled):not(.disabled).active:focus,
 .main-action:not(:disabled):not(.disabled).active:focus,
 .main-nav .navbar-links ul li > a.dashboard-action:not(:disabled):not(.disabled).active:focus,
 .account-card button:not(:disabled):not(.disabled).active:focus[type=submit],
+.contact-card button:not(:disabled):not(.disabled).active:focus[type=submit],
 .show > .btn-danger.dropdown-toggle:focus,
 .show > .dropdown-toggle.main-action:focus,
 .main-nav .navbar-links ul li.show > a.dropdown-toggle.dashboard-action:focus,
-.account-card .show > button.dropdown-toggle:focus[type=submit] {
+.account-card .show > button.dropdown-toggle:focus[type=submit],
+.contact-card .show > button.dropdown-toggle:focus[type=submit] {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(227, 52, 47, 0.5);
           box-shadow: 0 0 0 0.2rem rgba(227, 52, 47, 0.5);
 }
@@ -3793,14 +3942,16 @@ fieldset:disabled .account-card a.forgot-password,
 }
 
 .btn-link,
-.account-card .forgot-password {
+.account-card .forgot-password,
+.contact-card .forgot-password {
   font-weight: 400;
   color: #3490dc;
   background-color: transparent;
 }
 
 .btn-link:hover,
-.account-card .forgot-password:hover {
+.account-card .forgot-password:hover,
+.contact-card .forgot-password:hover {
   color: #1d68a7;
   text-decoration: underline;
   background-color: transparent;
@@ -3809,8 +3960,10 @@ fieldset:disabled .account-card a.forgot-password,
 
 .btn-link:focus,
 .account-card .forgot-password:focus,
+.contact-card .forgot-password:focus,
 .btn-link.focus,
-.account-card .focus.forgot-password {
+.account-card .focus.forgot-password,
+.contact-card .focus.forgot-password {
   text-decoration: underline;
   border-color: transparent;
   -webkit-box-shadow: none;
@@ -3819,8 +3972,10 @@ fieldset:disabled .account-card a.forgot-password,
 
 .btn-link:disabled,
 .account-card .forgot-password:disabled,
+.contact-card .forgot-password:disabled,
 .btn-link.disabled,
-.account-card .disabled.forgot-password {
+.account-card .disabled.forgot-password,
+.contact-card .disabled.forgot-password {
   color: #6c757d;
   pointer-events: none;
 }
@@ -3830,20 +3985,26 @@ fieldset:disabled .account-card a.forgot-password,
 .btn-group-lg > .main-action,
 .main-nav .navbar-links ul li.btn-group-lg > a.dashboard-action,
 .account-card .btn-group-lg > button[type=submit],
+.contact-card .btn-group-lg > button[type=submit],
 .btn-group-lg > .secondary-action,
 .account-card .btn-group-lg > .forgot-password,
+.contact-card .btn-group-lg > .forgot-password,
 .landing .main-action,
 .landing .main-nav .navbar-links ul li > a.dashboard-action,
 .main-nav .navbar-links ul .landing li > a.dashboard-action,
 .landing .account-card button[type=submit],
 .account-card .landing button[type=submit],
+.landing .contact-card button[type=submit],
+.contact-card .landing button[type=submit],
 .landing .secondary-action,
 .admin .secondary-action,
 .last-action .main-action,
 .last-action .main-nav .navbar-links ul li > a.dashboard-action,
 .main-nav .navbar-links ul .last-action li > a.dashboard-action,
 .last-action .account-card button[type=submit],
-.account-card .last-action button[type=submit] {
+.account-card .last-action button[type=submit],
+.last-action .contact-card button[type=submit],
+.contact-card .last-action button[type=submit] {
   padding: 0.5rem 1rem;
   font-size: 1.125rem;
   line-height: 1.5;
@@ -3855,8 +4016,10 @@ fieldset:disabled .account-card a.forgot-password,
 .btn-group-sm > .main-action,
 .main-nav .navbar-links ul li.btn-group-sm > a.dashboard-action,
 .account-card .btn-group-sm > button[type=submit],
+.contact-card .btn-group-sm > button[type=submit],
 .btn-group-sm > .secondary-action,
-.account-card .btn-group-sm > .forgot-password {
+.account-card .btn-group-sm > .forgot-password,
+.contact-card .btn-group-sm > .forgot-password {
   padding: 0.25rem 0.5rem;
   font-size: 0.7875rem;
   line-height: 1.5;
@@ -4137,14 +4300,18 @@ input[type="button"].btn-block {
 .btn-group > .main-action,
 .main-nav .navbar-links ul li.btn-group > a.dashboard-action,
 .account-card .btn-group > button[type=submit],
+.contact-card .btn-group > button[type=submit],
 .btn-group > .secondary-action,
 .account-card .btn-group > .forgot-password,
+.contact-card .btn-group > .forgot-password,
 .btn-group-vertical > .btn,
 .btn-group-vertical > .main-action,
 .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action,
 .account-card .btn-group-vertical > button[type=submit],
+.contact-card .btn-group-vertical > button[type=submit],
 .btn-group-vertical > .secondary-action,
-.account-card .btn-group-vertical > .forgot-password {
+.account-card .btn-group-vertical > .forgot-password,
+.contact-card .btn-group-vertical > .forgot-password {
   position: relative;
   -webkit-box-flex: 0;
       -ms-flex: 0 1 auto;
@@ -4155,14 +4322,18 @@ input[type="button"].btn-block {
 .btn-group > .main-action:hover,
 .main-nav .navbar-links ul li.btn-group > a.dashboard-action:hover,
 .account-card .btn-group > button:hover[type=submit],
+.contact-card .btn-group > button:hover[type=submit],
 .btn-group > .secondary-action:hover,
 .account-card .btn-group > .forgot-password:hover,
+.contact-card .btn-group > .forgot-password:hover,
 .btn-group-vertical > .btn:hover,
 .btn-group-vertical > .main-action:hover,
 .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action:hover,
 .account-card .btn-group-vertical > button:hover[type=submit],
+.contact-card .btn-group-vertical > button:hover[type=submit],
 .btn-group-vertical > .secondary-action:hover,
-.account-card .btn-group-vertical > .forgot-password:hover {
+.account-card .btn-group-vertical > .forgot-password:hover,
+.contact-card .btn-group-vertical > .forgot-password:hover {
   z-index: 1;
 }
 
@@ -4170,38 +4341,50 @@ input[type="button"].btn-block {
 .btn-group > .main-action:focus,
 .main-nav .navbar-links ul li.btn-group > a.dashboard-action:focus,
 .account-card .btn-group > button:focus[type=submit],
+.contact-card .btn-group > button:focus[type=submit],
 .btn-group > .secondary-action:focus,
 .account-card .btn-group > .forgot-password:focus,
+.contact-card .btn-group > .forgot-password:focus,
 .btn-group > .btn:active,
 .btn-group > .main-action:active,
 .main-nav .navbar-links ul li.btn-group > a.dashboard-action:active,
 .account-card .btn-group > button:active[type=submit],
+.contact-card .btn-group > button:active[type=submit],
 .btn-group > .secondary-action:active,
 .account-card .btn-group > .forgot-password:active,
+.contact-card .btn-group > .forgot-password:active,
 .btn-group > .btn.active,
 .btn-group > .active.main-action,
 .main-nav .navbar-links ul li.btn-group > a.active.dashboard-action,
 .account-card .btn-group > button.active[type=submit],
+.contact-card .btn-group > button.active[type=submit],
 .btn-group > .active.secondary-action,
 .account-card .btn-group > .active.forgot-password,
+.contact-card .btn-group > .active.forgot-password,
 .btn-group-vertical > .btn:focus,
 .btn-group-vertical > .main-action:focus,
 .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action:focus,
 .account-card .btn-group-vertical > button:focus[type=submit],
+.contact-card .btn-group-vertical > button:focus[type=submit],
 .btn-group-vertical > .secondary-action:focus,
 .account-card .btn-group-vertical > .forgot-password:focus,
+.contact-card .btn-group-vertical > .forgot-password:focus,
 .btn-group-vertical > .btn:active,
 .btn-group-vertical > .main-action:active,
 .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action:active,
 .account-card .btn-group-vertical > button:active[type=submit],
+.contact-card .btn-group-vertical > button:active[type=submit],
 .btn-group-vertical > .secondary-action:active,
 .account-card .btn-group-vertical > .forgot-password:active,
+.contact-card .btn-group-vertical > .forgot-password:active,
 .btn-group-vertical > .btn.active,
 .btn-group-vertical > .active.main-action,
 .main-nav .navbar-links ul li.btn-group-vertical > a.active.dashboard-action,
 .account-card .btn-group-vertical > button.active[type=submit],
+.contact-card .btn-group-vertical > button.active[type=submit],
 .btn-group-vertical > .active.secondary-action,
-.account-card .btn-group-vertical > .active.forgot-password {
+.account-card .btn-group-vertical > .active.forgot-password,
+.contact-card .btn-group-vertical > .active.forgot-password {
   z-index: 1;
 }
 
@@ -4211,18 +4394,26 @@ input[type="button"].btn-block {
 .main-nav .navbar-links ul .btn-group li > a.dashboard-action + .btn,
 .btn-group .account-card button[type=submit] + .btn,
 .account-card .btn-group button[type=submit] + .btn,
+.btn-group .contact-card button[type=submit] + .btn,
+.contact-card .btn-group button[type=submit] + .btn,
 .btn-group .secondary-action + .btn,
 .btn-group .account-card .forgot-password + .btn,
 .account-card .btn-group .forgot-password + .btn,
+.btn-group .contact-card .forgot-password + .btn,
+.contact-card .btn-group .forgot-password + .btn,
 .btn-group .btn + .main-action,
 .btn-group .main-action + .main-action,
 .btn-group .main-nav .navbar-links ul li > a.dashboard-action + .main-action,
 .main-nav .navbar-links ul .btn-group li > a.dashboard-action + .main-action,
 .btn-group .account-card button[type=submit] + .main-action,
 .account-card .btn-group button[type=submit] + .main-action,
+.btn-group .contact-card button[type=submit] + .main-action,
+.contact-card .btn-group button[type=submit] + .main-action,
 .btn-group .secondary-action + .main-action,
 .btn-group .account-card .forgot-password + .main-action,
 .account-card .btn-group .forgot-password + .main-action,
+.btn-group .contact-card .forgot-password + .main-action,
+.contact-card .btn-group .forgot-password + .main-action,
 .btn-group .main-nav .navbar-links ul li > .btn + a.dashboard-action,
 .main-nav .navbar-links ul .btn-group li > .btn + a.dashboard-action,
 .btn-group .main-nav .navbar-links ul li > .main-action + a.dashboard-action,
@@ -4233,12 +4424,20 @@ input[type="button"].btn-block {
 .main-nav .navbar-links ul .btn-group .account-card li > button[type=submit] + a.dashboard-action,
 .account-card .btn-group .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
 .main-nav .navbar-links ul .account-card .btn-group li > button[type=submit] + a.dashboard-action,
+.btn-group .contact-card .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
+.main-nav .navbar-links ul .btn-group .contact-card li > button[type=submit] + a.dashboard-action,
+.contact-card .btn-group .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
+.main-nav .navbar-links ul .contact-card .btn-group li > button[type=submit] + a.dashboard-action,
 .btn-group .main-nav .navbar-links ul li > .secondary-action + a.dashboard-action,
 .main-nav .navbar-links ul .btn-group li > .secondary-action + a.dashboard-action,
 .btn-group .account-card .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
 .main-nav .navbar-links ul .btn-group .account-card li > .forgot-password + a.dashboard-action,
 .account-card .btn-group .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
 .main-nav .navbar-links ul .account-card .btn-group li > .forgot-password + a.dashboard-action,
+.btn-group .contact-card .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
+.main-nav .navbar-links ul .btn-group .contact-card li > .forgot-password + a.dashboard-action,
+.contact-card .btn-group .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
+.main-nav .navbar-links ul .contact-card .btn-group li > .forgot-password + a.dashboard-action,
 .btn-group .account-card .btn + button[type=submit],
 .account-card .btn-group .btn + button[type=submit],
 .btn-group .account-card .main-action + button[type=submit],
@@ -4253,15 +4452,33 @@ input[type="button"].btn-block {
 .account-card .btn-group .secondary-action + button[type=submit],
 .btn-group .account-card .forgot-password + button[type=submit],
 .account-card .btn-group .forgot-password + button[type=submit],
+.btn-group .contact-card .btn + button[type=submit],
+.contact-card .btn-group .btn + button[type=submit],
+.btn-group .contact-card .main-action + button[type=submit],
+.contact-card .btn-group .main-action + button[type=submit],
+.btn-group .main-nav .navbar-links ul .contact-card li > a.dashboard-action + button[type=submit],
+.contact-card .btn-group .main-nav .navbar-links ul li > a.dashboard-action + button[type=submit],
+.main-nav .navbar-links ul .btn-group .contact-card li > a.dashboard-action + button[type=submit],
+.contact-card .main-nav .navbar-links ul .btn-group li > a.dashboard-action + button[type=submit],
+.btn-group .contact-card button[type=submit] + button[type=submit],
+.contact-card .btn-group button[type=submit] + button[type=submit],
+.btn-group .contact-card .secondary-action + button[type=submit],
+.contact-card .btn-group .secondary-action + button[type=submit],
+.btn-group .contact-card .forgot-password + button[type=submit],
+.contact-card .btn-group .forgot-password + button[type=submit],
 .btn-group .btn + .secondary-action,
 .btn-group .main-action + .secondary-action,
 .btn-group .main-nav .navbar-links ul li > a.dashboard-action + .secondary-action,
 .main-nav .navbar-links ul .btn-group li > a.dashboard-action + .secondary-action,
 .btn-group .account-card button[type=submit] + .secondary-action,
 .account-card .btn-group button[type=submit] + .secondary-action,
+.btn-group .contact-card button[type=submit] + .secondary-action,
+.contact-card .btn-group button[type=submit] + .secondary-action,
 .btn-group .secondary-action + .secondary-action,
 .btn-group .account-card .forgot-password + .secondary-action,
 .account-card .btn-group .forgot-password + .secondary-action,
+.btn-group .contact-card .forgot-password + .secondary-action,
+.contact-card .btn-group .forgot-password + .secondary-action,
 .btn-group .account-card .btn + .forgot-password,
 .account-card .btn-group .btn + .forgot-password,
 .btn-group .account-card .main-action + .forgot-password,
@@ -4276,24 +4493,46 @@ input[type="button"].btn-block {
 .account-card .btn-group .secondary-action + .forgot-password,
 .btn-group .account-card .forgot-password + .forgot-password,
 .account-card .btn-group .forgot-password + .forgot-password,
+.btn-group .contact-card .btn + .forgot-password,
+.contact-card .btn-group .btn + .forgot-password,
+.btn-group .contact-card .main-action + .forgot-password,
+.contact-card .btn-group .main-action + .forgot-password,
+.btn-group .main-nav .navbar-links ul .contact-card li > a.dashboard-action + .forgot-password,
+.contact-card .btn-group .main-nav .navbar-links ul li > a.dashboard-action + .forgot-password,
+.main-nav .navbar-links ul .btn-group .contact-card li > a.dashboard-action + .forgot-password,
+.contact-card .main-nav .navbar-links ul .btn-group li > a.dashboard-action + .forgot-password,
+.btn-group .contact-card button[type=submit] + .forgot-password,
+.contact-card .btn-group button[type=submit] + .forgot-password,
+.btn-group .contact-card .secondary-action + .forgot-password,
+.contact-card .btn-group .secondary-action + .forgot-password,
+.btn-group .contact-card .forgot-password + .forgot-password,
+.contact-card .btn-group .forgot-password + .forgot-password,
 .btn-group .btn + .btn-group,
 .btn-group .main-action + .btn-group,
 .btn-group .main-nav .navbar-links ul li > a.dashboard-action + .btn-group,
 .main-nav .navbar-links ul .btn-group li > a.dashboard-action + .btn-group,
 .btn-group .account-card button[type=submit] + .btn-group,
 .account-card .btn-group button[type=submit] + .btn-group,
+.btn-group .contact-card button[type=submit] + .btn-group,
+.contact-card .btn-group button[type=submit] + .btn-group,
 .btn-group .secondary-action + .btn-group,
 .btn-group .account-card .forgot-password + .btn-group,
 .account-card .btn-group .forgot-password + .btn-group,
+.btn-group .contact-card .forgot-password + .btn-group,
+.contact-card .btn-group .forgot-password + .btn-group,
 .btn-group .btn-group + .btn,
 .btn-group .btn-group + .main-action,
 .btn-group .main-nav .navbar-links ul li > .btn-group + a.dashboard-action,
 .main-nav .navbar-links ul .btn-group li > .btn-group + a.dashboard-action,
 .btn-group .account-card .btn-group + button[type=submit],
 .account-card .btn-group .btn-group + button[type=submit],
+.btn-group .contact-card .btn-group + button[type=submit],
+.contact-card .btn-group .btn-group + button[type=submit],
 .btn-group .btn-group + .secondary-action,
 .btn-group .account-card .btn-group + .forgot-password,
 .account-card .btn-group .btn-group + .forgot-password,
+.btn-group .contact-card .btn-group + .forgot-password,
+.contact-card .btn-group .btn-group + .forgot-password,
 .btn-group .btn-group + .btn-group,
 .btn-group-vertical .btn + .btn,
 .btn-group-vertical .main-action + .btn,
@@ -4301,18 +4540,26 @@ input[type="button"].btn-block {
 .main-nav .navbar-links ul .btn-group-vertical li > a.dashboard-action + .btn,
 .btn-group-vertical .account-card button[type=submit] + .btn,
 .account-card .btn-group-vertical button[type=submit] + .btn,
+.btn-group-vertical .contact-card button[type=submit] + .btn,
+.contact-card .btn-group-vertical button[type=submit] + .btn,
 .btn-group-vertical .secondary-action + .btn,
 .btn-group-vertical .account-card .forgot-password + .btn,
 .account-card .btn-group-vertical .forgot-password + .btn,
+.btn-group-vertical .contact-card .forgot-password + .btn,
+.contact-card .btn-group-vertical .forgot-password + .btn,
 .btn-group-vertical .btn + .main-action,
 .btn-group-vertical .main-action + .main-action,
 .btn-group-vertical .main-nav .navbar-links ul li > a.dashboard-action + .main-action,
 .main-nav .navbar-links ul .btn-group-vertical li > a.dashboard-action + .main-action,
 .btn-group-vertical .account-card button[type=submit] + .main-action,
 .account-card .btn-group-vertical button[type=submit] + .main-action,
+.btn-group-vertical .contact-card button[type=submit] + .main-action,
+.contact-card .btn-group-vertical button[type=submit] + .main-action,
 .btn-group-vertical .secondary-action + .main-action,
 .btn-group-vertical .account-card .forgot-password + .main-action,
 .account-card .btn-group-vertical .forgot-password + .main-action,
+.btn-group-vertical .contact-card .forgot-password + .main-action,
+.contact-card .btn-group-vertical .forgot-password + .main-action,
 .btn-group-vertical .main-nav .navbar-links ul li > .btn + a.dashboard-action,
 .main-nav .navbar-links ul .btn-group-vertical li > .btn + a.dashboard-action,
 .btn-group-vertical .main-nav .navbar-links ul li > .main-action + a.dashboard-action,
@@ -4323,12 +4570,20 @@ input[type="button"].btn-block {
 .main-nav .navbar-links ul .btn-group-vertical .account-card li > button[type=submit] + a.dashboard-action,
 .account-card .btn-group-vertical .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
 .main-nav .navbar-links ul .account-card .btn-group-vertical li > button[type=submit] + a.dashboard-action,
+.btn-group-vertical .contact-card .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
+.main-nav .navbar-links ul .btn-group-vertical .contact-card li > button[type=submit] + a.dashboard-action,
+.contact-card .btn-group-vertical .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
+.main-nav .navbar-links ul .contact-card .btn-group-vertical li > button[type=submit] + a.dashboard-action,
 .btn-group-vertical .main-nav .navbar-links ul li > .secondary-action + a.dashboard-action,
 .main-nav .navbar-links ul .btn-group-vertical li > .secondary-action + a.dashboard-action,
 .btn-group-vertical .account-card .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
 .main-nav .navbar-links ul .btn-group-vertical .account-card li > .forgot-password + a.dashboard-action,
 .account-card .btn-group-vertical .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
 .main-nav .navbar-links ul .account-card .btn-group-vertical li > .forgot-password + a.dashboard-action,
+.btn-group-vertical .contact-card .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
+.main-nav .navbar-links ul .btn-group-vertical .contact-card li > .forgot-password + a.dashboard-action,
+.contact-card .btn-group-vertical .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
+.main-nav .navbar-links ul .contact-card .btn-group-vertical li > .forgot-password + a.dashboard-action,
 .btn-group-vertical .account-card .btn + button[type=submit],
 .account-card .btn-group-vertical .btn + button[type=submit],
 .btn-group-vertical .account-card .main-action + button[type=submit],
@@ -4343,15 +4598,33 @@ input[type="button"].btn-block {
 .account-card .btn-group-vertical .secondary-action + button[type=submit],
 .btn-group-vertical .account-card .forgot-password + button[type=submit],
 .account-card .btn-group-vertical .forgot-password + button[type=submit],
+.btn-group-vertical .contact-card .btn + button[type=submit],
+.contact-card .btn-group-vertical .btn + button[type=submit],
+.btn-group-vertical .contact-card .main-action + button[type=submit],
+.contact-card .btn-group-vertical .main-action + button[type=submit],
+.btn-group-vertical .main-nav .navbar-links ul .contact-card li > a.dashboard-action + button[type=submit],
+.contact-card .btn-group-vertical .main-nav .navbar-links ul li > a.dashboard-action + button[type=submit],
+.main-nav .navbar-links ul .btn-group-vertical .contact-card li > a.dashboard-action + button[type=submit],
+.contact-card .main-nav .navbar-links ul .btn-group-vertical li > a.dashboard-action + button[type=submit],
+.btn-group-vertical .contact-card button[type=submit] + button[type=submit],
+.contact-card .btn-group-vertical button[type=submit] + button[type=submit],
+.btn-group-vertical .contact-card .secondary-action + button[type=submit],
+.contact-card .btn-group-vertical .secondary-action + button[type=submit],
+.btn-group-vertical .contact-card .forgot-password + button[type=submit],
+.contact-card .btn-group-vertical .forgot-password + button[type=submit],
 .btn-group-vertical .btn + .secondary-action,
 .btn-group-vertical .main-action + .secondary-action,
 .btn-group-vertical .main-nav .navbar-links ul li > a.dashboard-action + .secondary-action,
 .main-nav .navbar-links ul .btn-group-vertical li > a.dashboard-action + .secondary-action,
 .btn-group-vertical .account-card button[type=submit] + .secondary-action,
 .account-card .btn-group-vertical button[type=submit] + .secondary-action,
+.btn-group-vertical .contact-card button[type=submit] + .secondary-action,
+.contact-card .btn-group-vertical button[type=submit] + .secondary-action,
 .btn-group-vertical .secondary-action + .secondary-action,
 .btn-group-vertical .account-card .forgot-password + .secondary-action,
 .account-card .btn-group-vertical .forgot-password + .secondary-action,
+.btn-group-vertical .contact-card .forgot-password + .secondary-action,
+.contact-card .btn-group-vertical .forgot-password + .secondary-action,
 .btn-group-vertical .account-card .btn + .forgot-password,
 .account-card .btn-group-vertical .btn + .forgot-password,
 .btn-group-vertical .account-card .main-action + .forgot-password,
@@ -4366,24 +4639,46 @@ input[type="button"].btn-block {
 .account-card .btn-group-vertical .secondary-action + .forgot-password,
 .btn-group-vertical .account-card .forgot-password + .forgot-password,
 .account-card .btn-group-vertical .forgot-password + .forgot-password,
+.btn-group-vertical .contact-card .btn + .forgot-password,
+.contact-card .btn-group-vertical .btn + .forgot-password,
+.btn-group-vertical .contact-card .main-action + .forgot-password,
+.contact-card .btn-group-vertical .main-action + .forgot-password,
+.btn-group-vertical .main-nav .navbar-links ul .contact-card li > a.dashboard-action + .forgot-password,
+.contact-card .btn-group-vertical .main-nav .navbar-links ul li > a.dashboard-action + .forgot-password,
+.main-nav .navbar-links ul .btn-group-vertical .contact-card li > a.dashboard-action + .forgot-password,
+.contact-card .main-nav .navbar-links ul .btn-group-vertical li > a.dashboard-action + .forgot-password,
+.btn-group-vertical .contact-card button[type=submit] + .forgot-password,
+.contact-card .btn-group-vertical button[type=submit] + .forgot-password,
+.btn-group-vertical .contact-card .secondary-action + .forgot-password,
+.contact-card .btn-group-vertical .secondary-action + .forgot-password,
+.btn-group-vertical .contact-card .forgot-password + .forgot-password,
+.contact-card .btn-group-vertical .forgot-password + .forgot-password,
 .btn-group-vertical .btn + .btn-group,
 .btn-group-vertical .main-action + .btn-group,
 .btn-group-vertical .main-nav .navbar-links ul li > a.dashboard-action + .btn-group,
 .main-nav .navbar-links ul .btn-group-vertical li > a.dashboard-action + .btn-group,
 .btn-group-vertical .account-card button[type=submit] + .btn-group,
 .account-card .btn-group-vertical button[type=submit] + .btn-group,
+.btn-group-vertical .contact-card button[type=submit] + .btn-group,
+.contact-card .btn-group-vertical button[type=submit] + .btn-group,
 .btn-group-vertical .secondary-action + .btn-group,
 .btn-group-vertical .account-card .forgot-password + .btn-group,
 .account-card .btn-group-vertical .forgot-password + .btn-group,
+.btn-group-vertical .contact-card .forgot-password + .btn-group,
+.contact-card .btn-group-vertical .forgot-password + .btn-group,
 .btn-group-vertical .btn-group + .btn,
 .btn-group-vertical .btn-group + .main-action,
 .btn-group-vertical .main-nav .navbar-links ul li > .btn-group + a.dashboard-action,
 .main-nav .navbar-links ul .btn-group-vertical li > .btn-group + a.dashboard-action,
 .btn-group-vertical .account-card .btn-group + button[type=submit],
 .account-card .btn-group-vertical .btn-group + button[type=submit],
+.btn-group-vertical .contact-card .btn-group + button[type=submit],
+.contact-card .btn-group-vertical .btn-group + button[type=submit],
 .btn-group-vertical .btn-group + .secondary-action,
 .btn-group-vertical .account-card .btn-group + .forgot-password,
 .account-card .btn-group-vertical .btn-group + .forgot-password,
+.btn-group-vertical .contact-card .btn-group + .forgot-password,
+.contact-card .btn-group-vertical .btn-group + .forgot-password,
 .btn-group-vertical .btn-group + .btn-group {
   margin-left: -1px;
 }
@@ -4407,8 +4702,10 @@ input[type="button"].btn-block {
 .btn-group > .main-action:first-child,
 .main-nav .navbar-links ul li.btn-group > a.dashboard-action:first-child,
 .account-card .btn-group > button:first-child[type=submit],
+.contact-card .btn-group > button:first-child[type=submit],
 .btn-group > .secondary-action:first-child,
-.account-card .btn-group > .forgot-password:first-child {
+.account-card .btn-group > .forgot-password:first-child,
+.contact-card .btn-group > .forgot-password:first-child {
   margin-left: 0;
 }
 
@@ -4416,14 +4713,18 @@ input[type="button"].btn-block {
 .btn-group > .main-action:not(:last-child):not(.dropdown-toggle),
 .main-nav .navbar-links ul li.btn-group > a.dashboard-action:not(:last-child):not(.dropdown-toggle),
 .account-card .btn-group > button:not(:last-child):not(.dropdown-toggle)[type=submit],
+.contact-card .btn-group > button:not(:last-child):not(.dropdown-toggle)[type=submit],
 .btn-group > .secondary-action:not(:last-child):not(.dropdown-toggle),
 .account-card .btn-group > .forgot-password:not(:last-child):not(.dropdown-toggle),
+.contact-card .btn-group > .forgot-password:not(:last-child):not(.dropdown-toggle),
 .btn-group > .btn-group:not(:last-child) > .btn,
 .btn-group > .btn-group:not(:last-child) > .main-action,
 .main-nav .navbar-links ul .btn-group > li.btn-group:not(:last-child) > a.dashboard-action,
 .account-card .btn-group > .btn-group:not(:last-child) > button[type=submit],
+.contact-card .btn-group > .btn-group:not(:last-child) > button[type=submit],
 .btn-group > .btn-group:not(:last-child) > .secondary-action,
-.account-card .btn-group > .btn-group:not(:last-child) > .forgot-password {
+.account-card .btn-group > .btn-group:not(:last-child) > .forgot-password,
+.contact-card .btn-group > .btn-group:not(:last-child) > .forgot-password {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -4432,14 +4733,18 @@ input[type="button"].btn-block {
 .btn-group > .main-action:not(:first-child),
 .main-nav .navbar-links ul li.btn-group > a.dashboard-action:not(:first-child),
 .account-card .btn-group > button:not(:first-child)[type=submit],
+.contact-card .btn-group > button:not(:first-child)[type=submit],
 .btn-group > .secondary-action:not(:first-child),
 .account-card .btn-group > .forgot-password:not(:first-child),
+.contact-card .btn-group > .forgot-password:not(:first-child),
 .btn-group > .btn-group:not(:first-child) > .btn,
 .btn-group > .btn-group:not(:first-child) > .main-action,
 .main-nav .navbar-links ul .btn-group > li.btn-group:not(:first-child) > a.dashboard-action,
 .account-card .btn-group > .btn-group:not(:first-child) > button[type=submit],
+.contact-card .btn-group > .btn-group:not(:first-child) > button[type=submit],
 .btn-group > .btn-group:not(:first-child) > .secondary-action,
-.account-card .btn-group > .btn-group:not(:first-child) > .forgot-password {
+.account-card .btn-group > .btn-group:not(:first-child) > .forgot-password,
+.contact-card .btn-group > .btn-group:not(:first-child) > .forgot-password {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -4464,8 +4769,10 @@ input[type="button"].btn-block {
 .btn-group-sm > .main-action + .dropdown-toggle-split,
 .main-nav .navbar-links ul li.btn-group-sm > a.dashboard-action + .dropdown-toggle-split,
 .account-card .btn-group-sm > button[type=submit] + .dropdown-toggle-split,
+.contact-card .btn-group-sm > button[type=submit] + .dropdown-toggle-split,
 .btn-group-sm > .secondary-action + .dropdown-toggle-split,
-.account-card .btn-group-sm > .forgot-password + .dropdown-toggle-split {
+.account-card .btn-group-sm > .forgot-password + .dropdown-toggle-split,
+.contact-card .btn-group-sm > .forgot-password + .dropdown-toggle-split {
   padding-right: 0.375rem;
   padding-left: 0.375rem;
 }
@@ -4475,20 +4782,26 @@ input[type="button"].btn-block {
 .btn-group-lg > .main-action + .dropdown-toggle-split,
 .main-nav .navbar-links ul li.btn-group-lg > a.dashboard-action + .dropdown-toggle-split,
 .account-card .btn-group-lg > button[type=submit] + .dropdown-toggle-split,
+.contact-card .btn-group-lg > button[type=submit] + .dropdown-toggle-split,
 .btn-group-lg > .secondary-action + .dropdown-toggle-split,
 .account-card .btn-group-lg > .forgot-password + .dropdown-toggle-split,
+.contact-card .btn-group-lg > .forgot-password + .dropdown-toggle-split,
 .landing .main-action + .dropdown-toggle-split,
 .landing .main-nav .navbar-links ul li > a.dashboard-action + .dropdown-toggle-split,
 .main-nav .navbar-links ul .landing li > a.dashboard-action + .dropdown-toggle-split,
 .landing .account-card button[type=submit] + .dropdown-toggle-split,
 .account-card .landing button[type=submit] + .dropdown-toggle-split,
+.landing .contact-card button[type=submit] + .dropdown-toggle-split,
+.contact-card .landing button[type=submit] + .dropdown-toggle-split,
 .landing .secondary-action + .dropdown-toggle-split,
 .admin .secondary-action + .dropdown-toggle-split,
 .last-action .main-action + .dropdown-toggle-split,
 .last-action .main-nav .navbar-links ul li > a.dashboard-action + .dropdown-toggle-split,
 .main-nav .navbar-links ul .last-action li > a.dashboard-action + .dropdown-toggle-split,
 .last-action .account-card button[type=submit] + .dropdown-toggle-split,
-.account-card .last-action button[type=submit] + .dropdown-toggle-split {
+.account-card .last-action button[type=submit] + .dropdown-toggle-split,
+.last-action .contact-card button[type=submit] + .dropdown-toggle-split,
+.contact-card .last-action button[type=submit] + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
@@ -4512,9 +4825,13 @@ input[type="button"].btn-block {
 .main-nav .navbar-links ul .btn-group-vertical li > a.dashboard-action,
 .btn-group-vertical .account-card button[type=submit],
 .account-card .btn-group-vertical button[type=submit],
+.btn-group-vertical .contact-card button[type=submit],
+.contact-card .btn-group-vertical button[type=submit],
 .btn-group-vertical .secondary-action,
 .btn-group-vertical .account-card .forgot-password,
 .account-card .btn-group-vertical .forgot-password,
+.btn-group-vertical .contact-card .forgot-password,
+.contact-card .btn-group-vertical .forgot-password,
 .btn-group-vertical .btn-group {
   width: 100%;
 }
@@ -4523,22 +4840,30 @@ input[type="button"].btn-block {
 .btn-group-vertical > .main-action + .btn,
 .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action + .btn,
 .account-card .btn-group-vertical > button[type=submit] + .btn,
+.contact-card .btn-group-vertical > button[type=submit] + .btn,
 .btn-group-vertical > .secondary-action + .btn,
 .account-card .btn-group-vertical > .forgot-password + .btn,
+.contact-card .btn-group-vertical > .forgot-password + .btn,
 .btn-group-vertical > .btn + .main-action,
 .btn-group-vertical > .main-action + .main-action,
 .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action + .main-action,
 .account-card .btn-group-vertical > button[type=submit] + .main-action,
+.contact-card .btn-group-vertical > button[type=submit] + .main-action,
 .btn-group-vertical > .secondary-action + .main-action,
 .account-card .btn-group-vertical > .forgot-password + .main-action,
+.contact-card .btn-group-vertical > .forgot-password + .main-action,
 .main-nav .navbar-links ul li.btn-group-vertical > .btn + a.dashboard-action,
 .main-nav .navbar-links ul li.btn-group-vertical > .main-action + a.dashboard-action,
 .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action + a.dashboard-action,
 .account-card .main-nav .navbar-links ul li.btn-group-vertical > button[type=submit] + a.dashboard-action,
 .main-nav .navbar-links ul .account-card li.btn-group-vertical > button[type=submit] + a.dashboard-action,
+.contact-card .main-nav .navbar-links ul li.btn-group-vertical > button[type=submit] + a.dashboard-action,
+.main-nav .navbar-links ul .contact-card li.btn-group-vertical > button[type=submit] + a.dashboard-action,
 .main-nav .navbar-links ul li.btn-group-vertical > .secondary-action + a.dashboard-action,
 .account-card .main-nav .navbar-links ul li.btn-group-vertical > .forgot-password + a.dashboard-action,
 .main-nav .navbar-links ul .account-card li.btn-group-vertical > .forgot-password + a.dashboard-action,
+.contact-card .main-nav .navbar-links ul li.btn-group-vertical > .forgot-password + a.dashboard-action,
+.main-nav .navbar-links ul .contact-card li.btn-group-vertical > .forgot-password + a.dashboard-action,
 .account-card .btn-group-vertical > .btn + button[type=submit],
 .account-card .btn-group-vertical > .main-action + button[type=submit],
 .main-nav .navbar-links ul .account-card li.btn-group-vertical > a.dashboard-action + button[type=submit],
@@ -4546,12 +4871,21 @@ input[type="button"].btn-block {
 .account-card .btn-group-vertical > button[type=submit] + button[type=submit],
 .account-card .btn-group-vertical > .secondary-action + button[type=submit],
 .account-card .btn-group-vertical > .forgot-password + button[type=submit],
+.contact-card .btn-group-vertical > .btn + button[type=submit],
+.contact-card .btn-group-vertical > .main-action + button[type=submit],
+.main-nav .navbar-links ul .contact-card li.btn-group-vertical > a.dashboard-action + button[type=submit],
+.contact-card .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action + button[type=submit],
+.contact-card .btn-group-vertical > button[type=submit] + button[type=submit],
+.contact-card .btn-group-vertical > .secondary-action + button[type=submit],
+.contact-card .btn-group-vertical > .forgot-password + button[type=submit],
 .btn-group-vertical > .btn + .secondary-action,
 .btn-group-vertical > .main-action + .secondary-action,
 .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action + .secondary-action,
 .account-card .btn-group-vertical > button[type=submit] + .secondary-action,
+.contact-card .btn-group-vertical > button[type=submit] + .secondary-action,
 .btn-group-vertical > .secondary-action + .secondary-action,
 .account-card .btn-group-vertical > .forgot-password + .secondary-action,
+.contact-card .btn-group-vertical > .forgot-password + .secondary-action,
 .account-card .btn-group-vertical > .btn + .forgot-password,
 .account-card .btn-group-vertical > .main-action + .forgot-password,
 .main-nav .navbar-links ul .account-card li.btn-group-vertical > a.dashboard-action + .forgot-password,
@@ -4559,18 +4893,29 @@ input[type="button"].btn-block {
 .account-card .btn-group-vertical > button[type=submit] + .forgot-password,
 .account-card .btn-group-vertical > .secondary-action + .forgot-password,
 .account-card .btn-group-vertical > .forgot-password + .forgot-password,
+.contact-card .btn-group-vertical > .btn + .forgot-password,
+.contact-card .btn-group-vertical > .main-action + .forgot-password,
+.main-nav .navbar-links ul .contact-card li.btn-group-vertical > a.dashboard-action + .forgot-password,
+.contact-card .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action + .forgot-password,
+.contact-card .btn-group-vertical > button[type=submit] + .forgot-password,
+.contact-card .btn-group-vertical > .secondary-action + .forgot-password,
+.contact-card .btn-group-vertical > .forgot-password + .forgot-password,
 .btn-group-vertical > .btn + .btn-group,
 .btn-group-vertical > .main-action + .btn-group,
 .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action + .btn-group,
 .account-card .btn-group-vertical > button[type=submit] + .btn-group,
+.contact-card .btn-group-vertical > button[type=submit] + .btn-group,
 .btn-group-vertical > .secondary-action + .btn-group,
 .account-card .btn-group-vertical > .forgot-password + .btn-group,
+.contact-card .btn-group-vertical > .forgot-password + .btn-group,
 .btn-group-vertical > .btn-group + .btn,
 .btn-group-vertical > .btn-group + .main-action,
 .main-nav .navbar-links ul li.btn-group-vertical > .btn-group + a.dashboard-action,
 .account-card .btn-group-vertical > .btn-group + button[type=submit],
+.contact-card .btn-group-vertical > .btn-group + button[type=submit],
 .btn-group-vertical > .btn-group + .secondary-action,
 .account-card .btn-group-vertical > .btn-group + .forgot-password,
+.contact-card .btn-group-vertical > .btn-group + .forgot-password,
 .btn-group-vertical > .btn-group + .btn-group {
   margin-top: -1px;
   margin-left: 0;
@@ -4580,14 +4925,18 @@ input[type="button"].btn-block {
 .btn-group-vertical > .main-action:not(:last-child):not(.dropdown-toggle),
 .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action:not(:last-child):not(.dropdown-toggle),
 .account-card .btn-group-vertical > button:not(:last-child):not(.dropdown-toggle)[type=submit],
+.contact-card .btn-group-vertical > button:not(:last-child):not(.dropdown-toggle)[type=submit],
 .btn-group-vertical > .secondary-action:not(:last-child):not(.dropdown-toggle),
 .account-card .btn-group-vertical > .forgot-password:not(:last-child):not(.dropdown-toggle),
+.contact-card .btn-group-vertical > .forgot-password:not(:last-child):not(.dropdown-toggle),
 .btn-group-vertical > .btn-group:not(:last-child) > .btn,
 .btn-group-vertical > .btn-group:not(:last-child) > .main-action,
 .main-nav .navbar-links ul .btn-group-vertical > li.btn-group:not(:last-child) > a.dashboard-action,
 .account-card .btn-group-vertical > .btn-group:not(:last-child) > button[type=submit],
+.contact-card .btn-group-vertical > .btn-group:not(:last-child) > button[type=submit],
 .btn-group-vertical > .btn-group:not(:last-child) > .secondary-action,
-.account-card .btn-group-vertical > .btn-group:not(:last-child) > .forgot-password {
+.account-card .btn-group-vertical > .btn-group:not(:last-child) > .forgot-password,
+.contact-card .btn-group-vertical > .btn-group:not(:last-child) > .forgot-password {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -4596,14 +4945,18 @@ input[type="button"].btn-block {
 .btn-group-vertical > .main-action:not(:first-child),
 .main-nav .navbar-links ul li.btn-group-vertical > a.dashboard-action:not(:first-child),
 .account-card .btn-group-vertical > button:not(:first-child)[type=submit],
+.contact-card .btn-group-vertical > button:not(:first-child)[type=submit],
 .btn-group-vertical > .secondary-action:not(:first-child),
 .account-card .btn-group-vertical > .forgot-password:not(:first-child),
+.contact-card .btn-group-vertical > .forgot-password:not(:first-child),
 .btn-group-vertical > .btn-group:not(:first-child) > .btn,
 .btn-group-vertical > .btn-group:not(:first-child) > .main-action,
 .main-nav .navbar-links ul .btn-group-vertical > li.btn-group:not(:first-child) > a.dashboard-action,
 .account-card .btn-group-vertical > .btn-group:not(:first-child) > button[type=submit],
+.contact-card .btn-group-vertical > .btn-group:not(:first-child) > button[type=submit],
 .btn-group-vertical > .btn-group:not(:first-child) > .secondary-action,
-.account-card .btn-group-vertical > .btn-group:not(:first-child) > .forgot-password {
+.account-card .btn-group-vertical > .btn-group:not(:first-child) > .forgot-password,
+.contact-card .btn-group-vertical > .btn-group:not(:first-child) > .forgot-password {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -4612,14 +4965,18 @@ input[type="button"].btn-block {
 .btn-group-toggle > .main-action,
 .main-nav .navbar-links ul li.btn-group-toggle > a.dashboard-action,
 .account-card .btn-group-toggle > button[type=submit],
+.contact-card .btn-group-toggle > button[type=submit],
 .btn-group-toggle > .secondary-action,
 .account-card .btn-group-toggle > .forgot-password,
+.contact-card .btn-group-toggle > .forgot-password,
 .btn-group-toggle > .btn-group > .btn,
 .btn-group-toggle > .btn-group > .main-action,
 .main-nav .navbar-links ul .btn-group-toggle > li.btn-group > a.dashboard-action,
 .account-card .btn-group-toggle > .btn-group > button[type=submit],
+.contact-card .btn-group-toggle > .btn-group > button[type=submit],
 .btn-group-toggle > .btn-group > .secondary-action,
-.account-card .btn-group-toggle > .btn-group > .forgot-password {
+.account-card .btn-group-toggle > .btn-group > .forgot-password,
+.contact-card .btn-group-toggle > .btn-group > .forgot-password {
   margin-bottom: 0;
 }
 
@@ -4627,26 +4984,34 @@ input[type="button"].btn-block {
 .btn-group-toggle > .main-action input[type="radio"],
 .main-nav .navbar-links ul li.btn-group-toggle > a.dashboard-action input[type="radio"],
 .account-card .btn-group-toggle > button[type=submit] input[type="radio"],
+.contact-card .btn-group-toggle > button[type=submit] input[type="radio"],
 .btn-group-toggle > .secondary-action input[type="radio"],
 .account-card .btn-group-toggle > .forgot-password input[type="radio"],
+.contact-card .btn-group-toggle > .forgot-password input[type="radio"],
 .btn-group-toggle > .btn input[type="checkbox"],
 .btn-group-toggle > .main-action input[type="checkbox"],
 .main-nav .navbar-links ul li.btn-group-toggle > a.dashboard-action input[type="checkbox"],
 .account-card .btn-group-toggle > button[type=submit] input[type="checkbox"],
+.contact-card .btn-group-toggle > button[type=submit] input[type="checkbox"],
 .btn-group-toggle > .secondary-action input[type="checkbox"],
 .account-card .btn-group-toggle > .forgot-password input[type="checkbox"],
+.contact-card .btn-group-toggle > .forgot-password input[type="checkbox"],
 .btn-group-toggle > .btn-group > .btn input[type="radio"],
 .btn-group-toggle > .btn-group > .main-action input[type="radio"],
 .main-nav .navbar-links ul .btn-group-toggle > li.btn-group > a.dashboard-action input[type="radio"],
 .account-card .btn-group-toggle > .btn-group > button[type=submit] input[type="radio"],
+.contact-card .btn-group-toggle > .btn-group > button[type=submit] input[type="radio"],
 .btn-group-toggle > .btn-group > .secondary-action input[type="radio"],
 .account-card .btn-group-toggle > .btn-group > .forgot-password input[type="radio"],
+.contact-card .btn-group-toggle > .btn-group > .forgot-password input[type="radio"],
 .btn-group-toggle > .btn-group > .btn input[type="checkbox"],
 .btn-group-toggle > .btn-group > .main-action input[type="checkbox"],
 .main-nav .navbar-links ul .btn-group-toggle > li.btn-group > a.dashboard-action input[type="checkbox"],
 .account-card .btn-group-toggle > .btn-group > button[type=submit] input[type="checkbox"],
+.contact-card .btn-group-toggle > .btn-group > button[type=submit] input[type="checkbox"],
 .btn-group-toggle > .btn-group > .secondary-action input[type="checkbox"],
-.account-card .btn-group-toggle > .btn-group > .forgot-password input[type="checkbox"] {
+.account-card .btn-group-toggle > .btn-group > .forgot-password input[type="checkbox"],
+.contact-card .btn-group-toggle > .btn-group > .forgot-password input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
@@ -4669,6 +5034,9 @@ input[type="button"].btn-block {
 .account-card .input-group > input[type=text],
 .account-card .input-group > input[type=email],
 .account-card .input-group > input[type=password],
+.contact-card .input-group > input[type=text],
+.contact-card .input-group > input[type=email],
+.contact-card .input-group > input[type=password],
 .input-group > .custom-select,
 .input-group > .custom-file {
   position: relative;
@@ -4683,6 +5051,9 @@ input[type="button"].btn-block {
 .account-card .input-group > input[type=text] + .form-control,
 .account-card .input-group > input[type=email] + .form-control,
 .account-card .input-group > input[type=password] + .form-control,
+.contact-card .input-group > input[type=text] + .form-control,
+.contact-card .input-group > input[type=email] + .form-control,
+.contact-card .input-group > input[type=password] + .form-control,
 .account-card .input-group > .form-control + input[type=text],
 .account-card .input-group > input[type=text] + input[type=text],
 .account-card .input-group > input[type=email] + input[type=text],
@@ -4695,24 +5066,48 @@ input[type="button"].btn-block {
 .account-card .input-group > input[type=text] + input[type=password],
 .account-card .input-group > input[type=email] + input[type=password],
 .account-card .input-group > input[type=password] + input[type=password],
+.contact-card .input-group > .form-control + input[type=text],
+.contact-card .input-group > input[type=text] + input[type=text],
+.contact-card .input-group > input[type=email] + input[type=text],
+.contact-card .input-group > input[type=password] + input[type=text],
+.contact-card .input-group > .form-control + input[type=email],
+.contact-card .input-group > input[type=text] + input[type=email],
+.contact-card .input-group > input[type=email] + input[type=email],
+.contact-card .input-group > input[type=password] + input[type=email],
+.contact-card .input-group > .form-control + input[type=password],
+.contact-card .input-group > input[type=text] + input[type=password],
+.contact-card .input-group > input[type=email] + input[type=password],
+.contact-card .input-group > input[type=password] + input[type=password],
 .input-group > .form-control + .custom-select,
 .account-card .input-group > input[type=text] + .custom-select,
 .account-card .input-group > input[type=email] + .custom-select,
 .account-card .input-group > input[type=password] + .custom-select,
+.contact-card .input-group > input[type=text] + .custom-select,
+.contact-card .input-group > input[type=email] + .custom-select,
+.contact-card .input-group > input[type=password] + .custom-select,
 .input-group > .form-control + .custom-file,
 .account-card .input-group > input[type=text] + .custom-file,
 .account-card .input-group > input[type=email] + .custom-file,
 .account-card .input-group > input[type=password] + .custom-file,
+.contact-card .input-group > input[type=text] + .custom-file,
+.contact-card .input-group > input[type=email] + .custom-file,
+.contact-card .input-group > input[type=password] + .custom-file,
 .input-group > .custom-select + .form-control,
 .account-card .input-group > .custom-select + input[type=text],
 .account-card .input-group > .custom-select + input[type=email],
 .account-card .input-group > .custom-select + input[type=password],
+.contact-card .input-group > .custom-select + input[type=text],
+.contact-card .input-group > .custom-select + input[type=email],
+.contact-card .input-group > .custom-select + input[type=password],
 .input-group > .custom-select + .custom-select,
 .input-group > .custom-select + .custom-file,
 .input-group > .custom-file + .form-control,
 .account-card .input-group > .custom-file + input[type=text],
 .account-card .input-group > .custom-file + input[type=email],
 .account-card .input-group > .custom-file + input[type=password],
+.contact-card .input-group > .custom-file + input[type=text],
+.contact-card .input-group > .custom-file + input[type=email],
+.contact-card .input-group > .custom-file + input[type=password],
 .input-group > .custom-file + .custom-select,
 .input-group > .custom-file + .custom-file {
   margin-left: -1px;
@@ -4722,6 +5117,9 @@ input[type="button"].btn-block {
 .account-card .input-group > input:focus[type=text],
 .account-card .input-group > input:focus[type=email],
 .account-card .input-group > input:focus[type=password],
+.contact-card .input-group > input:focus[type=text],
+.contact-card .input-group > input:focus[type=email],
+.contact-card .input-group > input:focus[type=password],
 .input-group > .custom-select:focus,
 .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label {
   z-index: 3;
@@ -4735,6 +5133,9 @@ input[type="button"].btn-block {
 .account-card .input-group > input:not(:last-child)[type=text],
 .account-card .input-group > input:not(:last-child)[type=email],
 .account-card .input-group > input:not(:last-child)[type=password],
+.contact-card .input-group > input:not(:last-child)[type=text],
+.contact-card .input-group > input:not(:last-child)[type=email],
+.contact-card .input-group > input:not(:last-child)[type=password],
 .input-group > .custom-select:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -4744,6 +5145,9 @@ input[type="button"].btn-block {
 .account-card .input-group > input:not(:first-child)[type=text],
 .account-card .input-group > input:not(:first-child)[type=email],
 .account-card .input-group > input:not(:first-child)[type=password],
+.contact-card .input-group > input:not(:first-child)[type=text],
+.contact-card .input-group > input:not(:first-child)[type=email],
+.contact-card .input-group > input:not(:first-child)[type=password],
 .input-group > .custom-select:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -4782,18 +5186,26 @@ input[type="button"].btn-block {
 .main-nav .navbar-links ul .input-group-prepend li > a.dashboard-action,
 .input-group-prepend .account-card button[type=submit],
 .account-card .input-group-prepend button[type=submit],
+.input-group-prepend .contact-card button[type=submit],
+.contact-card .input-group-prepend button[type=submit],
 .input-group-prepend .secondary-action,
 .input-group-prepend .account-card .forgot-password,
 .account-card .input-group-prepend .forgot-password,
+.input-group-prepend .contact-card .forgot-password,
+.contact-card .input-group-prepend .forgot-password,
 .input-group-append .btn,
 .input-group-append .main-action,
 .input-group-append .main-nav .navbar-links ul li > a.dashboard-action,
 .main-nav .navbar-links ul .input-group-append li > a.dashboard-action,
 .input-group-append .account-card button[type=submit],
 .account-card .input-group-append button[type=submit],
+.input-group-append .contact-card button[type=submit],
+.contact-card .input-group-append button[type=submit],
 .input-group-append .secondary-action,
 .input-group-append .account-card .forgot-password,
-.account-card .input-group-append .forgot-password {
+.account-card .input-group-append .forgot-password,
+.input-group-append .contact-card .forgot-password,
+.contact-card .input-group-append .forgot-password {
   position: relative;
   z-index: 2;
 }
@@ -4804,18 +5216,26 @@ input[type="button"].btn-block {
 .main-nav .navbar-links ul .input-group-prepend li > a.dashboard-action + .btn,
 .input-group-prepend .account-card button[type=submit] + .btn,
 .account-card .input-group-prepend button[type=submit] + .btn,
+.input-group-prepend .contact-card button[type=submit] + .btn,
+.contact-card .input-group-prepend button[type=submit] + .btn,
 .input-group-prepend .secondary-action + .btn,
 .input-group-prepend .account-card .forgot-password + .btn,
 .account-card .input-group-prepend .forgot-password + .btn,
+.input-group-prepend .contact-card .forgot-password + .btn,
+.contact-card .input-group-prepend .forgot-password + .btn,
 .input-group-prepend .btn + .main-action,
 .input-group-prepend .main-action + .main-action,
 .input-group-prepend .main-nav .navbar-links ul li > a.dashboard-action + .main-action,
 .main-nav .navbar-links ul .input-group-prepend li > a.dashboard-action + .main-action,
 .input-group-prepend .account-card button[type=submit] + .main-action,
 .account-card .input-group-prepend button[type=submit] + .main-action,
+.input-group-prepend .contact-card button[type=submit] + .main-action,
+.contact-card .input-group-prepend button[type=submit] + .main-action,
 .input-group-prepend .secondary-action + .main-action,
 .input-group-prepend .account-card .forgot-password + .main-action,
 .account-card .input-group-prepend .forgot-password + .main-action,
+.input-group-prepend .contact-card .forgot-password + .main-action,
+.contact-card .input-group-prepend .forgot-password + .main-action,
 .input-group-prepend .main-nav .navbar-links ul li > .btn + a.dashboard-action,
 .main-nav .navbar-links ul .input-group-prepend li > .btn + a.dashboard-action,
 .input-group-prepend .main-nav .navbar-links ul li > .main-action + a.dashboard-action,
@@ -4826,12 +5246,20 @@ input[type="button"].btn-block {
 .main-nav .navbar-links ul .input-group-prepend .account-card li > button[type=submit] + a.dashboard-action,
 .account-card .input-group-prepend .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
 .main-nav .navbar-links ul .account-card .input-group-prepend li > button[type=submit] + a.dashboard-action,
+.input-group-prepend .contact-card .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
+.main-nav .navbar-links ul .input-group-prepend .contact-card li > button[type=submit] + a.dashboard-action,
+.contact-card .input-group-prepend .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
+.main-nav .navbar-links ul .contact-card .input-group-prepend li > button[type=submit] + a.dashboard-action,
 .input-group-prepend .main-nav .navbar-links ul li > .secondary-action + a.dashboard-action,
 .main-nav .navbar-links ul .input-group-prepend li > .secondary-action + a.dashboard-action,
 .input-group-prepend .account-card .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
 .main-nav .navbar-links ul .input-group-prepend .account-card li > .forgot-password + a.dashboard-action,
 .account-card .input-group-prepend .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
 .main-nav .navbar-links ul .account-card .input-group-prepend li > .forgot-password + a.dashboard-action,
+.input-group-prepend .contact-card .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
+.main-nav .navbar-links ul .input-group-prepend .contact-card li > .forgot-password + a.dashboard-action,
+.contact-card .input-group-prepend .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
+.main-nav .navbar-links ul .contact-card .input-group-prepend li > .forgot-password + a.dashboard-action,
 .input-group-prepend .account-card .btn + button[type=submit],
 .account-card .input-group-prepend .btn + button[type=submit],
 .input-group-prepend .account-card .main-action + button[type=submit],
@@ -4846,15 +5274,33 @@ input[type="button"].btn-block {
 .account-card .input-group-prepend .secondary-action + button[type=submit],
 .input-group-prepend .account-card .forgot-password + button[type=submit],
 .account-card .input-group-prepend .forgot-password + button[type=submit],
+.input-group-prepend .contact-card .btn + button[type=submit],
+.contact-card .input-group-prepend .btn + button[type=submit],
+.input-group-prepend .contact-card .main-action + button[type=submit],
+.contact-card .input-group-prepend .main-action + button[type=submit],
+.input-group-prepend .main-nav .navbar-links ul .contact-card li > a.dashboard-action + button[type=submit],
+.contact-card .input-group-prepend .main-nav .navbar-links ul li > a.dashboard-action + button[type=submit],
+.main-nav .navbar-links ul .input-group-prepend .contact-card li > a.dashboard-action + button[type=submit],
+.contact-card .main-nav .navbar-links ul .input-group-prepend li > a.dashboard-action + button[type=submit],
+.input-group-prepend .contact-card button[type=submit] + button[type=submit],
+.contact-card .input-group-prepend button[type=submit] + button[type=submit],
+.input-group-prepend .contact-card .secondary-action + button[type=submit],
+.contact-card .input-group-prepend .secondary-action + button[type=submit],
+.input-group-prepend .contact-card .forgot-password + button[type=submit],
+.contact-card .input-group-prepend .forgot-password + button[type=submit],
 .input-group-prepend .btn + .secondary-action,
 .input-group-prepend .main-action + .secondary-action,
 .input-group-prepend .main-nav .navbar-links ul li > a.dashboard-action + .secondary-action,
 .main-nav .navbar-links ul .input-group-prepend li > a.dashboard-action + .secondary-action,
 .input-group-prepend .account-card button[type=submit] + .secondary-action,
 .account-card .input-group-prepend button[type=submit] + .secondary-action,
+.input-group-prepend .contact-card button[type=submit] + .secondary-action,
+.contact-card .input-group-prepend button[type=submit] + .secondary-action,
 .input-group-prepend .secondary-action + .secondary-action,
 .input-group-prepend .account-card .forgot-password + .secondary-action,
 .account-card .input-group-prepend .forgot-password + .secondary-action,
+.input-group-prepend .contact-card .forgot-password + .secondary-action,
+.contact-card .input-group-prepend .forgot-password + .secondary-action,
 .input-group-prepend .account-card .btn + .forgot-password,
 .account-card .input-group-prepend .btn + .forgot-password,
 .input-group-prepend .account-card .main-action + .forgot-password,
@@ -4869,15 +5315,33 @@ input[type="button"].btn-block {
 .account-card .input-group-prepend .secondary-action + .forgot-password,
 .input-group-prepend .account-card .forgot-password + .forgot-password,
 .account-card .input-group-prepend .forgot-password + .forgot-password,
+.input-group-prepend .contact-card .btn + .forgot-password,
+.contact-card .input-group-prepend .btn + .forgot-password,
+.input-group-prepend .contact-card .main-action + .forgot-password,
+.contact-card .input-group-prepend .main-action + .forgot-password,
+.input-group-prepend .main-nav .navbar-links ul .contact-card li > a.dashboard-action + .forgot-password,
+.contact-card .input-group-prepend .main-nav .navbar-links ul li > a.dashboard-action + .forgot-password,
+.main-nav .navbar-links ul .input-group-prepend .contact-card li > a.dashboard-action + .forgot-password,
+.contact-card .main-nav .navbar-links ul .input-group-prepend li > a.dashboard-action + .forgot-password,
+.input-group-prepend .contact-card button[type=submit] + .forgot-password,
+.contact-card .input-group-prepend button[type=submit] + .forgot-password,
+.input-group-prepend .contact-card .secondary-action + .forgot-password,
+.contact-card .input-group-prepend .secondary-action + .forgot-password,
+.input-group-prepend .contact-card .forgot-password + .forgot-password,
+.contact-card .input-group-prepend .forgot-password + .forgot-password,
 .input-group-prepend .btn + .input-group-text,
 .input-group-prepend .main-action + .input-group-text,
 .input-group-prepend .main-nav .navbar-links ul li > a.dashboard-action + .input-group-text,
 .main-nav .navbar-links ul .input-group-prepend li > a.dashboard-action + .input-group-text,
 .input-group-prepend .account-card button[type=submit] + .input-group-text,
 .account-card .input-group-prepend button[type=submit] + .input-group-text,
+.input-group-prepend .contact-card button[type=submit] + .input-group-text,
+.contact-card .input-group-prepend button[type=submit] + .input-group-text,
 .input-group-prepend .secondary-action + .input-group-text,
 .input-group-prepend .account-card .forgot-password + .input-group-text,
 .account-card .input-group-prepend .forgot-password + .input-group-text,
+.input-group-prepend .contact-card .forgot-password + .input-group-text,
+.contact-card .input-group-prepend .forgot-password + .input-group-text,
 .input-group-prepend .input-group-text + .input-group-text,
 .input-group-prepend .input-group-text + .btn,
 .input-group-prepend .input-group-text + .main-action,
@@ -4885,27 +5349,39 @@ input[type="button"].btn-block {
 .main-nav .navbar-links ul .input-group-prepend li > .input-group-text + a.dashboard-action,
 .input-group-prepend .account-card .input-group-text + button[type=submit],
 .account-card .input-group-prepend .input-group-text + button[type=submit],
+.input-group-prepend .contact-card .input-group-text + button[type=submit],
+.contact-card .input-group-prepend .input-group-text + button[type=submit],
 .input-group-prepend .input-group-text + .secondary-action,
 .input-group-prepend .account-card .input-group-text + .forgot-password,
 .account-card .input-group-prepend .input-group-text + .forgot-password,
+.input-group-prepend .contact-card .input-group-text + .forgot-password,
+.contact-card .input-group-prepend .input-group-text + .forgot-password,
 .input-group-append .btn + .btn,
 .input-group-append .main-action + .btn,
 .input-group-append .main-nav .navbar-links ul li > a.dashboard-action + .btn,
 .main-nav .navbar-links ul .input-group-append li > a.dashboard-action + .btn,
 .input-group-append .account-card button[type=submit] + .btn,
 .account-card .input-group-append button[type=submit] + .btn,
+.input-group-append .contact-card button[type=submit] + .btn,
+.contact-card .input-group-append button[type=submit] + .btn,
 .input-group-append .secondary-action + .btn,
 .input-group-append .account-card .forgot-password + .btn,
 .account-card .input-group-append .forgot-password + .btn,
+.input-group-append .contact-card .forgot-password + .btn,
+.contact-card .input-group-append .forgot-password + .btn,
 .input-group-append .btn + .main-action,
 .input-group-append .main-action + .main-action,
 .input-group-append .main-nav .navbar-links ul li > a.dashboard-action + .main-action,
 .main-nav .navbar-links ul .input-group-append li > a.dashboard-action + .main-action,
 .input-group-append .account-card button[type=submit] + .main-action,
 .account-card .input-group-append button[type=submit] + .main-action,
+.input-group-append .contact-card button[type=submit] + .main-action,
+.contact-card .input-group-append button[type=submit] + .main-action,
 .input-group-append .secondary-action + .main-action,
 .input-group-append .account-card .forgot-password + .main-action,
 .account-card .input-group-append .forgot-password + .main-action,
+.input-group-append .contact-card .forgot-password + .main-action,
+.contact-card .input-group-append .forgot-password + .main-action,
 .input-group-append .main-nav .navbar-links ul li > .btn + a.dashboard-action,
 .main-nav .navbar-links ul .input-group-append li > .btn + a.dashboard-action,
 .input-group-append .main-nav .navbar-links ul li > .main-action + a.dashboard-action,
@@ -4916,12 +5392,20 @@ input[type="button"].btn-block {
 .main-nav .navbar-links ul .input-group-append .account-card li > button[type=submit] + a.dashboard-action,
 .account-card .input-group-append .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
 .main-nav .navbar-links ul .account-card .input-group-append li > button[type=submit] + a.dashboard-action,
+.input-group-append .contact-card .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
+.main-nav .navbar-links ul .input-group-append .contact-card li > button[type=submit] + a.dashboard-action,
+.contact-card .input-group-append .main-nav .navbar-links ul li > button[type=submit] + a.dashboard-action,
+.main-nav .navbar-links ul .contact-card .input-group-append li > button[type=submit] + a.dashboard-action,
 .input-group-append .main-nav .navbar-links ul li > .secondary-action + a.dashboard-action,
 .main-nav .navbar-links ul .input-group-append li > .secondary-action + a.dashboard-action,
 .input-group-append .account-card .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
 .main-nav .navbar-links ul .input-group-append .account-card li > .forgot-password + a.dashboard-action,
 .account-card .input-group-append .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
 .main-nav .navbar-links ul .account-card .input-group-append li > .forgot-password + a.dashboard-action,
+.input-group-append .contact-card .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
+.main-nav .navbar-links ul .input-group-append .contact-card li > .forgot-password + a.dashboard-action,
+.contact-card .input-group-append .main-nav .navbar-links ul li > .forgot-password + a.dashboard-action,
+.main-nav .navbar-links ul .contact-card .input-group-append li > .forgot-password + a.dashboard-action,
 .input-group-append .account-card .btn + button[type=submit],
 .account-card .input-group-append .btn + button[type=submit],
 .input-group-append .account-card .main-action + button[type=submit],
@@ -4936,15 +5420,33 @@ input[type="button"].btn-block {
 .account-card .input-group-append .secondary-action + button[type=submit],
 .input-group-append .account-card .forgot-password + button[type=submit],
 .account-card .input-group-append .forgot-password + button[type=submit],
+.input-group-append .contact-card .btn + button[type=submit],
+.contact-card .input-group-append .btn + button[type=submit],
+.input-group-append .contact-card .main-action + button[type=submit],
+.contact-card .input-group-append .main-action + button[type=submit],
+.input-group-append .main-nav .navbar-links ul .contact-card li > a.dashboard-action + button[type=submit],
+.contact-card .input-group-append .main-nav .navbar-links ul li > a.dashboard-action + button[type=submit],
+.main-nav .navbar-links ul .input-group-append .contact-card li > a.dashboard-action + button[type=submit],
+.contact-card .main-nav .navbar-links ul .input-group-append li > a.dashboard-action + button[type=submit],
+.input-group-append .contact-card button[type=submit] + button[type=submit],
+.contact-card .input-group-append button[type=submit] + button[type=submit],
+.input-group-append .contact-card .secondary-action + button[type=submit],
+.contact-card .input-group-append .secondary-action + button[type=submit],
+.input-group-append .contact-card .forgot-password + button[type=submit],
+.contact-card .input-group-append .forgot-password + button[type=submit],
 .input-group-append .btn + .secondary-action,
 .input-group-append .main-action + .secondary-action,
 .input-group-append .main-nav .navbar-links ul li > a.dashboard-action + .secondary-action,
 .main-nav .navbar-links ul .input-group-append li > a.dashboard-action + .secondary-action,
 .input-group-append .account-card button[type=submit] + .secondary-action,
 .account-card .input-group-append button[type=submit] + .secondary-action,
+.input-group-append .contact-card button[type=submit] + .secondary-action,
+.contact-card .input-group-append button[type=submit] + .secondary-action,
 .input-group-append .secondary-action + .secondary-action,
 .input-group-append .account-card .forgot-password + .secondary-action,
 .account-card .input-group-append .forgot-password + .secondary-action,
+.input-group-append .contact-card .forgot-password + .secondary-action,
+.contact-card .input-group-append .forgot-password + .secondary-action,
 .input-group-append .account-card .btn + .forgot-password,
 .account-card .input-group-append .btn + .forgot-password,
 .input-group-append .account-card .main-action + .forgot-password,
@@ -4959,15 +5461,33 @@ input[type="button"].btn-block {
 .account-card .input-group-append .secondary-action + .forgot-password,
 .input-group-append .account-card .forgot-password + .forgot-password,
 .account-card .input-group-append .forgot-password + .forgot-password,
+.input-group-append .contact-card .btn + .forgot-password,
+.contact-card .input-group-append .btn + .forgot-password,
+.input-group-append .contact-card .main-action + .forgot-password,
+.contact-card .input-group-append .main-action + .forgot-password,
+.input-group-append .main-nav .navbar-links ul .contact-card li > a.dashboard-action + .forgot-password,
+.contact-card .input-group-append .main-nav .navbar-links ul li > a.dashboard-action + .forgot-password,
+.main-nav .navbar-links ul .input-group-append .contact-card li > a.dashboard-action + .forgot-password,
+.contact-card .main-nav .navbar-links ul .input-group-append li > a.dashboard-action + .forgot-password,
+.input-group-append .contact-card button[type=submit] + .forgot-password,
+.contact-card .input-group-append button[type=submit] + .forgot-password,
+.input-group-append .contact-card .secondary-action + .forgot-password,
+.contact-card .input-group-append .secondary-action + .forgot-password,
+.input-group-append .contact-card .forgot-password + .forgot-password,
+.contact-card .input-group-append .forgot-password + .forgot-password,
 .input-group-append .btn + .input-group-text,
 .input-group-append .main-action + .input-group-text,
 .input-group-append .main-nav .navbar-links ul li > a.dashboard-action + .input-group-text,
 .main-nav .navbar-links ul .input-group-append li > a.dashboard-action + .input-group-text,
 .input-group-append .account-card button[type=submit] + .input-group-text,
 .account-card .input-group-append button[type=submit] + .input-group-text,
+.input-group-append .contact-card button[type=submit] + .input-group-text,
+.contact-card .input-group-append button[type=submit] + .input-group-text,
 .input-group-append .secondary-action + .input-group-text,
 .input-group-append .account-card .forgot-password + .input-group-text,
 .account-card .input-group-append .forgot-password + .input-group-text,
+.input-group-append .contact-card .forgot-password + .input-group-text,
+.contact-card .input-group-append .forgot-password + .input-group-text,
 .input-group-append .input-group-text + .input-group-text,
 .input-group-append .input-group-text + .btn,
 .input-group-append .input-group-text + .main-action,
@@ -4975,9 +5495,13 @@ input[type="button"].btn-block {
 .main-nav .navbar-links ul .input-group-append li > .input-group-text + a.dashboard-action,
 .input-group-append .account-card .input-group-text + button[type=submit],
 .account-card .input-group-append .input-group-text + button[type=submit],
+.input-group-append .contact-card .input-group-text + button[type=submit],
+.contact-card .input-group-append .input-group-text + button[type=submit],
 .input-group-append .input-group-text + .secondary-action,
 .input-group-append .account-card .input-group-text + .forgot-password,
-.account-card .input-group-append .input-group-text + .forgot-password {
+.account-card .input-group-append .input-group-text + .forgot-password,
+.input-group-append .contact-card .input-group-text + .forgot-password,
+.contact-card .input-group-append .input-group-text + .forgot-password {
   margin-left: -1px;
 }
 
@@ -5018,20 +5542,27 @@ input[type="button"].btn-block {
 .account-card .input-group-lg > input[type=text],
 .account-card .input-group-lg > input[type=email],
 .account-card .input-group-lg > input[type=password],
+.contact-card .input-group-lg > input[type=text],
+.contact-card .input-group-lg > input[type=email],
+.contact-card .input-group-lg > input[type=password],
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
 .input-group-lg > .input-group-prepend > .btn,
 .input-group-lg > .input-group-prepend > .main-action,
 .main-nav .navbar-links ul .input-group-lg > li.input-group-prepend > a.dashboard-action,
 .account-card .input-group-lg > .input-group-prepend > button[type=submit],
+.contact-card .input-group-lg > .input-group-prepend > button[type=submit],
 .input-group-lg > .input-group-prepend > .secondary-action,
 .account-card .input-group-lg > .input-group-prepend > .forgot-password,
+.contact-card .input-group-lg > .input-group-prepend > .forgot-password,
 .input-group-lg > .input-group-append > .btn,
 .input-group-lg > .input-group-append > .main-action,
 .main-nav .navbar-links ul .input-group-lg > li.input-group-append > a.dashboard-action,
 .account-card .input-group-lg > .input-group-append > button[type=submit],
+.contact-card .input-group-lg > .input-group-append > button[type=submit],
 .input-group-lg > .input-group-append > .secondary-action,
-.account-card .input-group-lg > .input-group-append > .forgot-password {
+.account-card .input-group-lg > .input-group-append > .forgot-password,
+.contact-card .input-group-lg > .input-group-append > .forgot-password {
   height: calc(2.6875rem + 2px);
   padding: 0.5rem 1rem;
   font-size: 1.125rem;
@@ -5043,20 +5574,27 @@ input[type="button"].btn-block {
 .account-card .input-group-sm > input[type=text],
 .account-card .input-group-sm > input[type=email],
 .account-card .input-group-sm > input[type=password],
+.contact-card .input-group-sm > input[type=text],
+.contact-card .input-group-sm > input[type=email],
+.contact-card .input-group-sm > input[type=password],
 .input-group-sm > .input-group-prepend > .input-group-text,
 .input-group-sm > .input-group-append > .input-group-text,
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-prepend > .main-action,
 .main-nav .navbar-links ul .input-group-sm > li.input-group-prepend > a.dashboard-action,
 .account-card .input-group-sm > .input-group-prepend > button[type=submit],
+.contact-card .input-group-sm > .input-group-prepend > button[type=submit],
 .input-group-sm > .input-group-prepend > .secondary-action,
 .account-card .input-group-sm > .input-group-prepend > .forgot-password,
+.contact-card .input-group-sm > .input-group-prepend > .forgot-password,
 .input-group-sm > .input-group-append > .btn,
 .input-group-sm > .input-group-append > .main-action,
 .main-nav .navbar-links ul .input-group-sm > li.input-group-append > a.dashboard-action,
 .account-card .input-group-sm > .input-group-append > button[type=submit],
+.contact-card .input-group-sm > .input-group-append > button[type=submit],
 .input-group-sm > .input-group-append > .secondary-action,
-.account-card .input-group-sm > .input-group-append > .forgot-password {
+.account-card .input-group-sm > .input-group-append > .forgot-password,
+.contact-card .input-group-sm > .input-group-append > .forgot-password {
   height: calc(1.68125rem + 2px);
   padding: 0.25rem 0.5rem;
   font-size: 0.7875rem;
@@ -5068,22 +5606,28 @@ input[type="button"].btn-block {
 .input-group > .input-group-prepend > .main-action,
 .main-nav .navbar-links ul .input-group > li.input-group-prepend > a.dashboard-action,
 .account-card .input-group > .input-group-prepend > button[type=submit],
+.contact-card .input-group > .input-group-prepend > button[type=submit],
 .input-group > .input-group-prepend > .secondary-action,
 .account-card .input-group > .input-group-prepend > .forgot-password,
+.contact-card .input-group > .input-group-prepend > .forgot-password,
 .input-group > .input-group-prepend > .input-group-text,
 .input-group > .input-group-append:not(:last-child) > .btn,
 .input-group > .input-group-append:not(:last-child) > .main-action,
 .main-nav .navbar-links ul .input-group > li.input-group-append:not(:last-child) > a.dashboard-action,
 .account-card .input-group > .input-group-append:not(:last-child) > button[type=submit],
+.contact-card .input-group > .input-group-append:not(:last-child) > button[type=submit],
 .input-group > .input-group-append:not(:last-child) > .secondary-action,
 .account-card .input-group > .input-group-append:not(:last-child) > .forgot-password,
+.contact-card .input-group > .input-group-append:not(:last-child) > .forgot-password,
 .input-group > .input-group-append:not(:last-child) > .input-group-text,
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group > .input-group-append:last-child > .main-action:not(:last-child):not(.dropdown-toggle),
 .main-nav .navbar-links ul .input-group > li.input-group-append:last-child > a.dashboard-action:not(:last-child):not(.dropdown-toggle),
 .account-card .input-group > .input-group-append:last-child > button:not(:last-child):not(.dropdown-toggle)[type=submit],
+.contact-card .input-group > .input-group-append:last-child > button:not(:last-child):not(.dropdown-toggle)[type=submit],
 .input-group > .input-group-append:last-child > .secondary-action:not(:last-child):not(.dropdown-toggle),
 .account-card .input-group > .input-group-append:last-child > .forgot-password:not(:last-child):not(.dropdown-toggle),
+.contact-card .input-group > .input-group-append:last-child > .forgot-password:not(:last-child):not(.dropdown-toggle),
 .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -5093,22 +5637,28 @@ input[type="button"].btn-block {
 .input-group > .input-group-append > .main-action,
 .main-nav .navbar-links ul .input-group > li.input-group-append > a.dashboard-action,
 .account-card .input-group > .input-group-append > button[type=submit],
+.contact-card .input-group > .input-group-append > button[type=submit],
 .input-group > .input-group-append > .secondary-action,
 .account-card .input-group > .input-group-append > .forgot-password,
+.contact-card .input-group > .input-group-append > .forgot-password,
 .input-group > .input-group-append > .input-group-text,
 .input-group > .input-group-prepend:not(:first-child) > .btn,
 .input-group > .input-group-prepend:not(:first-child) > .main-action,
 .main-nav .navbar-links ul .input-group > li.input-group-prepend:not(:first-child) > a.dashboard-action,
 .account-card .input-group > .input-group-prepend:not(:first-child) > button[type=submit],
+.contact-card .input-group > .input-group-prepend:not(:first-child) > button[type=submit],
 .input-group > .input-group-prepend:not(:first-child) > .secondary-action,
 .account-card .input-group > .input-group-prepend:not(:first-child) > .forgot-password,
+.contact-card .input-group > .input-group-prepend:not(:first-child) > .forgot-password,
 .input-group > .input-group-prepend:not(:first-child) > .input-group-text,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
 .input-group > .input-group-prepend:first-child > .main-action:not(:first-child),
 .main-nav .navbar-links ul .input-group > li.input-group-prepend:first-child > a.dashboard-action:not(:first-child),
 .account-card .input-group > .input-group-prepend:first-child > button:not(:first-child)[type=submit],
+.contact-card .input-group > .input-group-prepend:first-child > button:not(:first-child)[type=submit],
 .input-group > .input-group-prepend:first-child > .secondary-action:not(:first-child),
 .account-card .input-group > .input-group-prepend:first-child > .forgot-password:not(:first-child),
+.contact-card .input-group > .input-group-prepend:first-child > .forgot-password:not(:first-child),
 .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -5772,6 +6322,8 @@ input[type="button"].btn-block {
 .main-nav > .login-section,
 .navbar > .signup-section,
 .main-nav > .signup-section,
+.navbar > .contact-section,
+.main-nav > .contact-section,
 .navbar > .container-fluid,
 .main-nav > .container-fluid {
   display: -webkit-box;
@@ -5886,6 +6438,7 @@ input[type="button"].btn-block {
   .admin .navbar-expand-sm > .content,
   .navbar-expand-sm > .login-section,
   .navbar-expand-sm > .signup-section,
+  .navbar-expand-sm > .contact-section,
   .navbar-expand-sm > .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -5934,6 +6487,7 @@ input[type="button"].btn-block {
   .admin .navbar-expand-sm > .content,
   .navbar-expand-sm > .login-section,
   .navbar-expand-sm > .signup-section,
+  .navbar-expand-sm > .contact-section,
   .navbar-expand-sm > .container-fluid {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -5967,6 +6521,8 @@ input[type="button"].btn-block {
   .main-nav > .login-section,
   .navbar-expand-md > .signup-section,
   .main-nav > .signup-section,
+  .navbar-expand-md > .contact-section,
+  .main-nav > .contact-section,
   .navbar-expand-md > .container-fluid,
   .main-nav > .container-fluid {
     padding-right: 0;
@@ -6025,6 +6581,8 @@ input[type="button"].btn-block {
   .main-nav > .login-section,
   .navbar-expand-md > .signup-section,
   .main-nav > .signup-section,
+  .navbar-expand-md > .contact-section,
+  .main-nav > .contact-section,
   .navbar-expand-md > .container-fluid,
   .main-nav > .container-fluid {
     -ms-flex-wrap: nowrap;
@@ -6054,6 +6612,7 @@ input[type="button"].btn-block {
   .admin .navbar-expand-lg > .content,
   .navbar-expand-lg > .login-section,
   .navbar-expand-lg > .signup-section,
+  .navbar-expand-lg > .contact-section,
   .navbar-expand-lg > .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -6102,6 +6661,7 @@ input[type="button"].btn-block {
   .admin .navbar-expand-lg > .content,
   .navbar-expand-lg > .login-section,
   .navbar-expand-lg > .signup-section,
+  .navbar-expand-lg > .contact-section,
   .navbar-expand-lg > .container-fluid {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -6129,6 +6689,7 @@ input[type="button"].btn-block {
   .admin .navbar-expand-xl > .content,
   .navbar-expand-xl > .login-section,
   .navbar-expand-xl > .signup-section,
+  .navbar-expand-xl > .contact-section,
   .navbar-expand-xl > .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -6177,6 +6738,7 @@ input[type="button"].btn-block {
   .admin .navbar-expand-xl > .content,
   .navbar-expand-xl > .login-section,
   .navbar-expand-xl > .signup-section,
+  .navbar-expand-xl > .contact-section,
   .navbar-expand-xl > .container-fluid {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -6213,6 +6775,7 @@ input[type="button"].btn-block {
 .admin .navbar-expand > .content,
 .navbar-expand > .login-section,
 .navbar-expand > .signup-section,
+.navbar-expand > .contact-section,
 .navbar-expand > .container-fluid {
   padding-right: 0;
   padding-left: 0;
@@ -6249,6 +6812,7 @@ input[type="button"].btn-block {
 .admin .navbar-expand > .content,
 .navbar-expand > .login-section,
 .navbar-expand > .signup-section,
+.navbar-expand > .contact-section,
 .navbar-expand > .container-fluid {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
@@ -6485,7 +7049,8 @@ input[type="button"].btn-block {
 }
 
 .card,
-.account-card {
+.account-card,
+.contact-card {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6503,19 +7068,22 @@ input[type="button"].btn-block {
 }
 
 .card > hr,
-.account-card > hr {
+.account-card > hr,
+.contact-card > hr {
   margin-right: 0;
   margin-left: 0;
 }
 
 .card > .list-group:first-child .list-group-item:first-child,
-.account-card > .list-group:first-child .list-group-item:first-child {
+.account-card > .list-group:first-child .list-group-item:first-child,
+.contact-card > .list-group:first-child .list-group-item:first-child {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
 
 .card > .list-group:last-child .list-group-item:last-child,
-.account-card > .list-group:last-child .list-group-item:last-child {
+.account-card > .list-group:last-child .list-group-item:last-child,
+.contact-card > .list-group:last-child .list-group-item:last-child {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
@@ -6622,7 +7190,8 @@ input[type="button"].btn-block {
 }
 
 .card-deck .card,
-.card-deck .account-card {
+.card-deck .account-card,
+.card-deck .contact-card {
   margin-bottom: 15px;
 }
 
@@ -6637,7 +7206,8 @@ input[type="button"].btn-block {
   }
 
   .card-deck .card,
-  .card-deck .account-card {
+  .card-deck .account-card,
+  .card-deck .contact-card {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -6665,7 +7235,8 @@ input[type="button"].btn-block {
 }
 
 .card-group > .card,
-.card-group > .account-card {
+.card-group > .account-card,
+.card-group > .contact-card {
   margin-bottom: 15px;
 }
 
@@ -6678,7 +7249,8 @@ input[type="button"].btn-block {
   }
 
   .card-group > .card,
-  .card-group > .account-card {
+  .card-group > .account-card,
+  .card-group > .contact-card {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 0%;
             flex: 1 0 0%;
@@ -6687,92 +7259,118 @@ input[type="button"].btn-block {
 
   .card-group > .card + .card,
   .card-group > .account-card + .card,
+  .card-group > .contact-card + .card,
   .card-group > .card + .account-card,
-  .card-group > .account-card + .account-card {
+  .card-group > .account-card + .account-card,
+  .card-group > .contact-card + .account-card,
+  .card-group > .card + .contact-card,
+  .card-group > .account-card + .contact-card,
+  .card-group > .contact-card + .contact-card {
     margin-left: 0;
     border-left: 0;
   }
 
   .card-group > .card:first-child,
-  .card-group > .account-card:first-child {
+  .card-group > .account-card:first-child,
+  .card-group > .contact-card:first-child {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
 
   .card-group > .card:first-child .card-img-top,
   .card-group > .account-card:first-child .card-img-top,
+  .card-group > .contact-card:first-child .card-img-top,
   .card-group > .card:first-child .card-header,
-  .card-group > .account-card:first-child .card-header {
+  .card-group > .account-card:first-child .card-header,
+  .card-group > .contact-card:first-child .card-header {
     border-top-right-radius: 0;
   }
 
   .card-group > .card:first-child .card-img-bottom,
   .card-group > .account-card:first-child .card-img-bottom,
+  .card-group > .contact-card:first-child .card-img-bottom,
   .card-group > .card:first-child .card-footer,
-  .card-group > .account-card:first-child .card-footer {
+  .card-group > .account-card:first-child .card-footer,
+  .card-group > .contact-card:first-child .card-footer {
     border-bottom-right-radius: 0;
   }
 
   .card-group > .card:last-child,
-  .card-group > .account-card:last-child {
+  .card-group > .account-card:last-child,
+  .card-group > .contact-card:last-child {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
 
   .card-group > .card:last-child .card-img-top,
   .card-group > .account-card:last-child .card-img-top,
+  .card-group > .contact-card:last-child .card-img-top,
   .card-group > .card:last-child .card-header,
-  .card-group > .account-card:last-child .card-header {
+  .card-group > .account-card:last-child .card-header,
+  .card-group > .contact-card:last-child .card-header {
     border-top-left-radius: 0;
   }
 
   .card-group > .card:last-child .card-img-bottom,
   .card-group > .account-card:last-child .card-img-bottom,
+  .card-group > .contact-card:last-child .card-img-bottom,
   .card-group > .card:last-child .card-footer,
-  .card-group > .account-card:last-child .card-footer {
+  .card-group > .account-card:last-child .card-footer,
+  .card-group > .contact-card:last-child .card-footer {
     border-bottom-left-radius: 0;
   }
 
   .card-group > .card:only-child,
-  .card-group > .account-card:only-child {
+  .card-group > .account-card:only-child,
+  .card-group > .contact-card:only-child {
     border-radius: 0.25rem;
   }
 
   .card-group > .card:only-child .card-img-top,
   .card-group > .account-card:only-child .card-img-top,
+  .card-group > .contact-card:only-child .card-img-top,
   .card-group > .card:only-child .card-header,
-  .card-group > .account-card:only-child .card-header {
+  .card-group > .account-card:only-child .card-header,
+  .card-group > .contact-card:only-child .card-header {
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
   }
 
   .card-group > .card:only-child .card-img-bottom,
   .card-group > .account-card:only-child .card-img-bottom,
+  .card-group > .contact-card:only-child .card-img-bottom,
   .card-group > .card:only-child .card-footer,
-  .card-group > .account-card:only-child .card-footer {
+  .card-group > .account-card:only-child .card-footer,
+  .card-group > .contact-card:only-child .card-footer {
     border-bottom-right-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
   }
 
   .card-group > .card:not(:first-child):not(:last-child):not(:only-child),
-  .card-group > .account-card:not(:first-child):not(:last-child):not(:only-child) {
+  .card-group > .account-card:not(:first-child):not(:last-child):not(:only-child),
+  .card-group > .contact-card:not(:first-child):not(:last-child):not(:only-child) {
     border-radius: 0;
   }
 
   .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-img-top,
   .card-group > .account-card:not(:first-child):not(:last-child):not(:only-child) .card-img-top,
+  .card-group > .contact-card:not(:first-child):not(:last-child):not(:only-child) .card-img-top,
   .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-img-bottom,
   .card-group > .account-card:not(:first-child):not(:last-child):not(:only-child) .card-img-bottom,
+  .card-group > .contact-card:not(:first-child):not(:last-child):not(:only-child) .card-img-bottom,
   .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-header,
   .card-group > .account-card:not(:first-child):not(:last-child):not(:only-child) .card-header,
+  .card-group > .contact-card:not(:first-child):not(:last-child):not(:only-child) .card-header,
   .card-group > .card:not(:first-child):not(:last-child):not(:only-child) .card-footer,
-  .card-group > .account-card:not(:first-child):not(:last-child):not(:only-child) .card-footer {
+  .card-group > .account-card:not(:first-child):not(:last-child):not(:only-child) .card-footer,
+  .card-group > .contact-card:not(:first-child):not(:last-child):not(:only-child) .card-footer {
     border-radius: 0;
   }
 }
 
 .card-columns .card,
-.card-columns .account-card {
+.card-columns .account-card,
+.card-columns .contact-card {
   margin-bottom: 0.75rem;
 }
 
@@ -6787,32 +7385,37 @@ input[type="button"].btn-block {
   }
 
   .card-columns .card,
-  .card-columns .account-card {
+  .card-columns .account-card,
+  .card-columns .contact-card {
     display: inline-block;
     width: 100%;
   }
 }
 
 .accordion .card:not(:first-of-type):not(:last-of-type),
-.accordion .account-card:not(:first-of-type):not(:last-of-type) {
+.accordion .account-card:not(:first-of-type):not(:last-of-type),
+.accordion .contact-card:not(:first-of-type):not(:last-of-type) {
   border-bottom: 0;
   border-radius: 0;
 }
 
 .accordion .card:not(:first-of-type) .card-header:first-child,
-.accordion .account-card:not(:first-of-type) .card-header:first-child {
+.accordion .account-card:not(:first-of-type) .card-header:first-child,
+.accordion .contact-card:not(:first-of-type) .card-header:first-child {
   border-radius: 0;
 }
 
 .accordion .card:first-of-type,
-.accordion .account-card:first-of-type {
+.accordion .account-card:first-of-type,
+.accordion .contact-card:first-of-type {
   border-bottom: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
 .accordion .card:last-of-type,
-.accordion .account-card:last-of-type {
+.accordion .account-card:last-of-type,
+.accordion .contact-card:last-of-type {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -6970,8 +7573,10 @@ input[type="button"].btn-block {
 .main-action .badge,
 .main-nav .navbar-links ul li > a.dashboard-action .badge,
 .account-card button[type=submit] .badge,
+.contact-card button[type=submit] .badge,
 .secondary-action .badge,
-.account-card .forgot-password .badge {
+.account-card .forgot-password .badge,
+.contact-card .forgot-password .badge {
   position: relative;
   top: -1px;
 }
@@ -9894,7 +10499,8 @@ button.bg-dark:focus {
 .landing .description,
 .about,
 .admin,
-.account-content p {
+.account-content p,
+.contact-content p {
   position: relative !important;
 }
 
@@ -9904,7 +10510,8 @@ button.bg-dark:focus {
 .about .accent,
 .about .decor,
 .admin .decor,
-.account-content p::before {
+.account-content p::before,
+.contact-content p::before {
   position: absolute !important;
 }
 
@@ -10047,7 +10654,8 @@ button.bg-dark:focus {
 .mr-0,
 .mx-0,
 .login-section .row,
-.signup-section .row {
+.signup-section .row,
+.contact-section .row {
   margin-right: 0 !important;
 }
 
@@ -10059,7 +10667,8 @@ button.bg-dark:focus {
 .ml-0,
 .mx-0,
 .login-section .row,
-.signup-section .row {
+.signup-section .row,
+.contact-section .row {
   margin-left: 0 !important;
 }
 
@@ -10146,6 +10755,7 @@ button.bg-dark:focus {
 .landing .description,
 .landing .actions,
 .account-content p,
+.contact-content p,
 .my-4 {
   margin-top: 1.5rem !important;
 }
@@ -10176,6 +10786,8 @@ button.bg-dark:focus {
 .main-nav .navbar-links ul .last-action li > a.dashboard-action,
 .last-action .account-card button[type=submit],
 .account-card .last-action button[type=submit],
+.last-action .contact-card button[type=submit],
+.contact-card .last-action button[type=submit],
 .my-5 {
   margin-top: 3rem !important;
 }
@@ -10187,6 +10799,7 @@ button.bg-dark:focus {
 
 .mb-5,
 .account-content p,
+.contact-content p,
 .my-5 {
   margin-bottom: 3rem !important;
 }
@@ -10207,7 +10820,8 @@ button.bg-dark:focus {
 
 .pr-0,
 .px-0,
-.account-content {
+.account-content,
+.contact-content {
   padding-right: 0 !important;
 }
 
@@ -10218,7 +10832,8 @@ button.bg-dark:focus {
 
 .pl-0,
 .px-0,
-.account-content {
+.account-content,
+.contact-content {
   padding-left: 0 !important;
 }
 
@@ -10302,6 +10917,7 @@ button.bg-dark:focus {
 .pt-4,
 .landing .description,
 .account-content p,
+.contact-content p,
 .py-4 {
   padding-top: 1.5rem !important;
 }
@@ -11829,7 +12445,8 @@ a.text-dark:focus {
 }
 
 .text-muted,
-.account-card .forgot-password {
+.account-card .forgot-password,
+.contact-card .forgot-password {
   color: #6c757d !important;
 }
 
@@ -11918,7 +12535,8 @@ a.text-dark:focus {
   .about,
   .admin .content,
   .login-section,
-  .signup-section {
+  .signup-section,
+  .contact-section {
     min-width: 992px !important;
   }
 
@@ -11972,7 +12590,8 @@ a.text-dark:focus {
 
 .main-action,
 .main-nav .navbar-links ul li > a.dashboard-action,
-.account-card button[type=submit] {
+.account-card button[type=submit],
+.contact-card button[type=submit] {
   background: #ef6461;
 }
 
@@ -12159,6 +12778,56 @@ a.text-dark:focus {
   background-color: #ef6461;
 }
 
+.contact-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.contact-content h1 {
+  font-weight: 700;
+}
+
+.contact-content p {
+  font-size: 1.125rem;
+}
+
+.contact-content p::before {
+  background: #ef6461;
+  content: ' ';
+  height: 1.5px;
+  width: 10rem;
+  top: 0;
+}
+
+.spinner {
+  -webkit-animation: spin .5s linear infinite;
+          animation: spin .5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+    -webkit-transform: rotate(359deg);
+  }
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -12182,7 +12851,10 @@ h6 {
 .form-control:focus,
 .account-card input:focus[type=text],
 .account-card input:focus[type=email],
-.account-card input:focus[type=password] {
+.account-card input:focus[type=password],
+.contact-card input:focus[type=text],
+.contact-card input:focus[type=email],
+.contact-card input:focus[type=password] {
   color: #495057;
   background-color: #fff;
   border-color: #ef646180;

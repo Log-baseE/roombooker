@@ -17,5 +17,6 @@
     </main>
     @include('layouts.front.footer')
     <script src="{{ mix('js/app.js' )}}"></script>
+    @yield('custom-script')
 </body>
 </html>
