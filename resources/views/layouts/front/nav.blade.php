@@ -20,7 +20,7 @@
                 <li role="separator" class="divider"></li>
             </ul>
         </div>
-        <div id="navbarLinks" class="navbar-links right-links">
+        <div id="navbarLinks2" class="navbar-links right-links">
             <ul>
                 @guest
                 <li>
