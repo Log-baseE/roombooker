@@ -17,3 +17,14 @@ databases:
     - homestead
 name: roombooker
 hostname: roombooker
+variables:
+    - key: MYSQL_ROOT
+      value: root
+    - key: MYSQL_ROOT_PW
+      value: root
+    - key: APP_DB_DATABASE
+      value: database
+    - key: APP_DB_USERNAME
+      value: user
+    - key: APP_DB_PASSWORD
+      value:
