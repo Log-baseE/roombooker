@@ -1,0 +1,12 @@
+footer {
+    @extend .text-white;
+    background: $darker;
+    .footer-links {
+        @extend .container;
+    }
+    .copyright {
+        @extend .container;
+        @extend .text-center;
+        @extend .py-2;
+    }
+}

@@ -1,3 +1,8 @@
 <footer>
-<h1>This is a footer</h1>
+    <div class="footer-links">
+
+    </div>
+    <div class="copyright">
+        Copyright 2018 &copy; Roombooker
+    </div>
 </footer>
