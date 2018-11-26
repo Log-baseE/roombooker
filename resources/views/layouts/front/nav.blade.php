@@ -3,15 +3,15 @@
         <a href="{{ route('front.index') }}" class="logo">
             <img src="/static/img/logo-big.svg" height="30" class="d-inline-block align-top" alt="room booker logo">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLinks" aria-controls="navbarLinks"
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLinks,#navbarLinks2" aria-controls="navbarLinks"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div id="navbarLinks" class="navbar-links left-links">
             <ul>
                 <li><a href="{{ route('front.about') }}">{{ __('About Us') }}</a></li>
-                <li class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <a href="#" class="dropdown-toggle" id="navbarDropdown" role="button">{{ __('Support') }}</a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ __('Support') }}</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('front.faq') }}">FAQ</a>
                         <a class="dropdown-item" href="{{ route('front.contact') }}">{{ __('Contact us') }}</a>

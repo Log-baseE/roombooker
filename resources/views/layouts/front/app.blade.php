@@ -6,21 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="The room booking solution for event organizers">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="manifest" href="{{url('/manifest.json')}}">
     <meta name="theme-color" content="#fff"/>
-    <script>
-        if ('serviceWorker' in navigator ) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                    // Registration was successful
-                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                }, function(err) {
-                    // registration failed :(
-                    console.log('ServiceWorker registration failed: ', err);
-                });
-            });
-        }
-    </script>
     <title>{{ $title }} · RoomBooker</title>
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
@@ -93,7 +79,7 @@
     </script>
     <div id='loader'>
         <div class="spinner"></div>
-    </div> 
+    </div>
 
     @include('layouts.front.nav')
     <main class="main-body">

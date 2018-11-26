@@ -593,9 +593,7 @@ pre code {
 .admin .content,
 .login-section,
 .signup-section,
-.contact-section,
-footer .footer-links,
-footer .copyright {
+.contact-section {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -610,9 +608,7 @@ footer .copyright {
   .admin .content,
   .login-section,
   .signup-section,
-  .contact-section,
-  footer .footer-links,
-  footer .copyright {
+  .contact-section {
     max-width: 540px;
   }
 }
@@ -624,9 +620,7 @@ footer .copyright {
   .admin .content,
   .login-section,
   .signup-section,
-  .contact-section,
-  footer .footer-links,
-  footer .copyright {
+  .contact-section {
     max-width: 720px;
   }
 }
@@ -638,9 +632,7 @@ footer .copyright {
   .admin .content,
   .login-section,
   .signup-section,
-  .contact-section,
-  footer .footer-links,
-  footer .copyright {
+  .contact-section {
     max-width: 960px;
   }
 }
@@ -652,9 +644,7 @@ footer .copyright {
   .admin .content,
   .login-section,
   .signup-section,
-  .contact-section,
-  footer .footer-links,
-  footer .copyright {
+  .contact-section {
     max-width: 1140px;
   }
 }
@@ -6334,10 +6324,6 @@ input[type="button"].btn-block {
 .main-nav > .signup-section,
 .navbar > .contact-section,
 .main-nav > .contact-section,
-footer .navbar > .footer-links,
-footer .main-nav > .footer-links,
-footer .navbar > .copyright,
-footer .main-nav > .copyright,
 .navbar > .container-fluid,
 .main-nav > .container-fluid {
   display: -webkit-box;
@@ -6453,8 +6439,6 @@ footer .main-nav > .copyright,
   .navbar-expand-sm > .login-section,
   .navbar-expand-sm > .signup-section,
   .navbar-expand-sm > .contact-section,
-  footer .navbar-expand-sm > .footer-links,
-  footer .navbar-expand-sm > .copyright,
   .navbar-expand-sm > .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -6504,8 +6488,6 @@ footer .main-nav > .copyright,
   .navbar-expand-sm > .login-section,
   .navbar-expand-sm > .signup-section,
   .navbar-expand-sm > .contact-section,
-  footer .navbar-expand-sm > .footer-links,
-  footer .navbar-expand-sm > .copyright,
   .navbar-expand-sm > .container-fluid {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -6541,10 +6523,6 @@ footer .main-nav > .copyright,
   .main-nav > .signup-section,
   .navbar-expand-md > .contact-section,
   .main-nav > .contact-section,
-  footer .navbar-expand-md > .footer-links,
-  footer .main-nav > .footer-links,
-  footer .navbar-expand-md > .copyright,
-  footer .main-nav > .copyright,
   .navbar-expand-md > .container-fluid,
   .main-nav > .container-fluid {
     padding-right: 0;
@@ -6605,10 +6583,6 @@ footer .main-nav > .copyright,
   .main-nav > .signup-section,
   .navbar-expand-md > .contact-section,
   .main-nav > .contact-section,
-  footer .navbar-expand-md > .footer-links,
-  footer .main-nav > .footer-links,
-  footer .navbar-expand-md > .copyright,
-  footer .main-nav > .copyright,
   .navbar-expand-md > .container-fluid,
   .main-nav > .container-fluid {
     -ms-flex-wrap: nowrap;
@@ -6639,8 +6613,6 @@ footer .main-nav > .copyright,
   .navbar-expand-lg > .login-section,
   .navbar-expand-lg > .signup-section,
   .navbar-expand-lg > .contact-section,
-  footer .navbar-expand-lg > .footer-links,
-  footer .navbar-expand-lg > .copyright,
   .navbar-expand-lg > .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -6690,8 +6662,6 @@ footer .main-nav > .copyright,
   .navbar-expand-lg > .login-section,
   .navbar-expand-lg > .signup-section,
   .navbar-expand-lg > .contact-section,
-  footer .navbar-expand-lg > .footer-links,
-  footer .navbar-expand-lg > .copyright,
   .navbar-expand-lg > .container-fluid {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -6720,8 +6690,6 @@ footer .main-nav > .copyright,
   .navbar-expand-xl > .login-section,
   .navbar-expand-xl > .signup-section,
   .navbar-expand-xl > .contact-section,
-  footer .navbar-expand-xl > .footer-links,
-  footer .navbar-expand-xl > .copyright,
   .navbar-expand-xl > .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -6771,8 +6739,6 @@ footer .main-nav > .copyright,
   .navbar-expand-xl > .login-section,
   .navbar-expand-xl > .signup-section,
   .navbar-expand-xl > .contact-section,
-  footer .navbar-expand-xl > .footer-links,
-  footer .navbar-expand-xl > .copyright,
   .navbar-expand-xl > .container-fluid {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -6810,8 +6776,6 @@ footer .main-nav > .copyright,
 .navbar-expand > .login-section,
 .navbar-expand > .signup-section,
 .navbar-expand > .contact-section,
-footer .navbar-expand > .footer-links,
-footer .navbar-expand > .copyright,
 .navbar-expand > .container-fluid {
   padding-right: 0;
   padding-left: 0;
@@ -6849,8 +6813,6 @@ footer .navbar-expand > .copyright,
 .navbar-expand > .login-section,
 .navbar-expand > .signup-section,
 .navbar-expand > .contact-section,
-footer .navbar-expand > .footer-links,
-footer .navbar-expand > .copyright,
 .navbar-expand > .container-fluid {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
@@ -10904,8 +10866,7 @@ button.bg-dark:focus {
 }
 
 .pt-2,
-.py-2,
-footer .copyright {
+.py-2 {
   padding-top: 0.5rem !important;
 }
 
@@ -10915,8 +10876,7 @@ footer .copyright {
 }
 
 .pb-2,
-.py-2,
-footer .copyright {
+.py-2 {
   padding-bottom: 0.5rem !important;
 }
 
@@ -12310,8 +12270,7 @@ footer .copyright {
 }
 
 .text-center,
-.last-action,
-footer .copyright {
+.last-action {
   text-align: center !important;
 }
 
@@ -12578,9 +12537,7 @@ a.text-dark:focus {
   .admin .content,
   .login-section,
   .signup-section,
-  .contact-section,
-  footer .footer-links,
-  footer .copyright {
+  .contact-section {
     min-width: 992px !important;
   }
 

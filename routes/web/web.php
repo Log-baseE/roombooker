@@ -15,9 +15,9 @@
 //     return view('welcome');
 // });
 
-Route::get('/adminator', function () {
-    return view('adminator');
-});
+// Route::get('/adminator', function () {
+//     return view('adminator');
+// });
 
 // Front page routes
 Route::get('/', 'FrontController@index')->name('front.index');
@@ -44,4 +44,4 @@ Route::get('email/verify', 'Auth\VerificationController@show')->name('verificati
 Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
 Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
-Route::get('home', function(){ return view('home');});
+// Route::get('home', function(){ return view('home');});
