@@ -5,7 +5,7 @@
         <div class="sidebar-logo">
             <div class="peers ai-c fxw-nw">
                 <div class="peer peer-greed">
-                    <a class="sidebar-link td-n" href="index.html">
+                    <a class="sidebar-link td-n" href="{{ route('front.index') }}">
                         <div class="peers ai-c fxw-nw">
                             <div class="peer">
                                 <div class="logo">
@@ -47,6 +47,7 @@
                     <span class="title">Rooms</span>
                 </a>
             </li>
+            @unless (Auth::user()->role_id == roombooker\User::ROLE_AUTHORITY)
             <li class="nav-item">
                 <a class='sidebar-link{{ $active == 'bookings' ? ' active' : '' }}' href="{{ route('bookings.index') }}">
                     <span class="icon-holder">
@@ -55,6 +56,8 @@
                     <span class="title">Bookings</span>
                 </a>
             </li>
+            @endif
+            @if (Auth::user()->is_authority)
             <li class="nav-item">
                 <a class='sidebar-link{{ $active == 'sign' ? ' active' : '' }}' href="{{ route('make.signature') }}">
                     <span class="icon-holder">
@@ -63,6 +66,7 @@
                     <span class="title">Sign</span>
                 </a>
             </li>
+            @endif
             {{-- <li class="nav-item">
                 <a class='sidebar-link{{ $active == 'inbox' ? ' active' : '' }}' href="calendar.html">
                     <span class="icon-holder">
