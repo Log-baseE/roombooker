@@ -61,6 +61,10 @@
                             {{ __('Register') }}
                         </button>
                     </div>
+
+                    <div>
+                        <a class="text-muted" href="{{ route('login') }}">{{__('Already have an account?')}}</a>
+                    </div>
                 </form>
             </div>
         </div>
