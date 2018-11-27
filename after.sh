@@ -28,7 +28,11 @@ echo "\033[0;1;33mRestarting nginx...\033[0m"
 sudo service nginx restart
 systemctl status nginx.service
 
+cd ~/code
+
+echo "\033[0;1;33mClearing previous config...\033[0m"
+php artisan config:clear
+
 # Run database migrations and seed the database
 echo "\033[0;1;33mRunning database migrations...\033[0m"
-cd ~/code
 php artisan migrate:refresh --seed
