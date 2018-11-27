@@ -39,7 +39,7 @@ class DashboardController extends Controller
             Booking::whereHas('details', function($query) {
                 $query->where('booker_id', Auth::user()->id)
                       ->where('start_datetime', '>=', Carbon::now());
-            })->where('status', Booking::ACCEPTED_STATUS)->count();
+            })->where('status', '<>', Booking::ACCEPTED_STATUS)->count();
 
         $context_data = self::getContextData([
             'upcoming' => $upcoming,

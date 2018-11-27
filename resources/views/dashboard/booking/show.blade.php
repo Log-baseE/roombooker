@@ -445,6 +445,18 @@
                 }
             });
         });
+        (function(){
+            let bookings = `{!! $bookings->toJSON() !!}`;
+            bookings = JSON.parse(bookings);
+            bookings.forEach(booking => {
+                $('#full-calendar').fullCalendar('renderEvent', {
+                    title: booking.details.purpose,
+                    start: booking.details.start_datetime,
+                    end: booking.details.end_datetime,
+                    description: `${booking.details.start_datetime.slice(0,-3)} - ${booking.details.end_datetime.slice(0,-3)}`,
+                }, true);
+            });
+        })();
     </script>
     @elseif($booking->is_incomplete)
     <script>

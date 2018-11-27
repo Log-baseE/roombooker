@@ -106,6 +106,9 @@
         </div>
         <div class="col-md-8">
             <div id='full-calendar'></div>
+            <div id="calendar-overlay" class="position-absolute op-40p bgc-white w-100 h-100 t-0 l-0 d-n ai-c jc-c" style="z-index: 100">
+                <i class="loading-cog fas fa-circle-notch fa-4x"></i>
+            </div>
         </div>
     </div>
 </div>
@@ -113,6 +116,18 @@
 
 @section('custom-script')
 <script>
+    (function(){
+        let bookings = `{!! $bookings->toJSON() !!}`;
+        bookings = JSON.parse(bookings);
+        bookings.forEach(booking => {
+            $('#full-calendar').fullCalendar('renderEvent', {
+                title: booking.details.purpose,
+                start: booking.details.start_datetime,
+                end: booking.details.end_datetime,
+                description: `${booking.details.start_datetime.slice(0,-3)} - ${booking.details.end_datetime.slice(0,-3)}`,
+            }, true);
+        });
+    })();
     $(window).bind('beforeunload', function(e) {
         return '';
     });
@@ -188,6 +203,26 @@
                         </div>`);
                     });
                     $('label[for=facilities] .loading-cog').removeClass('d-ib').addClass('d-n');
+                }
+            });
+            $.ajax({
+                url: '/api/roomBookings',
+                method: 'post',
+                data: $.param(data),
+                beforeSend: function(xhr) {
+                    $('#calendar-overlay').removeClass('d-n').addClass('d-f');
+                    $('#full-calendar').fullCalendar('removeEvents');
+                },
+                success: function(bookings) {
+                    $('#calendar-overlay').removeClass('d-f').addClass('d-n');
+                    bookings.forEach(booking => {
+                        $('#full-calendar').fullCalendar('renderEvent', {
+                            title: booking.details.purpose,
+                            start: booking.details.start_datetime,
+                            end: booking.details.end_datetime,
+                            description: `${booking.details.start_datetime.slice(0,-3)} - ${booking.details.end_datetime.slice(0,-3)}`
+                        }, true);
+                    });
                 }
             });
         }

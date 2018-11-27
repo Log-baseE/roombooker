@@ -17,6 +17,7 @@
                             <h5 class="lh-1 mB-0">{{__('Room')}}: {{ $room->name }}</h5>
                         </div>
                     </div>
+                    @unless (Auth::user()->is_authority)
                     <div class="layer w-100 p-20">
                         <form action="{{ route('drafts.create.filled') }}" method="POST">
                             @csrf
@@ -27,6 +28,7 @@
                             </button>
                         </form>
                     </div>
+                    @endif
                     <div class="layer w-100">
                         <table class="table-borderless">
                             <tbody>
@@ -71,4 +73,22 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-script')
+<script>
+(function(){
+    let bookings = `{!! $bookings->toJSON() !!}`;
+    bookings = JSON.parse(bookings);
+    bookings.forEach(booking => {
+        $('#full-calendar').fullCalendar('renderEvent', {
+            title: booking.details.purpose,
+            start: booking.details.start_datetime,
+            end: booking.details.end_datetime,
+            description: `${booking.details.start_datetime.slice(0,-3)} - ${booking.details.end_datetime.slice(0,-3)}`
+        }, true);
+    });
+})();
+
+</script>
 @endsection

@@ -36,6 +36,15 @@ class APIController extends Controller
         return response()->json($room, 200);
     }
 
+    public function roomBookings(Request $request)
+    {
+        $id = $request->input('r_id');
+        $bookings = Booking::whereHas('details', function($query) use($id){
+            $query->where('room_id', $id);
+        })->with('details')->where('status', Booking::ACCEPTED_STATUS)->get();
+        return response()->json($bookings, 200);
+    }
+
     public function generateAccessCode(Request $request)
     {
         $user_id = $request->user()->id;

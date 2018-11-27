@@ -107,10 +107,18 @@ class BookingDraftController extends Controller
     public function edit($id)
     {
         $draft = BookingDraft::where('booker_id', '=', Auth::user()->id)->findOrFail('BD-'.$id);
+        $bookings = [];
+        $r_id = $draft->room_id;
+        if(isset($r_id)){
+            $bookings = Booking::whereHas('details', function($query) use($r_id){
+                $query->where('room_id', $r_id);
+            })->with('details')->where('status', Booking::ACCEPTED_STATUS)->get();
+        }
         $context = [
             'buildings' => Building::all(),
             'title' => 'Edit draft BD-'.$id,
             'draft' => $draft,
+            'bookings' => $bookings,
         ];
         return view('dashboard.draft.edit', self::getContextData($context));
     }

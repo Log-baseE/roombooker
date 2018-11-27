@@ -84,9 +84,15 @@ class BookingController extends Controller
             $booking = Booking::whereHas('details', function($query) {
                 $query->where('booker_id', Auth::user()->id);
             })->findOrFail('B-'.$id);
+
+        $r_id = $booking->details->room_id;
+        $bookings = Booking::whereHas('details', function($query) use($r_id){
+            $query->where('room_id', $r_id);
+        })->with('details')->where('status', Booking::ACCEPTED_STATUS)->get();
         $context = [
             'title' => 'Booking '.$booking->id,
             'booking' => $booking,
+            'bookings' => $bookings,
         ];
         return view('dashboard.booking.show', self::getContextData($context));
     }

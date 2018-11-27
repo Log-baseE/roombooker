@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use roombooker\Building;
 use roombooker\Room;
+use roombooker\BookingDraft;
+use roombooker\Booking;
 
 class RoomController extends Controller
 {
@@ -67,9 +69,13 @@ class RoomController extends Controller
     public function show($id)
     {
         $room = Room::findOrFail($id);
+        $bookings = Booking::whereHas('details', function($query) use($id){
+            $query->where('room_id', $id);
+        })->with('details')->where('status', Booking::ACCEPTED_STATUS)->get();
         $payload = [
             'title' => "Room ".$room->name,
             'room' => $room,
+            'bookings' => $bookings
         ];
         return view('dashboard.room.show', self::getContextData($payload));
     }
