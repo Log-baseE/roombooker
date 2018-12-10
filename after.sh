@@ -30,6 +30,10 @@ systemctl status nginx.service
 
 cd ~/code
 
+echo "\033[0;1;33mInstalling and/or updating dependencies...\033[0m"
+npm install
+composer install
+
 echo "\033[0;1;33mClearing previous config...\033[0m"
 php artisan config:clear
 
