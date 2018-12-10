@@ -2,8 +2,11 @@
 /public/hot
 /public/storage
 /storage/*.key
+!/vendor/
+
 /vendor/*
-!/vendor/laravel/homestead
+!/vendor/laravel/homestead/
+
 /.idea
 /.vscode
 /.vagrant
