@@ -4,6 +4,8 @@
 require 'json'
 require 'yaml'
 
+Encoding.default_external = 'UTF-8'
+
 VAGRANTFILE_API_VERSION ||= "2"
 confDir = $confDir ||= File.expand_path("vendor/laravel/homestead", File.dirname(__FILE__))
 
